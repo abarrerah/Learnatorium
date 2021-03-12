@@ -1,8 +1,8 @@
 # Learnatorium
 
 #### Curso Escolar 2020-2021
-#### Autor: Abraham Barrera Herrera (Enlace a su cuenta de gitHub)
-#### Tutor: Alejandro Leal Cruz (Enlace a su cuenta de gitHub)
+#### alumno: [Abraham Barrera Herrera](https://github.com/abarrerah)
+#### Tutor: [Alejandro Leal Cruz](https://github.com/cruzaleal)
 #### Fecha de Inicio: 12-03-2021
 #### Fecha de Finalización: DD-MM-YYYY
 
