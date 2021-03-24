@@ -216,15 +216,16 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`testQuestion`
+-- Table `mydb`.`TestOption`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`testQuestion` (
-  `idtestQuestion` INT NOT NULL,
-  `questionInformation` VARCHAR(80) NOT NULL,
+CREATE TABLE IF NOT EXISTS `mydb`.`TestOption` (
+  `idTestOption` INT NOT NULL,
+  `isRight` TINYINT NOT NULL,
+  `optionInfo` VARCHAR(45) NOT NULL,
   `Test_idTest` INT NOT NULL,
-  PRIMARY KEY (`idtestQuestion`),
-  INDEX `fk_testQuestion_Test1_idx` (`Test_idTest` ASC) VISIBLE,
-  CONSTRAINT `fk_testQuestion_Test1`
+  PRIMARY KEY (`idTestOption`),
+  INDEX `fk_TestOption_Test1_idx` (`Test_idTest` ASC) VISIBLE,
+  CONSTRAINT `fk_TestOption_Test1`
     FOREIGN KEY (`Test_idTest`)
     REFERENCES `mydb`.`Test` (`idTest`)
     ON DELETE NO ACTION
@@ -233,41 +234,33 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`QuestionOption`
+-- Table `mydb`.`UserOption`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`QuestionOption` (
-  `idQuestionOption` INT NOT NULL,
-  `optionInfo` VARCHAR(45) NOT NULL,
-  `rightOption` TINYINT NOT NULL,
-  `testQuestion_idtestQuestion` INT NOT NULL,
-  PRIMARY KEY (`idQuestionOption`),
-  INDEX `fk_QuestionOption_testQuestion1_idx` (`testQuestion_idtestQuestion` ASC) VISIBLE,
-  CONSTRAINT `fk_QuestionOption_testQuestion1`
-    FOREIGN KEY (`testQuestion_idtestQuestion`)
-    REFERENCES `mydb`.`testQuestion` (`idtestQuestion`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mydb`.`userAnswer`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`userAnswer` (
-  `iduserAnswer` INT NOT NULL,
-  `QuestionOption_idQuestionOption` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `mydb`.`UserOption` (
+  `idUserOption` INT NOT NULL,
+  `Test_idTest` INT NOT NULL,
   `User_idUser` INT NOT NULL,
-  PRIMARY KEY (`iduserAnswer`),
-  INDEX `fk_userAnswer_QuestionOption1_idx` (`QuestionOption_idQuestionOption` ASC) VISIBLE,
-  INDEX `fk_userAnswer_User1_idx` (`User_idUser` ASC) VISIBLE,
-  CONSTRAINT `fk_userAnswer_QuestionOption1`
-    FOREIGN KEY (`QuestionOption_idQuestionOption`)
-    REFERENCES `mydb`.`QuestionOption` (`idQuestionOption`)
+  `TestOption_idTestOption` INT NOT NULL,
+  `itIsRight` TINYINT NOT NULL,
+  `AnswerTime` DATETIME NOT NULL,
+  `Points` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idUserOption`, `Test_idTest`, `User_idUser`, `TestOption_idTestOption`),
+  INDEX `fk_UserOption_Test1_idx` (`Test_idTest` ASC) VISIBLE,
+  INDEX `fk_UserOption_User1_idx` (`User_idUser` ASC) VISIBLE,
+  INDEX `fk_UserOption_TestOption1_idx` (`TestOption_idTestOption` ASC) VISIBLE,
+  CONSTRAINT `fk_UserOption_Test1`
+    FOREIGN KEY (`Test_idTest`)
+    REFERENCES `mydb`.`Test` (`idTest`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_userAnswer_User1`
+  CONSTRAINT `fk_UserOption_User1`
     FOREIGN KEY (`User_idUser`)
     REFERENCES `mydb`.`User` (`idUser`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_UserOption_TestOption1`
+    FOREIGN KEY (`TestOption_idTestOption`)
+    REFERENCES `mydb`.`TestOption` (`idTestOption`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -276,3 +269,4 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
