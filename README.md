@@ -8,9 +8,7 @@
 
 ## Breve descripción del proyecto
 
-Si ya tienes una idea para tu aplicación, explícala brevemente. Si no es así, lo que realmente necesitas es **buscar un problema o necesidad a la que darle solución**, y estos **están por todas partes**. Así que trata de buscar problemas o necesidades en tu vida diaria y realiza una lista. Una vez que tengas una lista exhaustiva, ya puedes empezar a pensar en **cómo puedes resolverlos**.
-
-En este apartado el alumno debe hacer una breve descripción del proyecto que vaya a realizar. Esta descripción no será ua descripción detallada, será una presentación general con no más de 10 líneas.
+Learnatorium es un proyecto centrado en agrupar información relacionada a varios temas como puede ser científicos o narrativos entre ellos, pero principalmente históricos ya que por motivos de ser la que más dispersa se suele encontrar por longitud y niveles de exactitud. Esta información será creada, modificada y visualizadas por los usuarios, quienes podrán anadirles temas para hacerlas más entretenidas visualmente. A su vez , esta aplicación contiene un area específica para pruebas que podrán hacer otros usuarios y en donde al final de cada ronda , se mostrará una referencia al documento de donde se ha obtenido la información. 
 
 ## Definir el objetivo de la aplicación
 **Tener una gran idea** o encontrar un punto del mercado al que no se esté dando un producto o servicio es el punto de partida en cada nuevo proyecto. Antes de comenzar debes **definir claramente el propósito y la misión de la aplicación web**:
