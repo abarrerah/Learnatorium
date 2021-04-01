@@ -4,9 +4,9 @@ class Navbar extends Component {
     
     render(){
         return (
-            <nav>
-                puta
-            </nav>
+            <div className="topnav" id="myTopnav">
+
+            </div>
         );
     }
 }

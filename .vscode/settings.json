@@ -1,0 +1,8 @@
+{
+    "deno.enable": true,
+    "deno.lint": true,
+    "deno.debug": true,
+    "deno.suggest.names": true,
+    "deno.suggest.completeFunctionCalls": true,
+    "deno.suggest.paths": true
+}
