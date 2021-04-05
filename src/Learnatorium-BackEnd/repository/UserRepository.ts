@@ -45,10 +45,11 @@ export async function insert(user:any){
 
 export  function checkLogin(user:any){
 
-    const user2=  User.where(User.field('username'),user.username).get();
-    
-
-    return user2;
+   const result= User.where('username',user.username).all()
+   .then(data =>{
+       console.log(JSON.stringify(data))
+   });
+   
 
 }
 

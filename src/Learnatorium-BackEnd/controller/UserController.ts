@@ -48,18 +48,6 @@ export async function doLogin({request,response}:{request:any,response:any}){
 
     let isCorrect:Boolean =false;
     const data =  checkLogin(user);
-    console.log(data.toString());
-    const promise1 = Promise.resolve(data);
-
-    promise1.then((value) => {
-      if(JSON.stringify(value).indexOf('username')> 0){
-        console.log(63)
-        response.status=200;
-      }else{
-          console.log(65)
-          response.status=400;
-      }
-      
-    });
+   
 
 }

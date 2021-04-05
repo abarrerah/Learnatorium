@@ -1,22 +1,20 @@
-const CACHE_NAME = 'version-1';
-const urlsToCache = ['index.html','offline.html'];
+const CACHE_NAME = "version-1";
+const urlsToCache= ['index.html','offline.html'];
 
 const self = this;
 
-
-//Installing the serviceWorker for PWA
+//Installation of the serviceWorker on the PWA app
 self.addEventListener('install',(e)=>{
-    e.waitUntil(
-        caches.open(CACHE_NAME)
-        .then((cache)=>{
-            console.log('Opened cache: ' + cache);
-            return cache.addAll(urlsToCache);
-        })
-    )
-})
+   e.waitUntil(
+    caches.open(CACHE_NAME)
+    .then((cache)=>{
+        console.log('Opened cache');
+        return cache.addAll(urlsToCache);
+    })
+   )
+});
 
-//Waiting and listening all calls that app will recieve being a PWA
-
+//Waiting and listening the cache for initilizate the PWA
 self.addEventListener('fetch', (e) => {
     e.respondWith(
         caches.match(e.request)
@@ -27,7 +25,8 @@ self.addEventListener('fetch', (e) => {
     )
 });
 
-//Active the serviceWorker for PWA
+
+//Activate the PWA
 self.addEventListener('activate', (e) => {
     const cacheWhitelist = [];
     cacheWhitelist.push(CACHE_NAME);
