@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import './navbar.css';
 
@@ -86,7 +86,7 @@ function Navbar() {
               <li className="nav-item">
                 <NavLink
                   exact
-                  to="/contact"
+                  to="/login"
                   activeClassName="active"
                   className="nav-links"
                   onClick={handleClick}

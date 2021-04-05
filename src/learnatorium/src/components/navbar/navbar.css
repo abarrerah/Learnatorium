@@ -1,19 +1,21 @@
 .navbar {
-  height: 80px;
+  background-color: #fff;
+  height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.2rem;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 20;
+  width: 100%;
 }
 .navbar .nav-container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 80px;
+  height: 70px;
   max-width: 1500px;
 }
 .navbar .nav-container .nav-logo {
@@ -46,6 +48,7 @@
 }
 @media screen and (max-width: 1300px) {
   .nav-menu {
+    background-color: #227093;
     display: flex;
     flex-direction: column;
     width: 100%;
