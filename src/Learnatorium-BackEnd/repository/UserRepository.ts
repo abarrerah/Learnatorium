@@ -1,27 +1,5 @@
-import {db} from '../db/dbConnector.ts';
+import client,{db} from '../db/dbConnector.ts';
 import User from '../model/UserModel.ts';
-
-
-
-// await Role.create({
-//     name:'Admin',
-//     description: 'Admin of the system',
-// })
-
- 
-
-
-// await User.update({
-//     username:"Abraham",
-//     email:"abraham@gmail.com",
-//     password:"123456",
-//     registration: date,
-//     bio:"Mi casa es bonita",
-//     profilePic:"Yellow Stone",
-//     ranking: 5,
-//     roleId:1,
-// })
-
 
 export async function insert(user:any){
     var today = new Date();
@@ -43,14 +21,20 @@ export async function insert(user:any){
     return console.log("ok", user);
 }
 
-export  function checkLogin(user:any){
+export async function checkLogin(user:any):Promise<Boolean>{
+    
+    const foundUser= await User.where({username:user.username, password:user.password}).get();
+    let isRegistered:boolean=false;
 
-   const result= User.where('username',user.username).all()
-   .then(data =>{
-       console.log(JSON.stringify(data))
-   });
-   
+    if(!Array.isArray(foundUser) || !foundUser.length){
+        isRegistered=false;
 
+    }else{
+        isRegistered=true;
+        
+    }
+
+    return isRegistered;
 }
 
 

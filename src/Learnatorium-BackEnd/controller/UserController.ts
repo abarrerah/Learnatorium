@@ -45,9 +45,21 @@ export async function addUser({request,response}:{request:any,response:any}){
 export async function doLogin({request,response}:{request:any,response:any}){
     const body = await request.body();
     const user:User = await body.value;
-
-    let isCorrect:Boolean =false;
     const data =  checkLogin(user);
-   
-
+    
+    data.then(res=>{
+        return res;
+    })
+  
+    const gettingObjectFromPromise= async ()=>{
+        return await data;
+    }
+    if(await gettingObjectFromPromise()==true){
+        response.status=200;
+        response.body = await gettingObjectFromPromise();
+        
+    }else{
+        response.status=400;
+        response.body={msg:"Error, user not found"}
+    }
 }
