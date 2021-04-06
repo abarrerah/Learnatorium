@@ -1,7 +1,8 @@
 import User from '../model/UserModel.ts';
 import Role from '../model/RoleModel.ts';
 import {insert,checkLogin} from '../repository/UserRepository.ts';
-//import * as bcrypt from "https://deno.land/x/bcrypt/mod.ts";
+
+
 
 export async function getUser({params,response}:{params:any,response:any}){
 
@@ -46,6 +47,7 @@ export async function doLogin({request,response}:{request:any,response:any}){
     const body = await request.body();
     const user:User = await body.value;
     const data =  checkLogin(user);
+    
     
     data.then(res=>{
         return res;
