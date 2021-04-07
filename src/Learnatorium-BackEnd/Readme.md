@@ -1,6 +1,7 @@
 Para inicializar el backend del aplicativo Web, deberá primero instalar DENO en su equipo.
 
-Si estás usando linux, usa el comando siguiente: 
+Si estás usando linux, usa el comando siguiente:  
+
     curl -fsSL https://deno.land/x/install/install.sh | s
     
 Si estás usando windows, puedes usar la powershell o algún gestor de paquetería como Chocolatey o Scoop
@@ -10,7 +11,8 @@ Si estás usando windows, puedes usar la powershell o algún gestor de paqueter�
     Scoop: scoop install deno
 
 Si estás usando equipos macs, deberás tener instalado brew previamente y usar el comando:
-  brew install deno
+
+    brew install deno
   
 Una vez instalado, tendrás que abrir el proyecto con Visual Studio Code e instalar un plugin llamado "DENO".
 
