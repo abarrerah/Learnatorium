@@ -26,7 +26,10 @@ usted está situado en una carpeta errónea.
 *si se ha producido alguna modificación en cualquiera de los ficheros.
 
 Para ejecutar el programa, en la terminal deberá introducir el siguiente comando:
-    deno run -A --unstable index.ts o denon run -A --unstable index.ts si se está usando denon.
+
+    deno run -A --unstable index.ts 
+    o
+    denon run -A --unstable index.ts si se está usando denon.
 
 Por defecto,el servidor trabaja en el puerto 8000 del localhost.
 
