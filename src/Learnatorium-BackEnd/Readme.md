@@ -29,7 +29,7 @@ Para ejecutar el programa, en la terminal deberá introducir el siguiente comand
 
     deno run -A --unstable index.ts 
     o
-    denon run -A --unstable index.ts si se está usando denon.
+    denon run -A --unstable index.ts ////si se está usando denon.
 
 Por defecto,el servidor trabaja en el puerto 8000 del localhost.
 
