@@ -19,7 +19,11 @@ Una vez instalado, tendrás que abrir el proyecto con Visual Studio Code e insta
 una vez esté instalado el plugin, abra una terminal de Visual Studio code, y diríjase a la carpeta donde se encuentra la API Rest. 
 En este caso, sería Learnatorium/src/Learnatorium-BackEnd.
 
-Una vez en ese lugar en la terminal, haga el comando :"ls -l". Deberá una lista de carpetas y un fichero llamado "index.ts". Si no se ha localizado esos documentos,
+Una vez en ese lugar en la terminal, haga el comando :
+
+    "ls -l" 
+    
+Deberá una lista de carpetas y un fichero llamado "index.ts". Si no se ha localizado esos documentos,
 usted está situado en una carpeta errónea.
 
 *OPCIONAL El siguiente pasó será el de ejecutar el comando para la instalación de denon,que lo que consiste en un addon de deno que reinicia automáticamente el servidor
