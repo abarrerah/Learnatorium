@@ -1,6 +1,6 @@
 import User from '../model/UserModel.ts';
 import Role from '../model/RoleModel.ts';
-import {insert,checkLogin} from '../repository/UserRepository.ts';
+import {insert,checkLogin,findUser,deletedUser} from '../repository/UserRepository.ts';
 
 
 
@@ -64,4 +64,23 @@ export async function doLogin({request,response}:{request:any,response:any}){
         response.status=400;
         response.body={msg:"Error, user not found"}
     }
+}
+
+export async function deleteUser({params,response}:{params:any,response:any}) {
+    let id=parseInt(params.id);
+    console.log(id);
+
+    const findUserOnDatabase = await findUser(id);
+   
+    if(findUserOnDatabase){
+
+        
+        await deletedUser(id);
+        response.status=200;
+        response.body="User deleted successfully deleted"
+    }else{
+        response.status=401;
+        response.body="the id of the user provided, don´t exist in our application"
+    }
+
 }

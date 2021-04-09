@@ -8,6 +8,6 @@ const router= new Router();
         .get('/user/:id',userController.getUser)
         .post('/regist',userController.addUser)
         .post('/login',userController.doLogin)
-
-
+        .delete('/deleteUser/:id',userController.deleteUser)
+        
 export default router;

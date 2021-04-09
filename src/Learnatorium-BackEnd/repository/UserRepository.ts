@@ -15,7 +15,7 @@ export async function insert(user: any) {
   await User.create({
     username: user.username,
     email: user.email,
-    password: user.password,
+    password: passwordHashed,
     registration: date,
     bio: user.bio,
     profilePic: user.profilePic,
@@ -31,6 +31,8 @@ export async function checkLogin(user: any): Promise<Boolean> {
   let isRegistered: boolean = false;
   let tSl = "";
 
+  console.log(foundUser);
+  
   let result = await JSON.stringify(foundUser);
   if (result.includes(",")) {
     let fSl = result.split(/[,]/)[3];
@@ -47,4 +49,33 @@ export async function checkLogin(user: any): Promise<Boolean> {
   }
 
   return isRegistered;
+}
+
+export async function findUser(id:number){
+  
+  let isOnDatabases:boolean = false;
+
+  const userExist= await User.where({id: id}).get();
+
+  if(!Array.isArray(userExist) || !userExist.length){
+    isOnDatabases=false;
+  }else{
+    isOnDatabases=true;
+  }
+
+  return isOnDatabases;
+}
+
+export async function deletedUser(id:number){
+  let isOnDatabases:boolean = false;
+
+  await User.deleteById(id);
+
+  const userExist= await User.where({id: id}).get();
+
+  if(!Array.isArray(userExist) || !userExist.length){
+    isOnDatabases=false;
+  }else{
+    isOnDatabases=true;
+  }
 }
