@@ -5,6 +5,7 @@
   height: 80vh;
   border: 3px solid lightgray;
   margin-bottom: 20vh;
+  display: flex;
 }
 .container .leftSide {
   background-color: #227093;
@@ -23,9 +24,6 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 5%;
-  width: 40%;
-  border-radius: 0.3rem;
-  height: 5vh;
   font-size: 2rem;
 }
 .container .leftSide h2,
@@ -48,4 +46,35 @@
 .container .leftSide div.h6 h6 {
   color: #8aafc2;
   font-size: 1.05rem;
+}
+.container .rightSide {
+  width: 50%;
+  height: 100%;
+  margin: 0 auto;
+}
+.container .rightSide > div {
+  width: 50%;
+  margin: 0 auto;
+}
+.container .rightSide > div.Sites {
+  margin-top: 2%;
+}
+.container .rightSide > div.Sites #facebook {
+  background-color: #3b5998;
+}
+.container .rightSide > div.Sites #google {
+  background-color: #e00034;
+}
+.container .rightSide > div.Sites #twitch {
+  background-color: #9146ff;
+}
+.container .rightSide > div.Sites #twitter {
+  background-color: #1da1f2;
+}
+.container .rightSide > div.Credentials {
+  margin-top: 5vh;
+}
+.container .rightSide > div.Credentials button {
+  margin-right: 1vw;
+  margin-bottom: 5vh;
 }
