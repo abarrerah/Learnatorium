@@ -1,5 +1,5 @@
-import User from '../model/UserModel.ts';
-import Role from '../model/RoleModel.ts';
+import User from '../model/userModel.ts';
+import Role from '../model/roleModel.ts';
 import {insert,checkLogin,findUser,deletedUser} from '../repository/UserRepository.ts';
 
 

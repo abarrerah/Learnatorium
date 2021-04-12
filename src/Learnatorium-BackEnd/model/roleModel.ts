@@ -1,32 +1,30 @@
 import { DataTypes, Model,Relationships} from 'https://deno.land/x/denodb/mod.ts';
 import User from './userModel.ts';
 
-export default class Documentation extends Model{
-    static table='Document';
 
+export default class Role extends Model{
+
+    static table='Role';
+    
     static fields={
         id:{
-            type:DataTypes.INTEGER,
-            primaryKey:true,
-            autoIncrement:true,
-            unique:true
+            type:DataTypes.STRING,
+            _primaryKey:true,
+            autoIncrement:true
         },
         name:{
             type:DataTypes.STRING,
             notNull:true,
-            length:250,
             unique:true,
+            length:255
         },
-        content:{
+        description:{
             type:DataTypes.STRING,
+            length:255,
             notNull:true,
-            length:4000,
-        },
-        creationDate:{
-            type:DataTypes.DATE,
-            notNull:true,
-        },
+        }
     };
+
     static users(){
         return this.hasMany(User);
     }
