@@ -1,5 +1,5 @@
-import User from '../model/userModel.ts';
-import Role from '../model/roleModel.ts';
+import {Users} from '../model/allModel.ts';
+
 import {insert,checkLogin,findUser,deletedUser} from '../repository/UserRepository.ts';
 
 
@@ -8,7 +8,7 @@ export async function getUser({params,response}:{params:any,response:any}){
 
     let id=parseInt(params.id);
     
-    const userYouWant=await User.find(id);
+    const userYouWant=await Users.find(id);
 
     var count = Object.keys(userYouWant)
     ;
@@ -28,7 +28,7 @@ export async function getUser({params,response}:{params:any,response:any}){
 export async function addUser({request,response}:{request:any,response:any}){
 
     const body= await request.body();
-    const user:User = await body.value;
+    const user:Users = await body.value;
 
     console.log(user);
     if(user.hasOwnProperty("username")&& user.hasOwnProperty("email")){
@@ -45,7 +45,7 @@ export async function addUser({request,response}:{request:any,response:any}){
 
 export async function doLogin({request,response}:{request:any,response:any}){
     const body = await request.body();
-    const user:User = await body.value;
+    const user:Users = await body.value;
     const data =  checkLogin(user);
     
     

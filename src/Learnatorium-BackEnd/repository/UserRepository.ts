@@ -1,5 +1,5 @@
 import client, { db } from "../db/dbConnector.ts";
-import User from "../model/userModel.ts";
+import {Users} from '../model/allModel.ts';
 import * as bcrypt from "https://deno.land/x/bcrypt@v0.2.4/mod.ts";
 
 export async function insert(user: any) {
@@ -12,7 +12,7 @@ export async function insert(user: any) {
   const salt = await bcrypt.genSalt(8);
   const passwordHashed = await bcrypt.hash(user.password, salt);
 
-  await User.create({
+  await Users.create({
     username: user.username,
     email: user.email,
     password: passwordHashed,
@@ -27,7 +27,7 @@ export async function insert(user: any) {
 }
 
 export async function checkLogin(user: any): Promise<Boolean> {
-  const foundUser = await User.where({ username: user.username }).get();
+  const foundUser = await Users.where({ username: user.username }).get();
   let isRegistered: boolean = false;
   let tSl = "";
 
@@ -55,7 +55,7 @@ export async function findUser(id:number){
   
   let isOnDatabases:boolean = false;
 
-  const userExist= await User.where({id: id}).get();
+  const userExist= await Users.where({id: id}).get();
 
   if(!Array.isArray(userExist) || !userExist.length){
     isOnDatabases=false;
@@ -69,9 +69,9 @@ export async function findUser(id:number){
 export async function deletedUser(id:number){
   let isOnDatabases:boolean = false;
 
-  await User.deleteById(id);
+  await Users.deleteById(id);
 
-  const userExist= await User.where({id: id}).get();
+  const userExist= await Users.where({id: id}).get();
 
   if(!Array.isArray(userExist) || !userExist.length){
     isOnDatabases=false;

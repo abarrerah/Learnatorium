@@ -72,8 +72,8 @@ function Login() {
             <a href="#" onClick={handleClick}>Forgotten password?</a>
           </div>
         </div>
-        <div className="extra">
-          <p>
+        <div className="extra uk-text-primary uk-text-center@s uk-text-left@l uk-text-right@xl">
+          <p >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
           </p>
         </div>
