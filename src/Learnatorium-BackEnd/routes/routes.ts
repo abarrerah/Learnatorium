@@ -5,9 +5,9 @@ import { Register,Login,Me,Logout } from "../controller/loginController.ts";
 
 const router = new Router();
 
-    router.post('/api/register',Register)
-        .post('/api/login',Login)
-        .get('/api/user',Me)
-        .post('/api/logout',Logout)
+    router.post('/register',Register)
+        .post('/login',Login)
+        .get('/user',Me)
+        .post('/logout',Logout)
 
 export default router;
