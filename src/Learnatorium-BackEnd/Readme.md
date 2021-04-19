@@ -23,7 +23,7 @@ Una vez en ese lugar en la terminal, haga el comando :
 
     "ls -l" 
     
-Deberá una lista de carpetas y un fichero llamado "index.ts". Si no se ha localizado esos documentos,
+Deberá una lista de carpetas y un fichero llamado "app.ts". Si no se ha localizado esos documentos,
 usted está situado en una carpeta errónea.
 
 *OPCIONAL El siguiente pasó será el de ejecutar el comando para la instalación de denon,que lo que consiste en un addon de deno que reinicia automáticamente el servidor
@@ -31,9 +31,9 @@ usted está situado en una carpeta errónea.
 
 Para ejecutar el programa, en la terminal deberá introducir el siguiente comando:
 
-    deno run -A --unstable index.ts 
+    deno run -A --unstable app.ts 
     o
-    denon run -A --unstable index.ts ////si se está usando denon.
+    denon run -A --unstable app.ts ////si se está usando denon.
 
 Por defecto,el servidor trabaja en el puerto 8000 del localhost.
 
