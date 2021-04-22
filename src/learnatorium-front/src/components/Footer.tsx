@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Services() {
+function Footer() {
     return (
         <div>
-            This is a service
+            
         </div>
     )
 }
 
-export default Services
+export default Footer
