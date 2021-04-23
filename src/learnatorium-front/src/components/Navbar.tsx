@@ -1,50 +1,49 @@
 import React from "react";
 import "../style/components/navbar.css";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
     <div>
       <header className="menu">
         <div className="menu-wrap">
-          <img className="logo-img" alt="Learnatorium" />
+          <img className="logo-img" alt="Learnatorium" src=""/>
 
           <input type="checkbox" id="checkbox" />
           <nav>
             <ul>
               <li>
-                <a href="#">Home</a>
+                <Link to="/Home">Home</Link>
               </li>
               <li>
-                <a href="#">Stories</a>
+                <Link to="/Stories">Stories</Link>
               </li>
               <li>
-                <a href="#">Test</a>
+                <Link to="/Test">Test</Link>
               </li>
               <li>
-                <a href="#">About us</a>
+                <Link to="/AboutUs">About Us</Link>
               </li>
               <li>
-                <a href="#">Contact</a>
+                <Link to="/Contact">Contact</Link>
               </li>
               <li>
-                <a href="#">Donation</a>
+                <Link to="/Donation">Donation</Link>
               </li>
               <div>
                 <ul className="icons">
-
                   <li>
-                    <a href="">
-                      <span uk-icon="icon: sign-in"></span>
-                    </a>
+                    <Link to="/Login" uk-icon="icon: sign-in"></Link>
                   </li>
                   <li>
                     <a href="">
                       <span uk-icon="icon: world"></span>
+
                     </a>
                   </li>
                   <li>
                     <a href="">
-                      <span uk-icon="icon:  bolt"></span>
+                      <span uk-icon="icon:  bolt" ></span>
                     </a>
                   </li>
                 </ul>
