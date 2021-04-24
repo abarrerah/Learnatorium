@@ -1,7 +1,7 @@
 import { Router } from "https://deno.land/x/oak@v6.5.1/mod.ts";
 import { Register,Login,Me,Logout } from "../controller/loginController.ts";
 import * as role from '../controller/RoleController.ts';
-
+import * as theme from '../controller/ThemeController.ts';
 
 const router = new Router();
 
@@ -16,4 +16,8 @@ const router = new Router();
         .patch('/role/update-name',role.AlterNameRole)
         .delete('/role/delete',role.DeleteRole)
         .get('/role',role.GetAllRole)
+
+        .post('/theme/create',theme.CreateTheme)
+        .delete('/theme/delete',theme.DeleteTheme)
+        .put('/theme/update',theme.UpdateTheme)
 export default router;

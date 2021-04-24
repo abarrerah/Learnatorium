@@ -9,9 +9,20 @@ export const Register= async ({request,response}:RouterContext)=>{
     let salt=bcrypt.genSalt(10);
 
     const role=1;
+    let regexEmail:RegExp=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    let regexPasword:RegExp=/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[a-zA-Z!#$%&? "])[a-zA-Z0-9!#$%&?]{8,20}$/;
+
+    if(regexEmail.test(email) && regexPasword.test(password)){
+        const id= await User.create({name,email,password:await bcrypt.hash(password,await salt),role})
+
+        response.status=201;
+        response.body=await User.where('name',name).get();
+    }else{
+        response.status=404;
+        response.body="Invalid email or password";
+    }
   
-    const id= await User.create({name,email,password:await bcrypt.hash(password,await salt),role})
-    response.body=await User.where('name',name).get();
+    
 }
 
 export const Login=async({request,response,cookies}:RouterContext)=>{
