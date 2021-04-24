@@ -103,6 +103,7 @@ export class Category extends Model {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
+      autoIncrement: true,
     },
     name: {
       type: DataTypes.STRING,
@@ -316,9 +317,9 @@ export async function init() {
   db.link([User]);
   db.link([Role]);
   // db.link([Chapter]);
-  // db.link([Category])
+  db.link([Category])
   // db.link([Source])
-  db.link([Theme]);
+  // db.link([Theme]);
   // db.link([Documents]);
   // db.link([Test])
   // db.link([TestOptions])

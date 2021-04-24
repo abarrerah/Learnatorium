@@ -1,5 +1,5 @@
 import { RouterContext } from "https://deno.land/x/oak@v6.5.1/mod.ts";
-import  {Role, Theme} from '../model/allModel.ts';
+import  { Theme} from '../model/allModel.ts';
 
 export const CreateTheme = async ({request,response}:RouterContext)=>{
     const{name,style}=await request.body().value;
@@ -32,6 +32,10 @@ export const UpdateTheme = async ({request,response}:RouterContext)=>{
     }else{
         response.body={msg:"Wrong style file format"}
     }
-    
-    
+}
+
+export const GetTheme= async ({params,response}:RouterContext)=>{
+    console.log(params.id)
+    const id=JSON.stringify(params.id);
+    response.body=Theme.where('id',id).get();
 }
