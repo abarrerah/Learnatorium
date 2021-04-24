@@ -1,6 +1,6 @@
 import {DataTypes,Model,Relationships,} from "https://deno.land/x/denodb/mod.ts";
 
-import User from './User.ts';
+import {User} from './User.ts';
 
 export interface RoleI{
     _id:{$oid:string};
@@ -8,7 +8,7 @@ export interface RoleI{
     description:string;
 }
 
-export default class Role extends Model{
+export  class Role extends Model{
     static table='Role';
 
     static fields={

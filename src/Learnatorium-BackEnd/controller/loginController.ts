@@ -1,5 +1,5 @@
 import { RouterContext } from "https://deno.land/x/oak@v6.5.1/mod.ts";
-import  User,{UserI} from '../model/User.ts';
+import  {User} from '../model/allModel.ts';
 import * as bcrypt from "https://deno.land/x/bcrypt/mod.ts";
 import { create,verify } from "https://deno.land/x/djwt/mod.ts"
 
@@ -9,8 +9,8 @@ export const Register= async ({request,response}:RouterContext)=>{
     let salt=bcrypt.genSalt(10);
 
     const role=1;
+  
     const id= await User.create({name,email,password:await bcrypt.hash(password,await salt),role})
-    
     response.body=await User.where('name',name).get();
 }
 

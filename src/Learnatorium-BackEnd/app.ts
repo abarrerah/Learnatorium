@@ -1,9 +1,8 @@
 import { Application } from "https://deno.land/x/oak@v6.5.1/mod.ts";
 import router from './routes/routes.ts';
-import User,{UserI} from './model/User.ts';
-import Role from './model/Role.ts';
-import {db} from './db/db.ts';
 import { oakCors } from "https://deno.land/x/cors/mod.ts";
+import {init} from './model/allModel.ts';
+import * as appDeps from './env/appDeps.ts';
 
 const app = new Application();
 
@@ -17,10 +16,7 @@ app.use(router.routes());
 app.use(router.allowedMethods());
 
 
-db.link([User]);
-db.link([Role]);
-
-// db.sync();
+init();
 
 console.log("is Running");
-await app.listen({ port: 8000 });
+await app.listen({ port: appDeps.PORT });
