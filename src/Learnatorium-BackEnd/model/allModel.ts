@@ -316,7 +316,7 @@ export class UserOptions extends Model {
 export async function init() {
   db.link([User]);
   db.link([Role]);
-  // db.link([Chapter]);
+  db.link([Chapter]);
   db.link([Category])
   db.link([Source])
   db.link([Theme]);

@@ -4,7 +4,7 @@ import  { Source} from '../model/allModel.ts';
 export const CreateSource = async ({request,response}:RouterContext)=>{
 
     const{isbn} =await request.body().value;
-    let creation =new Date().toISOString().slice(0, 19).replace('T', ' ');;
+    let creation =new Date().toISOString().slice(0, 19).replace('T', ' ');
   
     let validation=new Date().toISOString().slice(0, 19).replace('T', ' ');;
 
@@ -46,4 +46,13 @@ export const DeleteSource=async ({request,response}:RouterContext)=>{
     const{id}=await request.body().value;
     response.body=await Source.where('id',id).delete();
     
+}
+
+export const GetAllSources=async ({response}:RouterContext)=>{
+
+    response.body=await Source.all();
+}
+export const GetSource=async ({params,response}:RouterContext)=>{
+    let id=JSON.stringify(params.id);
+    response.body=await Source.where('id',id).get();
 }

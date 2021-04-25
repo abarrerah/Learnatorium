@@ -4,6 +4,7 @@ import * as role from '../controller/RoleController.ts';
 import * as theme from '../controller/ThemeController.ts';
 import * as category from '../controller/CategoryController.ts';
 import * as source from '../controller/SourceController.ts';
+import * as chapter from '../controller/ChapterController.ts';
 const router = new Router();
 
     router
@@ -33,5 +34,9 @@ const router = new Router();
         .put('/source/validate',source.Validation)
         .patch('/source/update',source.UpdateSource)
         .delete('/source/delete',source.DeleteSource)
+        .get('/source/all',source.GetAllSources)
+        .get('/source/:id',source.GetSource)
+
+        .post('/chapter/create',chapter.CreateChapter)
         
 export default router;
