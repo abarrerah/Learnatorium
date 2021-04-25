@@ -37,5 +37,6 @@ export const UpdateTheme = async ({request,response}:RouterContext)=>{
 export const GetTheme= async ({params,response}:RouterContext)=>{
     console.log(params.id)
     const id=JSON.stringify(params.id);
+    response.status=200;
     response.body=Theme.where('id',id).get();
 }

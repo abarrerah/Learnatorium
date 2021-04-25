@@ -23,5 +23,9 @@ const router = new Router();
         .get('/theme/:id',theme.GetTheme)
 
         .post('/category/create',category.CreateCategory)
+        .get('/category/all',category.GetAllCategory)
+        .get('/category/:id',category.GetCategory)
+        .delete('/category/delete',category.DeleteCategory)
+        .put('/category/alter',category.AlterCategory)
         
 export default router;

@@ -319,7 +319,7 @@ export async function init() {
   // db.link([Chapter]);
   db.link([Category])
   // db.link([Source])
-  // db.link([Theme]);
+  db.link([Theme]);
   // db.link([Documents]);
   // db.link([Test])
   // db.link([TestOptions])
