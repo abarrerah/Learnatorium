@@ -3,6 +3,7 @@ import { Register,Login,Me,Logout } from "../controller/loginController.ts";
 import * as role from '../controller/RoleController.ts';
 import * as theme from '../controller/ThemeController.ts';
 import * as category from '../controller/CategoryController.ts';
+import * as source from '../controller/SourceController.ts';
 const router = new Router();
 
     router
@@ -27,5 +28,10 @@ const router = new Router();
         .get('/category/:id',category.GetCategory)
         .delete('/category/delete',category.DeleteCategory)
         .put('/category/alter',category.AlterCategory)
+
+        .post('/source/create',source.CreateSource)
+        .put('/source/validate',source.Validation)
+        .patch('/source/update',source.UpdateSource)
+        .delete('/source/delete',source.DeleteSource)
         
 export default router;

@@ -318,7 +318,7 @@ export async function init() {
   db.link([Role]);
   // db.link([Chapter]);
   db.link([Category])
-  // db.link([Source])
+  db.link([Source])
   db.link([Theme]);
   // db.link([Documents]);
   // db.link([Test])
