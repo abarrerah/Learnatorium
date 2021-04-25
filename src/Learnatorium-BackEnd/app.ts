@@ -18,5 +18,5 @@ app.use(router.allowedMethods());
 
 init();
 
-console.log("is Running");
+console.log("is Running "+String.fromCodePoint(0x1f525));
 await app.listen({ port: appDeps.PORT });

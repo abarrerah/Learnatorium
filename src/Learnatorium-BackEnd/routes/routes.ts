@@ -38,5 +38,9 @@ const router = new Router();
         .get('/source/:id',source.GetSource)
 
         .post('/chapter/create',chapter.CreateChapter)
-        
+        .put('/chapter/update',chapter.UpdateChapter)
+        .put('/chapter/update-revision',chapter.UpdateRevision)
+        .delete('/chapter/delete',chapter.DeleteChapter)
+        .get('/chapter',chapter.getAllChapters)
+        .get('/chapter/:id',chapter.GetChapter)
 export default router;
