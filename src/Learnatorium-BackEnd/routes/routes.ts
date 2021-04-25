@@ -5,6 +5,7 @@ import * as theme from '../controller/ThemeController.ts';
 import * as category from '../controller/CategoryController.ts';
 import * as source from '../controller/SourceController.ts';
 import * as chapter from '../controller/ChapterController.ts';
+import * as document from '../controller/DocumentController.ts';
 const router = new Router();
 
     router
@@ -43,4 +44,15 @@ const router = new Router();
         .delete('/chapter/delete',chapter.DeleteChapter)
         .get('/chapter',chapter.getAllChapters)
         .get('/chapter/:id',chapter.GetChapter)
+
+        .post('/document/create',document.CreateDocument)
+        .patch('/document/update-category',document.UpdateCategory)
+        .patch('/document/update-theme',document.UpdateTheme)
+        .patch('/document/update-source',document.UpdateSource)
+        .patch('/document/update-chapter',document.UpdateChapter)
+        .patch('/document/update-name',document.UpdateName)
+        .patch('/document/update-content',document.UpdateContent)
+        .delete('/document/delete',document.DeleteDocument)
+        .get('/documents',document.GetAllDocuments)
+        .get('document/:id',document.GetDocument)
 export default router;
