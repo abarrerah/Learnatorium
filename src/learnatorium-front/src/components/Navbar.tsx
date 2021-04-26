@@ -2,18 +2,21 @@ import React from "react";
 import "../style/components/navbar.css";
 import { Link } from "react-router-dom";
 
+
 function Navbar() {
   return (
     <div>
       <header className="menu">
         <div className="menu-wrap">
-          <img className="logo-img" alt="Learnatorium" src=""/>
-
+          <img className="logo-img" alt="Learnatorium" src={'images/logo.png'}/>
+            <div className="logo-name">
+              Learnatorium
+            </div>
           <input type="checkbox" id="checkbox" />
           <nav>
             <ul>
               <li>
-                <Link to="/Home">Home</Link>
+              <Link to="/">Home</Link>
               </li>
               <li>
                 <Link to="/Stories">Stories</Link>

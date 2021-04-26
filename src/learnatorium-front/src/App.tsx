@@ -15,13 +15,13 @@ function App() {
       <Router>
         <Navbar></Navbar>
         <main>
-          <Route path="/Home" component={Home} ></Route>
-          <Route path="/Stories" component={Stories} ></Route>
-          <Route path="/Test" component={Test}></Route>
-          <Route path="/Contact" component={Contact} ></Route>
-          <Route path="/Donation" component={Donation} ></Route>
-          <Route path="/AboutUs" component={aboutUs} ></Route>
-          <Route path="/Login" component={signIn} ></Route>
+          <Route path="/" exact component={Home} ></Route>
+          <Route path="/Stories" exact component={Stories} ></Route>
+          <Route path="/Test" exact component={Test}></Route>
+          <Route path="/Contact" exact component={Contact} ></Route>
+          <Route path="/Donation" exact component={Donation} ></Route>
+          <Route path="/AboutUs" exact component={aboutUs} ></Route>
+          <Route path="/Login" exact component={signIn} ></Route>
         </main>
         <Footer></Footer>
       </Router>
