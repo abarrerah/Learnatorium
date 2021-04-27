@@ -1,0 +1,31 @@
+.main-home {
+  height: 88vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 14.28571429% 14.28571429% 14.28571429% 14.28571429% 14.28571429% 14.28571429% 14.28571429%;
+  gap: 0px 0px;
+  grid-template-areas: "text imagen" "text imagen" "text imagen" "top imagen" "top imagen" "triangle triangle" "triangle triangle";
+}
+.main-home div {
+  width: 100%;
+  background-color: red;
+  height: 100%;
+}
+.main-home .text {
+  grid-area: text;
+}
+.main-home .image {
+  grid-area: imagen;
+  height: 100%;
+}
+.main-home .top {
+  grid-area: top;
+  height: 145%;
+}
+.main-home .triangle {
+  grid-area: triangle;
+  clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
+  background-color: blue;
+  z-index: -1;
+}

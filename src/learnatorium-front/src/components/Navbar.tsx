@@ -39,15 +39,10 @@ function Navbar() {
                     <Link to="/Login" uk-icon="icon: sign-in"></Link>
                   </li>
                   <li>
-                    <a href="">
                       <span uk-icon="icon: world"></span>
-
-                    </a>
                   </li>
                   <li>
-                    <a href="">
                       <span uk-icon="icon:  bolt" ></span>
-                    </a>
                   </li>
                 </ul>
               </div>

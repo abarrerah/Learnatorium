@@ -8,22 +8,22 @@ import aboutUs from "./pages/aboutUs";
 import signIn from "./pages/signIn";
 import Test from "./pages/Test";
 import Contact from "./pages/Contact";
+import profile from './pages/profile'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar></Navbar>
-        <main>
-          <Route path="/" exact component={Home} ></Route>
-          <Route path="/Stories" exact component={Stories} ></Route>
-          <Route path="/Test" exact component={Test}></Route>
-          <Route path="/Contact" exact component={Contact} ></Route>
-          <Route path="/Donation" exact component={Donation} ></Route>
-          <Route path="/AboutUs" exact component={aboutUs} ></Route>
-          <Route path="/Login" exact component={signIn} ></Route>
-        </main>
-        <Footer></Footer>
+        <Navbar/>
+          <Route path="/" exact component={Home} />
+          <Route path="/Stories" exact component={Stories} />
+          <Route path="/Test" exact component={Test}/>
+          <Route path="/Contact" exact component={Contact} />
+          <Route path="/Donation" exact component={Donation} />
+          <Route path="/AboutUs" exact component={aboutUs}/>
+          <Route path="/Login" exact component={signIn} />
+          <Route path="/Profile" exact component={profile}/>
+        <Footer/>
       </Router>
     </div>
   );
