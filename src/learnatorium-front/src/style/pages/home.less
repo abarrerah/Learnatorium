@@ -1,3 +1,5 @@
+@blue-color:#3498db;
+
 .main-home {
   height: 88vh;
   width: 100%;
@@ -16,11 +18,58 @@
  
   div {
     width: 100%;
-    background-color: red;
     height: 100%;
   }
   .text {
     grid-area: text;
+    div.main-text{
+      width: 100%;
+      *{
+        margin:0;
+        padding:0;
+        text-align:left;
+      }
+      h1{
+        color:white;
+        font-size: 60px;
+        text-shadow: 1px 0px 1px @blue-color;
+        letter-spacing:8px;
+        transform:translateY(27px)
+      }
+      h3{
+        font-size: 50px;
+        span{
+          color:@blue-color;
+          transform:translateY(-20px);
+          display: block;
+        }
+      }
+      p{
+        width: 70%;
+        font-size: 16px;
+      }
+      h1,h3{
+        font-weight:bold;
+      }
+    }
+    div.explore{
+    height:3%;
+      *{
+        margin:0;
+        padding:0;
+        text-align:left;
+      }
+      span{
+        margin-left: 15%;
+        margin-top:0.4%;
+      }
+      h4:hover,span:hover{
+        cursor: pointer;
+      }
+      h4{
+        color:@blue-color;
+      }
+    }
 
   }
   .image {
@@ -30,11 +79,18 @@
   .top {
     grid-area: top;
     height:145%;
+    div{
+      height:20%;
+    }
+  }
+  .text,.image,.top{
+    width:80%;
+    margin:0 auto;
   }
   .triangle {
     grid-area: triangle;
     clip-path:polygon(100% 0%, 0% 100%, 100% 100%);
-    background-color: blue;
+    background-color: @blue-color;
     z-index:-1;
   }
 }

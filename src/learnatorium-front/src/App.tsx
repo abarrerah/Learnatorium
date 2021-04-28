@@ -9,6 +9,7 @@ import signIn from "./pages/signIn";
 import Test from "./pages/Test";
 import Contact from "./pages/Contact";
 import profile from './pages/profile'
+import './style/App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 function App() {
   return (

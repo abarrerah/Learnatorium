@@ -9,11 +9,60 @@
 }
 .main-home div {
   width: 100%;
-  background-color: red;
   height: 100%;
 }
 .main-home .text {
   grid-area: text;
+}
+.main-home .text div.main-text {
+  width: 100%;
+}
+.main-home .text div.main-text * {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+.main-home .text div.main-text h1 {
+  color: white;
+  font-size: 60px;
+  text-shadow: 1px 0px 1px #3498db;
+  letter-spacing: 8px;
+  transform: translateY(27px);
+}
+.main-home .text div.main-text h3 {
+  font-size: 50px;
+}
+.main-home .text div.main-text h3 span {
+  color: #3498db;
+  transform: translateY(-20px);
+  display: block;
+}
+.main-home .text div.main-text p {
+  width: 70%;
+  font-size: 16px;
+}
+.main-home .text div.main-text h1,
+.main-home .text div.main-text h3 {
+  font-weight: bold;
+}
+.main-home .text div.explore {
+  height: 3%;
+}
+.main-home .text div.explore * {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+.main-home .text div.explore span {
+  margin-left: 15%;
+  margin-top: 0.4%;
+}
+.main-home .text div.explore h4:hover,
+.main-home .text div.explore span:hover {
+  cursor: pointer;
+}
+.main-home .text div.explore h4 {
+  color: #3498db;
 }
 .main-home .image {
   grid-area: imagen;
@@ -23,9 +72,18 @@
   grid-area: top;
   height: 145%;
 }
+.main-home .top div {
+  height: 20%;
+}
+.main-home .text,
+.main-home .image,
+.main-home .top {
+  width: 80%;
+  margin: 0 auto;
+}
 .main-home .triangle {
   grid-area: triangle;
   clip-path: polygon(100% 0%, 0% 100%, 100% 100%);
-  background-color: blue;
+  background-color: #3498db;
   z-index: -1;
 }
