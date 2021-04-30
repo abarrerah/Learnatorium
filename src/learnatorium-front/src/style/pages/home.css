@@ -11,6 +11,12 @@
   width: 100%;
   height: 100%;
 }
+.main-home .text,
+.main-home .image,
+.main-home .top {
+  width: 90%;
+  margin: 0 auto;
+}
 .main-home .text {
   grid-area: text;
 }
@@ -28,9 +34,41 @@
   text-shadow: 1px 0px 1px #3498db;
   letter-spacing: 8px;
   transform: translateY(27px);
+  margin-left: 10%;
+  z-index: -1;
+}
+@media (max-width: 1200px) and (min-width: 640px) {
+  .main-home .text div.main-text h1 {
+    font-size: 42px;
+    letter-spacing: 6px;
+    transform: translateY(20px);
+  }
+}
+@media (max-width: 640px) and (min-width: 375px) {
+  .main-home .text div.main-text h1 {
+    font-size: 32px;
+    letter-spacing: 4px;
+  }
+}
+@media (max-width: 375px) {
+  .main-home .text div.main-text h1 {
+    font-size: 22px;
+    letter-spacing: 2px;
+  }
 }
 .main-home .text div.main-text h3 {
+  margin-left: 10%;
   font-size: 50px;
+}
+@media (max-width: 1200px) and (min-width: 850px) {
+  .main-home .text div.main-text h3 {
+    font-size: 34px;
+  }
+}
+@media (max-width: 850px) and (min-width: 640px) {
+  .main-home .text div.main-text h3 {
+    font-size: 26px;
+  }
 }
 .main-home .text div.main-text h3 span {
   color: #3498db;
@@ -40,12 +78,24 @@
 .main-home .text div.main-text p {
   width: 70%;
   font-size: 16px;
+  margin-left: 10%;
+}
+@media (max-width: 1200px) and (min-width: 850px) {
+  .main-home .text div.main-text p {
+    font-size: 14px;
+  }
+}
+@media (max-width: 850px) and (min-width: 640px) {
+  .main-home .text div.main-text p {
+    font-size: 12px;
+  }
 }
 .main-home .text div.main-text h1,
 .main-home .text div.main-text h3 {
   font-weight: bold;
 }
 .main-home .text div.explore {
+  margin-left: 10%;
   height: 3%;
 }
 .main-home .text div.explore * {
@@ -65,8 +115,52 @@
   color: #3498db;
 }
 .main-home .image {
+  width: 90%;
+  margin-left: 0px;
   grid-area: imagen;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main-home .image div {
+  width: 15%;
+  padding: 0;
+  height: 20%;
+}
+.main-home .image div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.main-home .image div:nth-child(1) {
+  height: 75%;
+  width: 11%;
+}
+.main-home .image div:nth-child(2) {
+  height: 95%;
+  width: 9%;
+  margin-top: 3%;
+  margin-left: 1%;
+  margin-right: 0.5%;
+}
+.main-home .image div:nth-child(3) {
+  height: 70%;
+  width: 13%;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+}
+.main-home .image div:nth-child(4) {
+  margin-top: 7%;
+  height: 70%;
+  width: 13%;
+  margin-left: 0.5%;
+  margin-right: 1%;
+}
+.main-home .image div:nth-child(5) {
+  margin-top: 5%;
+  height: 85%;
+  width: 9%;
 }
 .main-home .top {
   grid-area: top;
@@ -74,12 +168,6 @@
 }
 .main-home .top div {
   height: 20%;
-}
-.main-home .text,
-.main-home .image,
-.main-home .top {
-  width: 80%;
-  margin: 0 auto;
 }
 .main-home .triangle {
   grid-area: triangle;

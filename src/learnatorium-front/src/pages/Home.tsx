@@ -1,6 +1,8 @@
 import React from "react";
 import "../style/pages/home.css";
 
+const imagePath= 'images/home/row-1-col-1.jpg';
+const style = { backgroundImage: `url('file://${imagePath}')` };
 function Home() {
   return (
     <div className="main-home">
@@ -26,7 +28,23 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="image">img</div>
+      <div className="image ">
+        <div style={style}>
+        <img src={'images/home/row-1-col-1.jpg'} alt=""/>
+        </div>
+        <div>
+        <img src={'images/home/row-1-col-2.jpg'} alt=""/>
+        </div>
+        <div>
+        <img src={'images/home/row-1-col-3.jpg'} alt=""/>
+        </div>
+        <div>
+        <img src={'images/home/row-1-col-4.jpg'} alt=""/>
+        </div>
+        <div>
+        <img src={'images/home/row-1-col-5.jpg'} alt=""/>
+        </div>
+      </div>
       <div className="top uk-margin-large-top ">
       <h2>Top 3 of the week.</h2>
       <section className="uk-flex uk-flex-middle">
