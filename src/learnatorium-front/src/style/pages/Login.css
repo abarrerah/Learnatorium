@@ -1,0 +1,93 @@
+.login {
+  width: 75%;
+  margin: 0 auto;
+  transform: translateY(5%);
+  height: 75vh;
+  border: 1px solid black;
+  border-radius: 0.3rem;
+  box-shadow: 10px 8px 8px 0px rgba(97, 82, 82, 0.46), -5px -5px 4px 0px rgba(97, 82, 82, 0.23) inset;
+}
+.login section {
+  height: 100%;
+  width: 50%;
+}
+.login section:first-child {
+  background-color: #3498db;
+}
+.login section:first-child h2,
+.login section:first-child h4,
+.login section:first-child p,
+.login section:first-child h6 {
+  width: 80%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: left;
+}
+.login section:first-child h2,
+.login section:first-child h4,
+.login section:first-child p {
+  color: white;
+}
+.login section:first-child h4 {
+  font-weight: 600;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+.login section:first-child h2 {
+  font-weight: 700;
+  letter-spacing: 4px;
+  margin-top: 5%;
+}
+.login section:first-child h6 {
+  margin-top: 10%;
+  margin-bottom: 2%;
+  font-size: 20px;
+  text-align: center;
+}
+.login section:first-child div {
+  margin: 0;
+  position: absolute;
+  left: 20%;
+}
+.login section:first-child div button a {
+  text-decoration: none;
+}
+.login section:first-child div:hover {
+  transition: ease-in-out 0.3s;
+  transform: scale(1.5);
+}
+.login section:first-child div:hover button {
+  transition: ease-in-out 0.3s;
+  font-size: 20px;
+}
+.login section:nth-child(2) div.oAuth button:hover {
+  color: white;
+  transition: 0.3s;
+}
+.login section:nth-child(2) div.oAuth button:first-child:hover {
+  background-color: #3b5998;
+}
+.login section:nth-child(2) div.oAuth button:nth-child(2):hover {
+  background-color: #db4a39;
+}
+.login section:nth-child(2) div.oAuth button:nth-child(3):hover {
+  background-color: #00acee;
+}
+.login section:nth-child(2) div.oAuth button:nth-child(4):hover {
+  background-color: #6441a5;
+}
+.login section:nth-child(2) div.Login h3 {
+  transform: translateX(30%);
+  margin-left: 5%;
+}
+.login section:nth-child(2) div.Login input {
+  margin-left: 15%;
+}
+.login section:nth-child(2) div.Login button {
+  margin-left: 40%;
+}
+.login section:nth-child(2) div.info {
+  width: 60%;
+  margin: 0 auto;
+  font-size: 9px;
+}

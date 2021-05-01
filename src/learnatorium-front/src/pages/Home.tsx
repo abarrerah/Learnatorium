@@ -66,11 +66,11 @@ function Home() {
           </div>
           <div>
             <img
-              src="https://cordis.europa.eu/docs/article/images/2020-11/422669.jpg"
+              src="https://cordis.europa.eu/docs/results/images/2021-04/429636.jpg"
               alt=""
             />
-            <h3>Exponential grow</h3>
-            <p>how the society has developed itself.</p>
+            <h3>Domaining cancer</h3>
+            <p>New treatments which can be helpful.</p>
             <section className="icons uk-flex uk-flex-center">
               <span uk-icon="icon: comment"/>
               <p>23</p>
@@ -81,11 +81,11 @@ function Home() {
           </div>
           <div>
             <img
-              src="https://cordis.europa.eu/docs/article/images/2020-11/422669.jpg"
+              src="https://cordis.europa.eu/docs/results/images/2021-04/429632.jpg"
               alt=""
             />
-            <h3>Exponential grow</h3>
-            <p>how the society has developed itself.</p>
+            <h3>ReEvolution.</h3>
+            <p>How we evolved in our fecundation.</p>
             <section className="icons uk-flex uk-flex-center">
               <span uk-icon="icon: comment"/>
               <p>23</p>

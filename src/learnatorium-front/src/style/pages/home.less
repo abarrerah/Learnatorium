@@ -174,10 +174,13 @@
       }
       div{
         border: 1px solid black;
+        border-radius: 0.3rem;
+        box-shadow: 6px 3px 20px 1px rgba(61,72,82,0.59);
         width:25%;
         height: 220px;
         z-index: 9000;
         background-color:white;
+        
         img{
           display: block;
           margin-left: auto;
@@ -206,6 +209,11 @@
             cursor:pointer;
           }
         }
+      }
+      div:hover{
+        transition:ease-out 0.3s;
+        width:30%;
+        height:250px;
       }
     }
   }

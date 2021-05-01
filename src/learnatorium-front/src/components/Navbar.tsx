@@ -33,7 +33,7 @@ function Navbar() {
               <li>
                 <Link to="/Donation">Donation</Link>
               </li>
-              <div>
+              <li>
                 <ul className="icons">
                   <li>
                     <Link to="/Login" uk-icon="icon: sign-in"></Link>
@@ -45,7 +45,7 @@ function Navbar() {
                       <span uk-icon="icon:  bolt" ></span>
                   </li>
                 </ul>
-              </div>
+              </li>
             </ul>
           </nav>
           <label htmlFor="checkbox">

@@ -1,0 +1,103 @@
+.login {
+  width: 75%;
+  margin: 0 auto;
+  transform: translateY(5%);
+  height: 75vh;
+  border: 1px solid black;
+  border-radius: 0.3rem;
+  box-shadow: 10px 8px 8px 0px rgba(97, 82, 82, 0.46),
+    -5px -5px 4px 0px rgba(97, 82, 82, 0.23) inset;
+  section {
+    height: 100%;
+    width: 50%;
+  }
+  section:first-child {
+    background-color: #3498db;
+    h2,
+    h4,
+    p,
+    h6 {
+      width: 80%;
+      margin: 0 auto;
+      padding: 0;
+      text-align: left;
+    }
+    h2,
+    h4,
+    p {
+      color: white;
+    }
+    h4 {
+      font-weight: 600;
+      margin-top: 1%;
+      margin-bottom: 1%;
+    }
+    h2 {
+      font-weight: 700;
+      letter-spacing: 4px;
+      margin-top: 5%;
+    }
+    h6 {
+      margin-top: 10%;
+      margin-bottom: 2%;
+      font-size: 20px;
+      text-align: center;
+    }
+    div {
+      margin: 0;
+      position: absolute;
+
+      left: 20%;
+      button{
+          a{
+              text-decoration: none;
+          }
+      }
+    }
+    div:hover{
+        transition: ease-in-out 0.3s;
+        transform: scale(1.5);
+        button{
+            transition: ease-in-out 0.3s;
+            font-size: 20px;
+        }
+    }
+  }
+  section:nth-child(2) {
+    div.oAuth {
+      button:hover {
+        color: white;
+        transition: 0.3s;
+      }
+      button:first-child:hover {
+        background-color: #3b5998;
+      }
+      button:nth-child(2):hover{
+        background-color: #db4a39;
+      }
+      button:nth-child(3):hover{
+        background-color: #00acee;
+      }
+      button:nth-child(4):hover{
+        background-color: #6441a5;
+      }
+    }
+    div.Login {
+      h3 {
+        transform: translateX(30%);
+        margin-left: 5%;
+      }
+      input {
+        margin-left: 15%;
+      }
+      button {
+        margin-left: 40%;
+      }
+    }
+    div.info{
+        width:60%;
+        margin: 0 auto;
+        font-size: 9px;
+    }
+  }
+}
