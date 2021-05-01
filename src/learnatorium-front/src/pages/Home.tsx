@@ -1,7 +1,8 @@
 import React from "react";
 import "../style/pages/home.css";
+import { Link } from "react-router-dom";
 
-const imagePath= 'images/home/row-1-col-1.jpg';
+const imagePath = "images/home/row-1-col-1.jpg";
 const style = { backgroundImage: `url('file://${imagePath}')` };
 function Home() {
   return (
@@ -30,31 +31,82 @@ function Home() {
       </div>
       <div className="image ">
         <div style={style}>
-        <img src={'images/home/row-1-col-1.jpg'} alt=""/>
+          <img src={"images/home/row-1-col-1.jpg"} alt="" />
         </div>
         <div>
-        <img src={'images/home/row-1-col-2.jpg'} alt=""/>
+          <img src={"images/home/row-1-col-2.jpg"} alt="" />
         </div>
         <div>
-        <img src={'images/home/row-1-col-3.jpg'} alt=""/>
+          <img src={"images/home/row-1-col-3.jpg"} alt="" />
         </div>
         <div>
-        <img src={'images/home/row-1-col-4.jpg'} alt=""/>
+          <img src={"images/home/row-1-col-4.jpg"} alt="" />
         </div>
         <div>
-        <img src={'images/home/row-1-col-5.jpg'} alt=""/>
+          <img src={"images/home/row-1-col-5.jpg"} alt="" />
         </div>
       </div>
       <div className="top uk-margin-large-top ">
-      <h2>Top 3 of the week.</h2>
-      <section className="uk-flex uk-flex-middle">
-        <div>ds</div>
-        <div>asd</div>
-        <div>asd</div>
-      </section>
-       
+        <h2>Top 3 of the week.</h2>
+        <section className="uk-flex uk-flex-between ">
+          <div>
+            <img
+              src="https://cordis.europa.eu/docs/article/images/2020-11/422669.jpg"
+              alt=""
+            />
+            <h3>Exponential grow</h3>
+            <p>how the society has developed itself.</p>
+            <section className="icons uk-flex uk-flex-center">
+              <span uk-icon="icon: comment"/>
+              <p>23</p>
+              <span uk-icon="icon: heart"/>
+              <p>53</p>
+              <span uk-icon="icon: forward"/>
+            </section>
+          </div>
+          <div>
+            <img
+              src="https://cordis.europa.eu/docs/article/images/2020-11/422669.jpg"
+              alt=""
+            />
+            <h3>Exponential grow</h3>
+            <p>how the society has developed itself.</p>
+            <section className="icons uk-flex uk-flex-center">
+              <span uk-icon="icon: comment"/>
+              <p>23</p>
+              <span uk-icon="icon: heart"/>
+              <p>53</p>
+              <span uk-icon="icon: forward"/>
+            </section>
+          </div>
+          <div>
+            <img
+              src="https://cordis.europa.eu/docs/article/images/2020-11/422669.jpg"
+              alt=""
+            />
+            <h3>Exponential grow</h3>
+            <p>how the society has developed itself.</p>
+            <section className="icons uk-flex uk-flex-center">
+              <span uk-icon="icon: comment"/>
+              <p>23</p>
+              <span uk-icon="icon: heart"/>
+              <p>53</p>
+              <span uk-icon="icon: forward"/>
+            </section>
+          </div>
+        </section>
       </div>
-      <div className="triangle">triangle</div>
+      <div className="triangle">
+        <div className="start">Get started</div>
+        <div className="sign">
+          <section className="in">
+            <Link to="/Login">Sign In</Link>
+          </section>
+          <section className="up">
+            <Link to="/Register">Sign Up</Link>
+          </section>
+        </div>
+      </div>
     </div>
   );
 }

@@ -8,7 +8,8 @@ import aboutUs from "./pages/aboutUs";
 import signIn from "./pages/signIn";
 import Test from "./pages/Test";
 import Contact from "./pages/Contact";
-import profile from './pages/profile'
+import profile from './pages/profile';
+import SignUp from './pages/signUp';
 import './style/App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/AboutUs" exact component={aboutUs}/>
           <Route path="/Login" exact component={signIn} />
           <Route path="/Profile" exact component={profile}/>
+          <Route path="/Register" exact component={SignUp}/>
         <Footer/>
       </Router>
     </div>
