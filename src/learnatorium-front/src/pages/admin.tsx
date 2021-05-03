@@ -1,9 +1,27 @@
 /* eslint-disable react-hooks/rules-of-hooks */
+// @ts-ignore: Object is possibly 'null'.
 import * as React from "react";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import "../style/pages/admin.css";
 
 function admin() {
+
+  const [name, setName] = useState('');
+  async function fetchData(){
+    const res= await fetch('http://localhost:8000/source/all',{ 
+      headers:{
+        'Content-Type': 'application/json',
+        credentials: 'include',
+      }
+    })
+    res.json().then(res=>setName(res))
+  }
+  
+
+  useEffect(()=>{
+    fetchData();
+  },[])
+
   const [mia, setMia] = useState(0);
 
   function users(e: { preventDefault: () => void }) {
@@ -28,27 +46,13 @@ function admin() {
     setMia(7);
   }
   let menu;
-  // if(mia==="hola"){
-  //     console.log("verdad");
-  //     menu=(
-  //         <div>hola</div>
-  //     );
-  // }else if(mia==="nope"){
-  //     console.log("verdad a medias")
-  //     menu=(
-  //         <div>adios</div>
-  //     );
-  // }else{
-  //     console.log("mentira cochina")
-  //     menu=(
-  //         <div>hasta luego</div>
-  //     );
-  // }
+  
 
   switch (mia) {
     case 1:
-      menu = <div>user</div>;
-      console.log("user");
+      menu = "<div>User</div>";
+      const output2 = document.getElementById('mostrar');
+      if (output2) output2.innerHTML = menu.toString()
       break;
     case 2:
       menu = <div>documents</div>;
@@ -67,8 +71,17 @@ function admin() {
       console.log("categories");
       break;
     case 6:
-      menu = <div>source</div>;
-      console.log("source");
+      menu="<div>"
+      for(let i =0;i<name.length;i++){
+        const element=JSON.parse(JSON.stringify(name[i]));
+        console.log(element.ISBN)
+        menu +=element.ISBN+"<br>";
+        
+      }
+      menu+="</div>";
+      const output = document.getElementById('mostrar');
+    if (output) output.innerHTML = menu.toString()
+      
       break;
     case 7:
       menu = <div>chapter</div>;
@@ -129,9 +142,14 @@ function admin() {
       >
         Chapter
       </button>
-      <section>{menu}</section>
+      <section className="show">     
+       <section id="mostrar"></section>
+      </section>
+      
     </div>
   );
 }
 
 export default admin;
+
+

@@ -9,9 +9,19 @@ div div.headerAdmin {
   transform: translateY(49%);
 }
 div button {
-  transform: translateY(200%);
-  margin-top: 2%;
+  margin-top: 5%;
+  padding: 15px;
 }
 div section {
   margin-top: 3%;
+}
+div section div {
+  background-color: red;
+  width: 80%;
+  margin: 0 auto;
+  height: 50vh;
+  position: relative;
+  overflow: auto;
+  max-width: 80%;
+  max-height: 50vh;
 }
