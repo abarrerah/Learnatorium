@@ -8,14 +8,14 @@ div div.headerAdmin {
   background-color: #22292F;
   transform: translateY(48%);
 }
-div button {
+div button.adminButton {
   margin-top: 5%;
   padding: 15px;
 }
-div section {
+div section.show {
   margin-top: 3%;
 }
-div section div {
+div section.show div {
   width: 80%;
   margin: 0 auto;
   height: 50vh;
@@ -24,20 +24,20 @@ div section div {
   max-width: 80%;
   max-height: 50vh;
 }
-div section div table {
+div section.show div table {
   width: 100%;
 }
-div section div table tr {
+div section.show div table tr {
   border: 1px solid black;
   text-align: center;
 }
-div section div table tr th,
-div section div table tr td {
+div section.show div table tr th,
+div section.show div table tr td {
   border: 1px solid black;
 }
-div section div table tr th {
+div section.show div table tr th {
   background-color: #c8d6e5;
 }
-div section div::-webkit-scrollbar {
+div section.show div::-webkit-scrollbar {
   width: 2rem;
 }

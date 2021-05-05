@@ -5,8 +5,8 @@ export const CreateChapter= async ({request,response}:RouterContext)=>{
     const{id,group_name,author}=await request.body().value;
     let last_revision =new Date().toISOString().slice(0, 19).replace('T', ' ');
 
-    const _id=Chapter.create({id,group_name,author,last_revision});
-    response.body=Chapter.where('group_name',group_name).get();
+    const _id=await Chapter.create({id,group_name,author,last_revision});
+    response.body=await Chapter.where('group_name',group_name).get();
 }
 
 export const UpdateChapter= async ({request,response}:RouterContext)=>{
@@ -29,11 +29,11 @@ export const DeleteChapter = async ({request,response}:RouterContext)=>{
 }
 
 export const getAllChapters = async ({response}:RouterContext)=>{
-
-    response.body= Chapter.select('group_name').all();
+   
+    response.body= await Chapter.all();
 }
 
 export const GetChapter = async ({params,response}:RouterContext)=>{
     let id=JSON.stringify(params.id);
-    response.body=Chapter.find(id);
+    response.body=await Chapter.find(id);
 }

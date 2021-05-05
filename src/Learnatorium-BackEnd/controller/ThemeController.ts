@@ -40,3 +40,8 @@ export const GetTheme= async ({params,response}:RouterContext)=>{
     response.status=200;
     response.body=Theme.where('id',id).get();
 }
+
+export const getAllTheme= async ({response}:RouterContext)=>{
+
+    response.body=await Theme.all();
+}

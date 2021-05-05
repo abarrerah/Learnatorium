@@ -7,7 +7,19 @@ import "../style/pages/admin.css";
 
 function admin() {
 
+  const [user, setUser] = useState('');
   const [name, setName] = useState('');
+  const [docu, setDocu] = useState('');
+  const [theme,setTheme] = useState('');
+  const [cat,setCat] = useState('');
+  const [chap,setChap] = useState('');
+
+  function getDocuments(){
+    axios.get('http://localhost:8000/documents')
+    .then(res=>{
+      setDocu(res.data)
+    })
+  }
 
   function getSources(){
     axios.get('http://localhost:8000/source/all')
@@ -19,10 +31,29 @@ function admin() {
   function getUsers(){
     axios.get('http://localhost:8000/users')
     .then(res=>{
-      setName(res.data)
+      setUser(res.data)
+    })
+  }
+  function getTheme(){
+    axios.get('http://localhost:8000/theme')
+    .then(res=>{
+      setTheme(res.data);
     })
   }
 
+  function getCategory(){
+    axios.get('http://localhost:8000/category/all')
+    .then(res=>{
+      setCat(res.data)
+    })
+  }
+
+  function getChapter(){
+    axios.get('http://localhost:8000/chapter')
+    .then(res=>{
+        setChap(res.data)
+    })
+  }
   const [mia, setMia] = useState(0);
 
   function users(e: { preventDefault: () => void }) {
@@ -30,15 +61,18 @@ function admin() {
     setMia(1);
   }
   function documents(e: { preventDefault: () => void }) {
+    getDocuments();
     setMia(2);
   }
   function Test(e: { preventDefault: () => void }) {
     setMia(3);
   }
   function Theme(e: { preventDefault: () => void }) {
+    getTheme();
     setMia(4);
   }
   function Categories(e: { preventDefault: () => void }) {
+    getCategory();
     setMia(5);
   }
   function Source(e: { preventDefault: () => void }) {
@@ -46,6 +80,7 @@ function admin() {
     setMia(6);
   }
   function Chapter(e: { preventDefault: () => void }) {
+    getChapter();
     setMia(7);
   }
   let menu;
@@ -54,8 +89,8 @@ function admin() {
   switch (mia) {
     case 1:
       menu="<div><table><tr><th>ID</th><th>NAME</th><th>EMAIL</th><th>ROLE</th></tr>";
-      for(let i=0;i<name.length;i++){
-        const element=JSON.parse(JSON.stringify(name[i]));
+      for(let i=0;i<user.length;i++){
+        const element=JSON.parse(JSON.stringify(user[i]));
         console.log(element)
 
         switch(element.role){
@@ -80,7 +115,7 @@ function admin() {
       break;
     case 2:
       menu = <div>documents</div>;
-      console.log("documents");
+      console.log(docu);
       break;
     case 3:
       menu = <div>test</div>;
@@ -88,11 +123,11 @@ function admin() {
       break;
     case 4:
       menu = <div>theme</div>;
-      console.log("theme");
+      console.log(theme);
       break;
     case 5:
       menu = <div>categorias</div>;
-      console.log("categories");
+      console.log(cat);
       break;
     case 6:
       menu="<div><table><tr><th>ID</th><th>ISBN</th><th>Creation Date</th><th>Validation Date</th></tr>"
@@ -109,7 +144,7 @@ function admin() {
       break;
     case 7:
       menu = <div>chapter</div>;
-      console.log("chapter");
+      console.log(chap);
       break;
   }
   return (
@@ -118,49 +153,49 @@ function admin() {
         Admin panel
       </div>
       <button
-        className="uk-margin-left uk-margin-right uk-button-primary"
+        className="uk-margin-left uk-margin-right uk-button-primary adminButton"
         value={mia}
         onClick={users}
       >
         Users
       </button>
       <button
-        className="uk-margin-left uk-margin-right uk-button-primary"
+        className="uk-margin-left uk-margin-right uk-button-primary adminButton"
         value={mia}
         onClick={documents}
       >
         Documents
       </button>
       <button
-        className="uk-margin-left uk-margin-right uk-button-primary"
+        className="uk-margin-left uk-margin-right uk-button-primary adminButton"
         value={mia}
         onClick={Test}
       >
         Test
       </button>
       <button
-        className="uk-margin-left uk-margin-right uk-button-primary"
+        className="uk-margin-left uk-margin-right uk-button-primary adminButton"
         value={mia}
         onClick={Theme}
       >
         Theme
       </button>
       <button
-        className="uk-margin-left uk-margin-right uk-button-primary"
+        className="uk-margin-left uk-margin-right uk-button-primary adminButton"
         value={mia}
         onClick={Categories}
       >
         Categories
       </button>
       <button
-        className="uk-margin-left uk-margin-right uk-button-primary"
+        className="uk-margin-left uk-margin-right uk-button-primary adminButton"
         value={mia}
         onClick={Source}
       >
         Source
       </button>
       <button
-        className="uk-margin-left uk-margin-right uk-button-primary"
+        className="uk-margin-left uk-margin-right uk-button-primary adminButton"
         value={mia}
         onClick={Chapter}
       >

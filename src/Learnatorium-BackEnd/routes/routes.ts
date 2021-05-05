@@ -26,6 +26,7 @@ const router = new Router();
         .delete('/theme/delete',theme.DeleteTheme)
         .put('/theme/update',theme.UpdateTheme)
         .get('/theme/:id',theme.GetTheme)
+        .get('/theme',theme.getAllTheme)
 
         .post('/category/create',category.CreateCategory)
         .get('/category/all',category.GetAllCategory)
