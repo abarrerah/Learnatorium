@@ -8,7 +8,5 @@ export const getUser= async({params,response}:RouterContext)=>{
 }
 
 export const getAllUser=async({response}:RouterContext)=>{
-
-
     response.body=await User.select('id','name','email','role').all();
 }

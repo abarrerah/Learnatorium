@@ -11,6 +11,12 @@ import Contact from "./pages/Contact";
 import profile from './pages/profile';
 import SignUp from './pages/signUp';
 import Admin from './pages/admin';
+import UserMeta from './pages/meta/UserMeta';
+import DocumentsMeta from './pages/meta/DocumentsMeta';
+import ThemeMeta from './pages/meta/ThemeMeta';
+import CategoriesMeta from './pages/meta/CategoriesMeta';
+import SourceMeta from "./pages/meta/SourceMeta";
+import ChapterMeta from "./pages/meta/ChapterMeta";
 
 import './style/App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -29,6 +35,13 @@ function App() {
           <Route path="/Profile" exact component={profile}/>
           <Route path="/Register" exact component={SignUp}/>
           <Route path="/Admin" exact component={Admin}/>
+
+          <Route path="/Admin-User-Zone" exact component={UserMeta}/>
+          <Route path="/Admin-Documents-Zone" exact component={DocumentsMeta}/>
+          <Route path="/Admin-Theme-Zone" exact component={ThemeMeta}/>
+          <Route path="/Admin-Categories-Zone" exact component={CategoriesMeta}/>
+          <Route path="/Admin-Source-Zone" exact component={SourceMeta}/>
+          <Route path="/Admin-Chapter-Zone" exact component={ChapterMeta}/>
         <Footer/>
       </Router>
     </div>

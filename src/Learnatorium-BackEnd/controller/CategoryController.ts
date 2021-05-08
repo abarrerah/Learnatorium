@@ -12,7 +12,7 @@ export const CreateCategory= async ({request,response}:RouterContext)=>{
 export const GetAllCategory= async({response}:RouterContext)=> {
 
     response.status=200;
-    response.body= await Category.select('name').all();
+    response.body= await Category.orderBy('id','asc').all();
 }
 export const GetCategory=async ({params,response}:RouterContext)=>{
 

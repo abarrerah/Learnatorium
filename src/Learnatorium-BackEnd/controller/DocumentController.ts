@@ -1,5 +1,5 @@
 import { RouterContext } from "https://deno.land/x/oak@v6.5.1/mod.ts";
-import  {Documents} from '../model/allModel.ts';
+import  {Documents,Theme} from '../model/allModel.ts';
 
 export const CreateDocument=async({request,response}:RouterContext)=>{
     const{name,content}= await request.body().value;
@@ -54,6 +54,6 @@ export const GetAllDocuments=async({response}:RouterContext)=>{
 }
 
 export const GetDocument=async({params,response}:RouterContext)=>{
-    let id= JSON.stringify(params.id);
-    response.body=Documents.where('id',id).get();
+    const _id=JSON.parse(JSON.stringify(params.id));
+    response.body=await Documents.where('id',_id).get();
 }
