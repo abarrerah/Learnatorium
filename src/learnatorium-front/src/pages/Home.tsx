@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 
 const imagePath = "images/home/row-1-col-1.jpg";
 const style = { backgroundImage: `url('file://${imagePath}')` };
+
 function Home() {
+  
+  
+
   return (
     <div className="main-home">
       <div className="text">
@@ -57,11 +61,11 @@ function Home() {
             <h3>Exponential grow</h3>
             <p>how the society has developed itself.</p>
             <section className="icons uk-flex uk-flex-center">
-              <span uk-icon="icon: comment"/>
+              <span uk-icon="icon: comment" />
               <p>23</p>
-              <span uk-icon="icon: heart"/>
+              <span uk-icon="icon: heart" />
               <p>53</p>
-              <span uk-icon="icon: forward"/>
+              <span uk-icon="icon: forward" />
             </section>
           </div>
           <div>
@@ -72,11 +76,11 @@ function Home() {
             <h3>Domaining cancer</h3>
             <p>New treatments which can be helpful.</p>
             <section className="icons uk-flex uk-flex-center">
-              <span uk-icon="icon: comment"/>
+              <span uk-icon="icon: comment" />
               <p>23</p>
-              <span uk-icon="icon: heart"/>
+              <span uk-icon="icon: heart" />
               <p>53</p>
-              <span uk-icon="icon: forward"/>
+              <span uk-icon="icon: forward" />
             </section>
           </div>
           <div>
@@ -87,11 +91,11 @@ function Home() {
             <h3>ReEvolution.</h3>
             <p>How we evolved in our fecundation.</p>
             <section className="icons uk-flex uk-flex-center">
-              <span uk-icon="icon: comment"/>
+              <span uk-icon="icon: comment" />
               <p>23</p>
-              <span uk-icon="icon: heart"/>
+              <span uk-icon="icon: heart" />
               <p>53</p>
-              <span uk-icon="icon: forward"/>
+              <span uk-icon="icon: forward" />
             </section>
           </div>
         </section>

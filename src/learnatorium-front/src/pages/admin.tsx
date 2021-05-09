@@ -6,6 +6,28 @@ import axios from "axios";
 import "../style/pages/admin.css";
 
 function admin() {
+  window.addEventListener("load",async()=>{
+    const result = await fetch("http://localhost:8050/user",{
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+    })
+    result.json()
+    .then((e)=>{
+      if(e.toString().length>0){
+        if(e[0].role!==10 ){
+          console.log("EStoy entrando")
+          window.location.href = "http://localhost:3000/profile";
+        }
+      }
+      
+    })
+    .catch((e)=>{
+      window.location.href = "http://localhost:3000";
+    })
+  })
+
+
+
   const [adminRedirect, setAdminRedirect] = useState("");
 
   function redirect(number: any) {
@@ -60,11 +82,12 @@ function admin() {
     });
   }
 
-  function getUsers() {
-    axios.get("http://localhost:8000/users").then((res) => {
-      setAdminRedirect("User panel");
-      setUser(res.data);
-    });
+  async function getUsers() {
+    const result=await fetch("http://localhost:8050/users",{
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+    })
+    setUser(await result.json());
   }
   function getTheme() {
     axios.get("http://localhost:8000/theme").then((res) => {

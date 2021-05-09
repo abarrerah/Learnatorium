@@ -11,7 +11,6 @@ function signUp() {
   const [rPassword, setPasswordR] = useState("");
 
   function handleSubmit(e: { preventDefault: () => void }) {
-    console.log(email, user, password, rPassword);
     e.preventDefault();
     setEmail("");
     setUser("");
