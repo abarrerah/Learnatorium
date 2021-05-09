@@ -2,31 +2,28 @@
 // @ts-ignore: Object is possibly 'null'.
 import * as React from "react";
 import { useState } from "react";
-import axios from "axios";
 import "../style/pages/admin.css";
 
 function admin() {
-  window.addEventListener("load",async()=>{
-    const result = await fetch("http://localhost:8050/user",{
+  window.addEventListener("load", async () => {
+    const result = await fetch("http://localhost:8050/user", {
       headers: { "Content-Type": "application/json" },
       credentials: "include",
-    })
-    result.json()
-    .then((e)=>{
-      if(e.toString().length>0){
-        if(e[0].role!==10 ){
-          console.log("EStoy entrando")
-          window.location.href = "http://localhost:3000/profile";
+    });
+    result
+      .json()
+      .then((e) => {
+        if (e.toString().length > 0) {
+          if (e[0].role !== 10) {
+            console.log("EStoy entrando");
+            window.location.href = "http://localhost:3000/profile";
+          }
         }
-      }
-      
-    })
-    .catch((e)=>{
-      window.location.href = "http://localhost:3000";
-    })
-  })
-
-
+      })
+      .catch((e) => {
+        window.location.href = "http://localhost:3000";
+      });
+  });
 
   const [adminRedirect, setAdminRedirect] = useState("");
 
@@ -68,46 +65,111 @@ function admin() {
   const [cat, setCat] = useState("");
   const [chap, setChap] = useState("");
 
-  function getDocuments() {
-    axios.get("http://localhost:8000/documents").then((res) => {
-      setDocu(res.data);
-      setAdminRedirect("Document panel");
+  async function getDocuments() {
+    const result = await fetch("http://localhost:8050/documents", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
     });
+    result
+      .json()
+      .then((e) => {
+        setDocu(e);
+        setAdminRedirect("Document panel");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
-  function getSources() {
-    axios.get("http://localhost:8000/source/all").then((res) => {
-      setName(res.data);
-      setAdminRedirect("Source panel");
+  async function getSources() {
+    const result = await fetch("http://localhost:8050/source/all", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
     });
+    result
+      .json()
+      .then((e) => {
+        setName(e);
+        setAdminRedirect("Source panel");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   async function getUsers() {
-    const result=await fetch("http://localhost:8050/users",{
-      headers: { "Content-Type": "application/json" },
+    const result = await fetch("http://localhost:8050/users", {
+      headers: {
+        "Content-Type": "application/json",
+      },
       credentials: "include",
-    })
-    setUser(await result.json());
-  }
-  function getTheme() {
-    axios.get("http://localhost:8000/theme").then((res) => {
-      setAdminRedirect("Theme panel");
-      setTheme(res.data);
     });
+    result
+      .json()
+      .then((e) => {
+        setUser(e);
+        setAdminRedirect("User panel");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+  async function getTheme() {
+    const result = await fetch("http://localhost:8050/theme", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    });
+    result
+      .json()
+      .then((e) => {
+        setTheme(e);
+        setAdminRedirect("Theme panel");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
-  function getCategory() {
-    axios.get("http://localhost:8000/category/all").then((res) => {
-      setAdminRedirect("Category panel");
-      setCat(res.data);
+  async function getCategory() {
+    const result = await fetch("http://localhost:8050/category/all", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
     });
+    result
+      .json()
+      .then((e) => {
+        setCat(e);
+        setAdminRedirect("Category panel");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
-  function getChapter() {
-    axios.get("http://localhost:8000/chapter").then((res) => {
-      setAdminRedirect("Chapter panel");
-      setChap(res.data);
+  async function getChapter() {
+    const result = await fetch("http://localhost:8050/chapter", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
     });
+    result
+      .json()
+      .then((e) => {
+        setChap(e);
+        setAdminRedirect("Chapter panel");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
   const [mia, setMia] = useState(0);
 
@@ -145,10 +207,11 @@ function admin() {
       menu =
         "<div><table><tr><th>ID</th><th>NAME</th><th>EMAIL</th><th>ROLE</th></tr>";
       for (let i = 0; i < user.length; i++) {
+        console.log(user[i]);
         const element = JSON.parse(JSON.stringify(user[i]));
 
         switch (element.role) {
-          case 1:
+          case 11:
             menu +=
               "<tr><td>" +
               element.id +
@@ -158,7 +221,7 @@ function admin() {
               element.email +
               "</td><td>Standard User</td></tr>";
             break;
-          case 2:
+          case 12:
             menu +=
               "<tr><td>" +
               element.id +
@@ -168,7 +231,7 @@ function admin() {
               element.email +
               "</td><td>Premium User</td></tr>";
             break;
-          case 3:
+          case 10:
             menu +=
               "<tr><td>" +
               element.id +
@@ -178,7 +241,7 @@ function admin() {
               element.email +
               "</td><td>Admin User</td></tr>";
             break;
-          case 4:
+          case 13:
             menu +=
               "<tr><td>" +
               element.id +
@@ -198,6 +261,7 @@ function admin() {
       menu =
         "<div><table><tr><th>ID</th><th>Name</th><th>Content</th><th>CreationDate</th></tr>";
       for (let i = 0; i < docu.length; i++) {
+        console.log(docu[i]);
         const element = JSON.parse(JSON.stringify(docu[i]));
         menu +=
           "<tr><td>" +
