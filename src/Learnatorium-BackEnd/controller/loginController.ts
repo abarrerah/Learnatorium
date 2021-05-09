@@ -7,7 +7,7 @@ import { create,verify } from "https://deno.land/x/djwt/mod.ts"
 export const Register= async ({request,response}:RouterContext)=>{
     const {name,email,password}= await request.body().value;
     let salt=bcrypt.genSalt(10);
-
+    console.log(name,email,password)
     const role=1;
     let regexEmail:RegExp=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
     let regexPasword:RegExp=/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[a-zA-Z!#$%&? "])[a-zA-Z0-9!#$%&?]{8,20}$/;
@@ -18,7 +18,7 @@ export const Register= async ({request,response}:RouterContext)=>{
         response.status=201;
         response.body=await User.where('name',name).get();
     }else{
-        response.status=404;
+        response.status=400;
         response.body="Invalid email or password";
     }
   
