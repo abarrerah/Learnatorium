@@ -15,7 +15,6 @@ function admin() {
       .then((e) => {
         if (e.toString().length > 0) {
           if (e[0].role !== 10) {
-            console.log("EStoy entrando");
             window.location.href = "http://localhost:3000/profile";
           }
         }
