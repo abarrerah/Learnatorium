@@ -61,7 +61,7 @@ const router = new Router();
 
         .get('/user/:id',user.getUser)
         .get('/users',user.getAllUser)
-        .delete('/user',user.deleteUser)
+        .delete('/user/:id',user.deleteUser)
         .patch('/user',user.updateUser)
         
 export default router;
