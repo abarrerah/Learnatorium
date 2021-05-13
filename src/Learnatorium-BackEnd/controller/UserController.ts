@@ -69,4 +69,5 @@ export const updateUser = async ({ request, response }: RouterContext) => {
   }
 
   response.body= await User.where('id',id).get();
+  response.status= 200;
 };

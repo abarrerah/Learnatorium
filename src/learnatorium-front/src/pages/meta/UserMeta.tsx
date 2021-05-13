@@ -24,7 +24,10 @@ function UserMeta() {
   const [deleted, setDeleted] = useState(false);
   const [update, setUpdate] = useState(false);
   const [userToDelete, setUserToDelete] = useState("");
-
+  const [userToUpdate, setUserToUpdate] = useState("");
+  const [userToUpdateName, setUserToUpdateName] = useState("");
+  const [userUpdateEmail, setUserUpdateEmail] = useState("");
+  const [userToUpdateRole, setUserToUpdateRole] = useState("");
   async function onDelete() {
     setUpdate(false);
     setDeleted(true);
@@ -35,22 +38,44 @@ function UserMeta() {
   }
 
   function sendItToUpdate() {
-    alert("hi");
-  }
-  function sendItToDelete() {
-    const id= parseInt(userToDelete);
-    if(isNaN(id)){
-      alert("You have introduced a string, not a number.");
-
-    }else{
-      fetch("http://localhost:8050/user/" + id, {
-      method: "DELETE",
-    })
-
-      .then((res) => console.log(res.text())) 
-      .then((res) => console.log(res));
+    const id = parseInt(userToUpdate);
+    if (isNaN(id)) {
+      alert("You have introduced a string, not a number as id.");
+    } else {
+      fetch("http://localhost:8050/user", {
+        method: "PATCH",
+        body: JSON.stringify({
+          id: id,
+          email: userUpdateEmail,
+          name: userToUpdateName,
+          role: userToUpdateRole,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => {
+          if (response.status === 200) {
+            window.location.href = "http://localhost:3000/Admin";
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
+  }
 
+  function sendItToDelete() {
+    const id = parseInt(userToDelete);
+    if (isNaN(id)) {
+      alert("You have introduced a string, not a number.");
+    } else {
+      fetch("http://localhost:8050/user/" + id, {
+        method: "DELETE",
+      })
+        .then((res) => console.log(res.text()))
+        .then((res) => console.log(res));
+    }
   }
 
   return (
@@ -69,10 +94,45 @@ function UserMeta() {
             return (
               <div>
                 <input
+                  className="uk-input uk-form uk-margin-bottom"
+                  placeholder="id"
+                  onChange={(e) => setUserToUpdate(e.target.value)}
+                ></input>
+                <input
+                  className="uk-input uk-form uk-margin-bottom"
+                  placeholder="name"
+                  onChange={(e) => setUserToUpdateName(e.target.value)}
+                ></input>
+                <input
+                  className="uk-input uk-form uk-margin-bottom"
+                  placeholder="email"
+                  onChange={(e) => setUserUpdateEmail(e.target.value)}
+                ></input>
+
+                <div className="uk-margin uk-width-1-2">
+                  <div uk-form-custom="target: > * > span:first-child">
+                    <select onChange={(e)=>setUserToUpdateRole(e.target.value)}>
+                      <option value="">Please select...</option>
+                      <option value="10">Admin</option>
+                      <option value="11">Standard</option>
+                      <option value="12">Premium</option>
+                      <option value="13">Banned</option>
+                    </select>
+                    <button
+                      className="uk-button uk-button-default"
+                      type="button"
+                    >
+                      <span></span>
+                      <span uk-icon="icon: chevron-down"></span>
+                    </button>
+                  </div>
+                </div>
+                <br></br>
+                <input
                   type="button"
                   value="update"
+                  className="uk-button uk-button-secondary"
                   onClick={sendItToUpdate}
-                  onChange={(e) => setUserToDelete(e.target.value)}
                 ></input>
               </div>
             );
@@ -81,6 +141,7 @@ function UserMeta() {
               <div>
                 <input
                   className="uk-input uk-form uk-margin-bottom"
+                  value="delete"
                   onChange={(e) => setUserToDelete(e.target.value)}
                 ></input>
 
