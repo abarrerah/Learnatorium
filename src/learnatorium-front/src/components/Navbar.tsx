@@ -1,22 +1,68 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-restricted-globals */
 import React from "react";
 import "../style/components/navbar.css";
 import { Link } from "react-router-dom";
 
+function Navbar(props: { name: string }) {
 
-function Navbar() {
+  const logout = async()=>{
+    await fetch('http://localhost:8050/logout', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      credentials: 'include',
+  });
+    window.location.href="http://localhost:3000";
+  }
+
+  let menu;
+  if (props.name !== "200") {
+    menu = (
+      <ul className="icons">
+        <li>
+          <Link to="/Login" uk-icon="icon: sign-in"></Link>
+        </li>
+        <li>
+          <span uk-icon="icon: world"></span>
+        </li>
+        <li>
+          <span uk-icon="icon:  bolt"></span>
+        </li>
+      </ul>
+    );
+  } else if (props.name === "200") {
+    menu = (
+      <ul className="icons">
+        <li>
+          <Link to="/profile" uk-icon="icon: user"></Link>
+        </li>
+        <li>
+          <span uk-icon="icon: world"></span>
+        </li>
+        <li>
+          <span uk-icon="icon:  bolt"></span>
+        </li>
+        <li>
+          <span  uk-icon="icon:  sign-out" onClick={logout}></span>
+        </li>
+      </ul>
+    );
+  }
   return (
     <div>
       <header className="menu">
         <div className="menu-wrap">
-          <img className="logo-img" alt="Learnatorium" src={'images/logo.png'}/>
-            <div className="logo-name">
-              Learnatorium
-            </div>
+          <img
+            className="logo-img"
+            alt="Learnatorium"
+            src={"images/logo.png"}
+          />
+          <div className="logo-name">Learnatorium</div>
           <input type="checkbox" id="checkbox" />
           <nav>
             <ul>
               <li>
-              <Link to="/">Home</Link>
+                <Link to="/">Home</Link>
               </li>
               <li>
                 <Link to="/Stories">Stories</Link>
@@ -35,14 +81,12 @@ function Navbar() {
               </li>
               <li>
                 <ul className="icons">
+                  {menu}
                   <li>
-                    <Link to="/Login" uk-icon="icon: sign-in"></Link>
+                    <span uk-icon="icon: world"></span>
                   </li>
                   <li>
-                      <span uk-icon="icon: world"></span>
-                  </li>
-                  <li>
-                      <span uk-icon="icon:  bolt" ></span>
+                    <span uk-icon="icon:  bolt"></span>
                   </li>
                 </ul>
               </li>

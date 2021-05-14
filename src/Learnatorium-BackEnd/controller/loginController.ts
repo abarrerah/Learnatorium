@@ -31,13 +31,13 @@ export const Login=async({request,response,cookies}:RouterContext)=>{
     const stringify=JSON.stringify(user);
     const parse=JSON.parse(stringify);
     
-    console.log(parse);
     if(stringify.length>2 && await bcrypt.compare(password,parse[0].password)){
 
-        console.log(parse[0].password);
         const jwt = await create({ alg: "HS512", typ: "JWT" }, { _id: parse[0].id }, "secret");
 
         cookies.set('jwt',jwt,{httpOnly:true});
+        response.status=200;
+
         response.body={
             msg:'Success'
         }
