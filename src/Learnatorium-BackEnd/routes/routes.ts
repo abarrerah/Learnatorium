@@ -23,7 +23,7 @@ const router = new Router();
         .get('/role',role.GetAllRole)
 
         .post('/theme/create',theme.CreateTheme)
-        .delete('/theme/delete',theme.DeleteTheme)
+        .delete('/theme/:id',theme.DeleteTheme)
         .put('/theme/update',theme.UpdateTheme)
         .get('/theme/:id',theme.GetTheme)
         .get('/theme',theme.getAllTheme)
@@ -55,7 +55,7 @@ const router = new Router();
         .patch('/document/update-chapter',document.UpdateChapter)
         .patch('/document/update-name',document.UpdateName)
         .patch('/document/update-content',document.UpdateContent)
-        .delete('/document/delete',document.DeleteDocument)
+        .delete('/document/:id',document.DeleteDocument)
         .get('/documents',document.GetAllDocuments)
         .get('/document/:id',document.GetDocument)
 

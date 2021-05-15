@@ -1,5 +1,6 @@
 /* eslint-disable eqeqeq */
 import React, { useState } from "react";
+import swal from 'sweetalert';
 
 function UserMeta() {
   window.addEventListener("load", async () => {
@@ -28,10 +29,12 @@ function UserMeta() {
   const [userToUpdateName, setUserToUpdateName] = useState("");
   const [userUpdateEmail, setUserUpdateEmail] = useState("");
   const [userToUpdateRole, setUserToUpdateRole] = useState("");
+
   async function onDelete() {
     setUpdate(false);
     setDeleted(true);
   }
+
   function onUpdate() {
     setDeleted(false);
     setUpdate(true);
@@ -40,7 +43,7 @@ function UserMeta() {
   function sendItToUpdate() {
     const id = parseInt(userToUpdate);
     if (isNaN(id)) {
-      alert("You have introduced a string, not a number as id.");
+      swal("Oops!", "You have inserted an element,which is not a number!", "error");
     } else {
       fetch("http://localhost:8050/user", {
         method: "PATCH",
@@ -68,13 +71,14 @@ function UserMeta() {
   function sendItToDelete() {
     const id = parseInt(userToDelete);
     if (isNaN(id)) {
-      alert("You have introduced a string, not a number.");
+      swal("Oops!", "You have inserted an element,which is not a number!", "error");
     } else {
       fetch("http://localhost:8050/user/" + id, {
         method: "DELETE",
       })
         .then((res) => console.log(res.text()))
         .then((res) => console.log(res));
+        swal("YEAH!", "User deleted!", "success");
     }
   }
 
@@ -141,7 +145,7 @@ function UserMeta() {
               <div>
                 <input
                   className="uk-input uk-form uk-margin-bottom"
-                  value="delete"
+                  placeholder="delete"
                   onChange={(e) => setUserToDelete(e.target.value)}
                 ></input>
 

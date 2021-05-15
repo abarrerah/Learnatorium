@@ -1,59 +1,74 @@
 import { RouterContext } from "https://deno.land/x/oak@v6.5.1/mod.ts";
-import  {Documents,Theme} from '../model/allModel.ts';
+import { Documents, Theme } from "../model/allModel.ts";
 
-export const CreateDocument=async({request,response}:RouterContext)=>{
-    const{name,content}= await request.body().value;
-    let creation_date =new Date().toISOString().slice(0, 19).replace('T', ' ');
-    
-    let theme=4;
-    let category=1;
-    let chapter=1;
-    let source=1;
-    const _id=await Documents.create({name,content,creation_date,theme,category,chapter,source})
-    response.body=Documents.where('name',name).get();
-}
+export const CreateDocument = async ({ request, response }: RouterContext) => {
+  const { name, content } = await request.body().value;
+  let creation_date = new Date().toISOString().slice(0, 19).replace("T", " ");
 
-export const UpdateName=async({request,response}:RouterContext)=>{
+  let theme = 4;
+  let category = 1;
+  let chapter = 1;
+  let source = 1;
+  const _id = await Documents.create({
+    name,
+    content,
+    creation_date,
+    theme,
+    category,
+    chapter,
+    source,
+  });
+  response.body = Documents.where("name", name).get();
+};
 
-    const{id,name}=await request.body().value;
-    response.body=await Documents.where('id',id).update({name})
-}
-export const UpdateContent=async({request,response}:RouterContext)=>{
+export const UpdateName = async ({ request, response }: RouterContext) => {
+  const { id, name } = await request.body().value;
+  response.body = await Documents.where("id", id).update({ name });
+};
+export const UpdateContent = async ({ request, response }: RouterContext) => {
+  const { id, content } = await request.body().value;
+  response.body = await Documents.where("id", id).update({ content });
+};
+export const UpdateTheme = async ({ request, response }: RouterContext) => {
+  const { id, theme } = await request.body().value;
+  response.body = await Documents.where("id", id).update({ theme });
+};
+export const UpdateCategory = async ({ request, response }: RouterContext) => {
+  const { id, category } = await request.body().value;
+  response.body = await Documents.where("id", id).update({ category });
+};
+export const UpdateChapter = async ({ request, response }: RouterContext) => {
+  const { id, chapter } = await request.body().value;
+  response.body = await Documents.where("id", id).update({ chapter });
+};
+export const UpdateSource = async ({ request, response }: RouterContext) => {
+  const { id, source } = await request.body().value;
+  response.body = await Documents.where("id", id).update({ source });
+};
 
-    const{id,content}=await request.body().value;
-    response.body=await Documents.where('id',id).update({content})
-}
-export const UpdateTheme=async({request,response}:RouterContext)=>{
+export const DeleteDocument = async ({ params, response }: RouterContext) => {
+  const id = JSON.parse(JSON.stringify(params.id));
 
-    const{id,theme}=await request.body().value;
-    response.body=await Documents.where('id',id).update({theme})
-}
-export const UpdateCategory=async({request,response}:RouterContext)=>{
+  const docuFound = await Documents.where("id", id).get();
 
-    const{id,category}=await request.body().value;
-    response.body=await Documents.where('id',id).update({category})
-}
-export const UpdateChapter=async({request,response}:RouterContext)=>{
+  if (docuFound.toString().length > 2) {
 
-    const{id,chapter}=await request.body().value;
-    response.body=await Documents.where('id',id).update({chapter})
-}
-export const UpdateSource=async({request,response}:RouterContext)=>{
+    await Documents.where("id", id).delete();
+    response.status=200;
 
-    const{id,source}=await request.body().value;
-    response.body=await Documents.where('id',id).update({source})
-}
+  }else{
 
-export const DeleteDocument=async({request,response}:RouterContext)=>{
-    const{id}=await request.body().value;
-    response.body=await Documents.where('id',id).delete();
-}
+      response.body={msg:"Document not found"};
+      response.status=404;
 
-export const GetAllDocuments=async({response}:RouterContext)=>{
-    response.body=await Documents.all();
-}
+  }
+};
 
-export const GetDocument=async({params,response}:RouterContext)=>{
-    const _id=JSON.parse(JSON.stringify(params.id));
-    response.body=await Documents.where('id',_id).get();
-}
+export const GetAllDocuments = async ({ response }: RouterContext) => {
+  response.body = await Documents.all();
+};
+
+export const GetDocument = async ({ params, response }: RouterContext) => {
+  const _id = JSON.parse(JSON.stringify(params.id));
+  response.body = await Documents.where("id", _id).get();
+};

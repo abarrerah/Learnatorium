@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-restricted-globals */
 import React from "react";
@@ -23,10 +25,10 @@ function Navbar(props: { name: string }) {
           <Link to="/Login" uk-icon="icon: sign-in"></Link>
         </li>
         <li>
-          <span uk-icon="icon: world"></span>
+          <a uk-icon="icon: world"></a>
         </li>
         <li>
-          <span uk-icon="icon:  bolt"></span>
+          <a uk-icon="icon:  bolt"></a>
         </li>
       </ul>
     );
@@ -37,13 +39,13 @@ function Navbar(props: { name: string }) {
           <Link to="/profile" uk-icon="icon: user"></Link>
         </li>
         <li>
-          <span uk-icon="icon: world"></span>
+          <a uk-icon="icon: world"></a>
         </li>
         <li>
-          <span uk-icon="icon:  bolt"></span>
+          <a uk-icon="icon:  bolt"></a>
         </li>
         <li>
-          <span  uk-icon="icon:  sign-out" onClick={logout}></span>
+          <a  uk-icon="icon:  sign-out" onClick={logout}></a>
         </li>
       </ul>
     );

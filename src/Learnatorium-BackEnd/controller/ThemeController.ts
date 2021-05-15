@@ -9,6 +9,7 @@ export const CreateTheme = async ({request,response}:RouterContext)=>{
 
         await Theme.create({name,style});
         response.body=await Theme.where('name',name).get();
+        response.status=201;
 
     }else{
 
@@ -17,14 +18,25 @@ export const CreateTheme = async ({request,response}:RouterContext)=>{
     }   
 }
 
-export const DeleteTheme = async ({request,response}:RouterContext)=>{
-    const{name}=await request.body().value;
-    response.body=await Theme.where('name',name).delete();
+export const DeleteTheme = async ({params,response}:RouterContext)=>{
+    const id = JSON.parse(JSON.stringify(params.id));
+    const themeFound= await Theme.where("id",id).get();
+    
+    if(themeFound.toString().length>2){
+        await Theme.where('id',id).delete();
+        response.body={msg:"Succesfully eliminated from our database."};
+        response.status=200;
+    }else{
+        response.body={msg:"Something is wrong, we couldn´t find a theme with that id you provided."};
+    response.status=404;
+    }
+    
 
 }
 
 export const UpdateTheme = async ({request,response}:RouterContext)=>{
     const{id,name,style}=await request.body().value;
+    console.log(id+""+name+""+style)
     let regex:RegExp = /.\.css$/;
     if(regex.test(style)){
         const _id=Theme.where('id',id).update({name:name,style:style})
