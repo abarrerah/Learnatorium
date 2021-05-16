@@ -73,12 +73,6 @@ function Navbar(props: { name: string }) {
                 <Link to="/Test">Test</Link>
               </li>
               <li>
-                <Link to="/AboutUs">About Us</Link>
-              </li>
-              <li>
-                <Link to="/Contact">Contact</Link>
-              </li>
-              <li>
                 <Link to="/Donation">Donation</Link>
               </li>
               <li>

@@ -31,20 +31,20 @@ const router = new Router();
         .post('/category/create',category.CreateCategory)
         .get('/category/all',category.GetAllCategory)
         .get('/category/:id',category.GetCategory)
-        .delete('/category/delete',category.DeleteCategory)
+        .delete('/category/:id',category.DeleteCategory)
         .put('/category/alter',category.AlterCategory)
 
         .post('/source/create',source.CreateSource)
         .put('/source/validate',source.Validation)
         .patch('/source/update',source.UpdateSource)
-        .delete('/source/delete',source.DeleteSource)
+        .delete('/source/:id',source.DeleteSource)
         .get('/source/all',source.GetAllSources)
         .get('/source/:id',source.GetSource)
 
         .post('/chapter/create',chapter.CreateChapter)
         .put('/chapter/update',chapter.UpdateChapter)
         .put('/chapter/update-revision',chapter.UpdateRevision)
-        .delete('/chapter/delete',chapter.DeleteChapter)
+        .delete('/chapter/delete/:id',chapter.DeleteChapter)
         .get('/chapter',chapter.getAllChapters)
         .get('/chapter/:id',chapter.GetChapter)
 

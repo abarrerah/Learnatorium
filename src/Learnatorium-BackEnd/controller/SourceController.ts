@@ -13,10 +13,10 @@ export const CreateSource = async ({request,response}:RouterContext)=>{
         const id=await Source.create({isbn,creation,validation});
 
         response.body=await Source.where('isbn',isbn).get();
-        response.status=200;
+        response.status=201;
     }else{
         response.body={msg:"Incorrect ISBN format"}
-        response.status=400;
+        response.status=404;
     }
     
 }
@@ -24,8 +24,21 @@ export const CreateSource = async ({request,response}:RouterContext)=>{
 export const Validation= async ({request,response}:RouterContext)=>{
     const{validation,id}=await request.body().value;
     let dt=new Date(validation);
-    await Source.where('id',id).update({validation:dt.toISOString().slice(0,19).replace('T',' ')})
-    response.body=Source.where('id',id).get();
+
+    const valFound=await Source.where('id',id).get();
+
+    if(valFound.toString().length>2){
+
+        await Source.where('id',id).update({validation:dt.toISOString().slice(0,19).replace('T',' ')});
+
+        response.body={msg:"Succesfully validated."};
+        response.status=200;
+
+    }else{
+
+        response.body={msg:"Source not found."};
+        response.status=404;
+    }
 }
 
 export const UpdateSource=async ({request,response}:RouterContext)=>{
@@ -42,10 +55,20 @@ export const UpdateSource=async ({request,response}:RouterContext)=>{
     }
 }
 
-export const DeleteSource=async ({request,response}:RouterContext)=>{
-    const{id}=await request.body().value;
-    response.body=await Source.where('id',id).delete();
-    
+export const DeleteSource=async ({params,response}:RouterContext)=>{
+    const id = JSON.parse(JSON.stringify(params.id));
+
+    const sourceFound= await Source.where("id", id).get();
+
+    if(sourceFound.toString().length>2){
+        await Source.where('id',id).delete();
+        response.body={msg:"Succesfully source deleted"}
+        response.status=200;
+    }else{
+        response.body={msg:"Source not found"}
+        response.status=404;
+    }
+
 }
 
 export const GetAllSources=async ({response}:RouterContext)=>{
