@@ -11,12 +11,14 @@ import Test from "./pages/Test";
 import profile from "./pages/profile";
 import SignUp from "./pages/signUp";
 import Admin from "./pages/admin";
+import Story from "./pages/story";
 import UserMeta from "./pages/meta/UserMeta";
 import DocumentsMeta from "./pages/meta/DocumentsMeta";
 import ThemeMeta from "./pages/meta/ThemeMeta";
 import CategoriesMeta from "./pages/meta/CategoriesMeta";
 import SourceMeta from "./pages/meta/SourceMeta";
 import ChapterMeta from "./pages/meta/ChapterMeta";
+
 
 import "./style/App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -44,14 +46,14 @@ function App() {
       <Router>
         <Navbar name={name} />
         <Route path="/" exact component={Home} />
-        <Route path="/Stories" exact component={Stories} />
+        <Route path="/Stories" exact component={Stories}/>
         <Route path="/Test" exact component={Test} />
         <Route path="/Donation" exact component={Donation} />
         <Route path="/Login" exact component={signIn} />
         <Route path="/Profile" exact component={profile} />
         <Route path="/Register" exact component={SignUp} />
         <Route path="/Admin" exact component={Admin} />
-
+        <Route path="/Story/:id" component={Story} />
         <Route path="/Admin-User-Zone" exact component={UserMeta} />
         <Route path="/Admin-Documents-Zone" exact component={DocumentsMeta} />
         <Route path="/Admin-Theme-Zone" exact component={ThemeMeta} />
