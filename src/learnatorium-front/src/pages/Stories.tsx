@@ -1,30 +1,38 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable jsx-a11y/heading-has-content */
+/* eslint-disable react-hooks/exhaustive-deps */
 
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useEffect, useState } from "react";
+import axios from "axios";
+import React, { useState } from "react";
 
 function Stories() {
-    const [name, setName] = useState("");
-    useEffect(()=>{fetch("http://localhost:8050/documents", {
-    }).then((res) => {
-      res.json()
-      .then((result) => setName(result));
-    });},[])
 
-  let cards="<div className='uk-child-width-1-2@s uk-grid-match' uk-grid>";
+  const [story,setStory] =useState<[]>([]);
+
+  const apiURL= "http://localhost:8050/documents";
+
+  const fetchData = async()=>{
+    for(let i = 0; i < 3;i++){
+      const response = await axios.get(apiURL);
+      setStory(JSON.parse(JSON.stringify(response.data)));
+    }
 
   
-
-  for(let i=0;i<name.length;i++){
-    const element = JSON.parse(JSON.stringify(name[i]));
-    cards+=" <div><div className='uk-card uk-card-hover uk-card-body'><h3 className='uk-card-title'>"+element.name+"</h3></div></div>";
+    for(let value of story){
+      // @ts-ignore
+      console.log(value.name);
+    }
+   
   }
-  cards+="</div>";
-
-  const output = document.getElementById("mostrar");
-  if (output) output.innerHTML = cards.toString();
+   
+  
   return (
-      <div id="mostrar">
-        
+      <div >
+          <button onClick={fetchData}>del</button>
+          <div >
+            
+          </div>
       </div>
   );
 }
