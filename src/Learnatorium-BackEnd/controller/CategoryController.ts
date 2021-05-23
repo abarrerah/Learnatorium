@@ -3,8 +3,8 @@ import  { Category} from '../model/allModel.ts';
 
 export const CreateCategory= async ({request,response}:RouterContext)=>{
 
-    const{id,name}=await request.body().value;
-    await Category.create({id:id,name:name});
+    const{id,name,relatedColor}=await request.body().value;
+    await Category.create({id:id,name:name,relatedColor:relatedColor});
     response.status=201;
     response.body=Category.where('name',name).get();
 }
@@ -28,13 +28,13 @@ export const DeleteCategory= async ({params,response}:RouterContext)=>{
 }
 
 export const AlterCategory= async ({request,response}:RouterContext)=>{
-    const{id,name}=await request.body().value;
+    const{id,name,relatedColor}=await request.body().value;
     
     let catFound= await Category.where("id",id).get();
 
     if(catFound.toString().length>2){
         
-        await Category.where('id',id).update('name',name);
+        await Category.where('id',id).update({name:name,relatedColor:relatedColor});
         response.body={msg:"Updated Category"}
         response.status=200;
 

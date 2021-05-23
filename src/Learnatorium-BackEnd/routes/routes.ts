@@ -59,6 +59,7 @@ const router = new Router();
         .get('/documents',document.GetAllDocuments)
         .get('/document/:id',document.GetDocument)
 
+
         .get('/user/:id',user.getUser)
         .get('/users',user.getAllUser)
         .delete('/user/:id',user.deleteUser)
