@@ -1,40 +1,35 @@
-/* eslint-disable array-callback-return */
-import React, { Component } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import './../style/pages/stories.css';
 
-export default class Stories extends Component {
-  constructor(props: any) {
-    super(props);
-    this.state = {};
-  }
+const Card = (props: any) => {
+  return (
+    <div >
+      <div>{props.data.name}</div>
+      <div>{props.data.content}</div>
+    </div>
+  );
+};
 
-  async componentDidMount() {
-    await fetch("http://localhost:8050/documents")
-      .then((response) =>
-        response.json().then((result) => {
-          this.setState(result);
-        })
-      )
-      .catch((err) => console.log(err));
-  }
+function cardData(posts: any) {
+  let value = Object.values(posts);
+  return value.map((info: any, idx: any) => {
+    return <Card data={info} key={idx}></Card>;
+  });
+};
 
-  render() {
-    const result = JSON.parse(JSON.stringify(this.state));
-
-    return (
-      <div id="dek">
-        <section className="filter">dfgdfgdfgdfg</section>
-        {Object.keys(result).map((element) => {
-          
-          return (  
-              <div className="uk-card uk-card-hover uk-card-body">
-                <div className="uk-card-title">{result[element].name}</div>
-                <p>{result[element].content}</p>
-              </div>
-
-          );
-        })}
-      </div>
-    );
-  }
+function Stories() {
+  const [posts, setPosts] = useState([]);
+  useEffect(()=>{
+    axios
+    .get("http://localhost:8050/documents")
+    .then(response=>setPosts(response.data))
+},[]);
+  return (
+    <div className="uk-flex" id="mainContent">
+      {cardData(posts)}
+    </div>
+  )
 }
+
+export default Stories;

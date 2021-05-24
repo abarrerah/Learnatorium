@@ -1,5 +1,11 @@
 import { RouterContext } from "https://deno.land/x/oak@v6.5.1/mod.ts";
-import { Category, Chapter, Documents, Source, Theme } from "../model/allModel.ts";
+import {
+  Category,
+  Chapter,
+  Documents,
+  Source,
+  Theme,
+} from "../model/allModel.ts";
 
 export const CreateDocument = async ({ request, response }: RouterContext) => {
   const { name, content } = await request.body().value;
@@ -52,15 +58,11 @@ export const DeleteDocument = async ({ params, response }: RouterContext) => {
   const docuFound = await Documents.where("id", id).get();
 
   if (docuFound.toString().length > 2) {
-
     await Documents.where("id", id).delete();
-    response.status=200;
-
-  }else{
-
-      response.body={msg:"Document not found"};
-      response.status=404;
-
+    response.status = 200;
+  } else {
+    response.body = { msg: "Document not found" };
+    response.status = 404;
   }
 };
 
@@ -73,3 +75,19 @@ export const GetDocument = async ({ params, response }: RouterContext) => {
   response.body = await Documents.where("id", _id).get();
 };
 
+export const getAllDocsWithCat= async ({response}: RouterContext)=>{
+  let idDoc= await Documents.all();
+  let content;
+  let array=[];
+  const remember:JSON=<JSON>{}
+  let sendContent="";
+
+  for(let i=0;i< idDoc.length;i++) {
+    let j=idDoc[i].category;
+    content= await Category.where("id",j as any).get();
+    array.push(content);
+  }
+  console.log(typeof array);
+  sendContent=JSON.parse(JSON.stringify(array));
+  response.body=sendContent;
+}
