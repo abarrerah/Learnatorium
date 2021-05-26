@@ -6,7 +6,7 @@ import "./../style/pages/stories.css";
 const Card = (props: any) => {
 
   return (
-    <div>
+    <div className="card">
       <div className="uk-card-title">{props.data.name}</div>
       <div>{props.data.content}</div>
       <div id="show">{props.data.catName}</div>
@@ -32,7 +32,7 @@ function Stories() {
   }, []);
 
   return (
-    <div className="uk-flex" id="mainContent">
+    <div  id="mainContent">
       {cardData(posts)}
     </div>
   );
