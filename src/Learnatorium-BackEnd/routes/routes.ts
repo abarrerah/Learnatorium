@@ -54,6 +54,7 @@ const router = new Router();
         .patch('/document/update-source',document.UpdateSource)
         .patch('/document/update-chapter',document.UpdateChapter)
         .patch('/document/update-name',document.UpdateName)
+        .put('/document/update-summary',document.UpdateSummary)
         .patch('/document/update-content',document.UpdateContent)
         .delete('/document/:id',document.DeleteDocument)
         .get('/documents',document.GetAllDocuments)
