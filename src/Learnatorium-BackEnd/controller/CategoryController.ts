@@ -12,29 +12,29 @@ export const CreateCategory= async ({request,response}:RouterContext)=>{
 export const GetAllCategory= async({response}:RouterContext)=> {
 
     response.status=200;
-    response.body= await Category.orderBy('id','asc').all();
+    response.body= await Category.orderBy('catId','asc').all();
 }
 export const GetCategory=async ({params,response}:RouterContext)=>{
 
-    let idi:number=parseInt(params.id  as string);
-    console.log(idi)
+    let idi:number=parseInt(params.id as string);
+
     response.status=200;
-    response.body=Category.where('id',idi).get();
+    response.body=Category.where('catId',idi).get();
 }
 
 export const DeleteCategory= async ({params,response}:RouterContext)=>{
     const id = JSON.parse(JSON.stringify(params.id));
-    response.body=await Category.where('id',id).delete();
+    response.body=await Category.where('catId',id).delete();
 }
 
 export const AlterCategory= async ({request,response}:RouterContext)=>{
     const{id,name,relatedColor}=await request.body().value;
     
-    let catFound= await Category.where("id",id).get();
+    let catFound= await Category.where("catId",id).get();
 
     if(catFound.toString().length>2){
         
-        await Category.where('id',id).update({name:name,relatedColor:relatedColor});
+        await Category.where('catId',id).update({name:name,relatedColor:relatedColor});
         response.body={msg:"Updated Category"}
         response.status=200;
 

@@ -206,7 +206,6 @@ function admin() {
       menu =
         "<div><table><tr><th>ID</th><th>NAME</th><th>EMAIL</th><th>ROLE</th></tr>";
       for (let i = 0; i < user.length; i++) {
-        console.log(user[i]);
         const element = JSON.parse(JSON.stringify(user[i]));
 
         switch (element.role) {
@@ -260,7 +259,6 @@ function admin() {
       menu =
         "<div><table><tr><th>ID</th><th>Name</th><th>Content</th><th>CreationDate</th></tr>";
       for (let i = 0; i < docu.length; i++) {
-        console.log(docu[i]);
         const element = JSON.parse(JSON.stringify(docu[i]));
         menu +=
           "<tr><td>" +
@@ -286,14 +284,13 @@ function admin() {
       break;
     case 4:
       menu = "<div><table><tr><th>ID</th><th>Name</th><th>Style</th></tr>";
-      console.log(theme);
       for (let i = 0; i < theme.length; i++) {
         const element = JSON.parse(JSON.stringify(theme[i]));
         menu +=
           "<tr><td>" +
-          element.id +
+          element.themeId +
           "</td><td>" +
-          element.name +
+          element.themeName +
           "</td><td>" +
           element.style +
           "</td></tr>";
@@ -309,7 +306,7 @@ function admin() {
       for (let i = 0; i < cat.length; i++) {
         const element = JSON.parse(JSON.stringify(cat[i]));
         menu +=
-          "<tr><td>" + element.id + "</td><td>" + element.name + "</td></tr>";
+          "<tr><td>" + element.catId + "</td><td>" + element.catName + "</td></tr>";
       }
       menu += "</table></div>";
       const output5 = document.getElementById("mostrar");
@@ -323,7 +320,7 @@ function admin() {
 
         menu +=
           "<tr><td>" +
-          element.id +
+          element.sourceId +
           "</td><td>" +
           element.ISBN +
           "</td><td>" +
@@ -345,7 +342,7 @@ function admin() {
 
         menu +=
           "<tr><td>" +
-          element.id +
+          element.chapterId +
           "</td><td>" +
           element.groupName +
           "</td><td>" +

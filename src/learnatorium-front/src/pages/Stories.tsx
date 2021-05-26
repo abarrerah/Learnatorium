@@ -6,7 +6,7 @@ import "./../style/pages/stories.css";
 const Card = (props: any) => {
 
   return (
-    <div className="card">
+    <div className="card uk-card uk-card-default uk-card-hover uk-card-body uk-margin-auto uk-margin-bottom">
       <div className="uk-card-title">{props.data.name}</div>
       <div>{props.data.content}</div>
       <div id="show">{props.data.catName}</div>

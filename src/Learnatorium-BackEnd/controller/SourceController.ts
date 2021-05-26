@@ -25,11 +25,11 @@ export const Validation= async ({request,response}:RouterContext)=>{
     const{validation,id}=await request.body().value;
     let dt=new Date(validation);
 
-    const valFound=await Source.where('id',id).get();
+    const valFound=await Source.where('sourceId',id).get();
 
     if(valFound.toString().length>2){
 
-        await Source.where('id',id).update({validation:dt.toISOString().slice(0,19).replace('T',' ')});
+        await Source.where('sourceId',id).update({validation:dt.toISOString().slice(0,19).replace('T',' ')});
 
         response.body={msg:"Succesfully validated."};
         response.status=200;
@@ -46,7 +46,7 @@ export const UpdateSource=async ({request,response}:RouterContext)=>{
 
     let regexIsbn:RegExp =/^(?=(?:\D*\d){10}(?:(?:\D*\d){3})?$)[\d-]+$/;
     if(regexIsbn.test(isbn)){
-        await Source.where('id',id).update({isbn})
+        await Source.where('sourceId',id).update({isbn})
         response.body=Source.where('id',id).get()
         response.status=200;
     }else{
@@ -58,10 +58,10 @@ export const UpdateSource=async ({request,response}:RouterContext)=>{
 export const DeleteSource=async ({params,response}:RouterContext)=>{
     const id = JSON.parse(JSON.stringify(params.id));
 
-    const sourceFound= await Source.where("id", id).get();
+    const sourceFound= await Source.where("sourceId", id).get();
 
     if(sourceFound.toString().length>2){
-        await Source.where('id',id).delete();
+        await Source.where('sourceId',id).delete();
         response.body={msg:"Succesfully source deleted"}
         response.status=200;
     }else{
@@ -77,5 +77,5 @@ export const GetAllSources=async ({response}:RouterContext)=>{
 }
 export const GetSource=async ({params,response}:RouterContext)=>{
     let id=JSON.stringify(params.id);
-    response.body=await Source.where('id',id).get();
+    response.body=await Source.where('sourceId',id).get();
 }

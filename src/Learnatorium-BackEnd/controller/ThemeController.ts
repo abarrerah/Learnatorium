@@ -20,10 +20,10 @@ export const CreateTheme = async ({request,response}:RouterContext)=>{
 
 export const DeleteTheme = async ({params,response}:RouterContext)=>{
     const id = JSON.parse(JSON.stringify(params.id));
-    const themeFound= await Theme.where("id",id).get();
+    const themeFound= await Theme.where("themeId",id).get();
     
     if(themeFound.toString().length>2){
-        await Theme.where('id',id).delete();
+        await Theme.where('themeId',id).delete();
         response.body={msg:"Succesfully eliminated from our database."};
         response.status=200;
     }else{
@@ -39,7 +39,7 @@ export const UpdateTheme = async ({request,response}:RouterContext)=>{
     console.log(id+""+name+""+style)
     let regex:RegExp = /.\.css$/;
     if(regex.test(style)){
-        const _id=Theme.where('id',id).update({name:name,style:style})
+        const _id=Theme.where('themeId',id).update({name:name,style:style})
         response.body={msg:"Succesfully modified"};
     }else{
         response.body={msg:"Wrong style file format"}
@@ -50,7 +50,7 @@ export const GetTheme= async ({params,response}:RouterContext)=>{
     console.log(params.id)
     const id=JSON.stringify(params.id);
     response.status=200;
-    response.body=Theme.where('id',id).get();
+    response.body=Theme.where('themeId',id).get();
 }
 
 export const getAllTheme= async ({response}:RouterContext)=>{
