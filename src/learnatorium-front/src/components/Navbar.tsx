@@ -6,7 +6,10 @@ import React from "react";
 import "../style/components/navbar.css";
 import { Link } from "react-router-dom";
 
+import { useTranslation } from "react-i18next";
+
 function Navbar(props: { name: string }) {
+  const [t, i18n] = useTranslation("global");
 
   const logout = async()=>{
     await fetch('http://localhost:8050/logout', {

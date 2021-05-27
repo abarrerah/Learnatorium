@@ -79,26 +79,37 @@ export const GetAllDocuments = async ({ response }: RouterContext) => {
 
 export const GetDocument = async ({ params, response }: RouterContext) => {
   const _id = JSON.parse(JSON.stringify(params.id));
-  response.body = await Documents.where("id", _id).get();
+  response.body = await Documents.where("id", _id)
+    .join(Category, Category.field("catId"), Documents.field("category"))
+    .join(Theme, Theme.field("themeId"), Documents.field("theme"))
+    .join(Source, Source.field("sourceId"), Documents.field("source"))
+    .join(Chapter, Chapter.field("chapterId"), Documents.field("chapter"))
+    .get();
+    
+  response.status=200;  
 };
 
-export const getAllDocsWithCat= async ({response}: RouterContext)=>{
-  let idDoc= await Documents.all();
+export const getAllDocsWithCat = async ({ response }: RouterContext) => {
+  let idDoc = await Documents.all();
   let content;
-  let array=[];
-  let sendContent="";
+  let array = [];
+  let sendContent = "";
 
-  for(let i=0;i< idDoc.length;i++) {
-    content= await Documents.where(Documents.field("id"),idDoc[i].id as number)
-    .join(Category,Category.field("catId"),Documents.field("category"))
-    .join(Theme,Theme.field("themeId"),Documents.field("theme"))
-    .join(Source,Source.field("sourceId"),Documents.field("source"))
-    .join(Chapter,Chapter.field("chapterId"),Documents.field("chapter"))
-    .get();
+  for (let i = 0; i < idDoc.length; i++) {
+    content = await Documents.where(
+      Documents.field("id"),
+      idDoc[i].id as number
+    )
+      .join(Category, Category.field("catId"), Documents.field("category"))
+      .join(Theme, Theme.field("themeId"), Documents.field("theme"))
+      .join(Source, Source.field("sourceId"), Documents.field("source"))
+      .join(Chapter, Chapter.field("chapterId"), Documents.field("chapter"))
+      .get();
 
     array.push(content);
   }
   const newData = array.flat();
-  sendContent=JSON.parse(JSON.stringify(newData));
-  response.body=sendContent;
-}
+  sendContent = JSON.parse(JSON.stringify(newData));
+  response.body = sendContent;
+  response.status = 200;
+};
