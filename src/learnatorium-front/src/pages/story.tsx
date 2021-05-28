@@ -5,7 +5,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { match} from "react-router-dom";
-
 const Blog=(props:any)=>{
   return(
     <div>
