@@ -81,12 +81,6 @@ function Navbar(props: { name: string }) {
               <li>
                 <ul className="icons">
                   {menu}
-                  <li>
-                    <span uk-icon="icon: world"></span>
-                  </li>
-                  <li>
-                    <span uk-icon="icon:  bolt"></span>
-                  </li>
                 </ul>
               </li>
             </ul>
