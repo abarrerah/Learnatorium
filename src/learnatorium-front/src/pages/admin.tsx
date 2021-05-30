@@ -257,7 +257,7 @@ function admin() {
       break;
     case 2:
       menu =
-        "<div><table><tr><th>ID</th><th>Name</th><th>Content</th><th>CreationDate</th></tr>";
+        "<div><table><tr><th>ID</th><th>Name</th><th>Summary</th><th>CreationDate</th></tr>";
       for (let i = 0; i < docu.length; i++) {
         const element = JSON.parse(JSON.stringify(docu[i]));
         menu +=
@@ -266,7 +266,8 @@ function admin() {
           "</td><td>" +
           element.name +
           "</td><td>" +
-          element.content +
+          element.summary +
+
           "</td><td>" +
           element.creationDate
             .toString()
