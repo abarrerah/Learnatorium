@@ -1,23 +1,21 @@
 #box #ContentBox {
-  transform: translateY(5%);
-  width: 90vw;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
-  position: relative;
-  overflow: hidden;
   justify-content: center;
   align-items: unset;
   align-content: flex-start;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: auto;
   max-width: 90%;
-  border-radius: 0.3rem;
+  max-height: 70vh;
 }
 #box #ContentBox h2#title {
   order: 0;
   flex: 0 1 auto;
   align-self: center;
-  height: auto;
   width: 100%;
   text-align: center;
 }
@@ -25,7 +23,6 @@
   order: 0;
   flex: 0 1 auto;
   align-self: center;
-  height: auto;
   width: 30%;
   text-align: left;
 }
@@ -33,7 +30,6 @@
   order: 0;
   flex: 0 1 auto;
   align-self: center;
-  height: auto;
   width: 60%;
   text-align: right;
 }
@@ -41,12 +37,5 @@
   order: 0;
   flex: 0 1 auto;
   align-self: center;
-  height: auto;
   width: 100%;
-}
-#box #contentBox::-webkit-scrollbar {
-  display: none;
-}
-#box::-webkit-scrollbar {
-  display: none;
 }

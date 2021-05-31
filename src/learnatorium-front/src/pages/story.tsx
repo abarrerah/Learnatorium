@@ -60,6 +60,12 @@ function story({ match }: { match: any }) {
   return (
     <div id="box">
       {contentData(content)}
+      <section className=" uk-flex uk-flex-center">
+        <button className="uk-button uk-margin-right">Style 1</button>
+        <button className="uk-button uk-margin-right">Style 2</button>
+        <button className="uk-button uk-margin-right">Style 3</button>
+        <button className="uk-button uk-margin-right">Style 4</button>
+      </section>
     </div>
   );
 }
