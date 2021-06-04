@@ -21,7 +21,6 @@ export const Register= async ({request,response}:RouterContext)=>{
         response.body="Invalid email or password";
     }
   
-    
 }
 
 export const Login=async({request,response,cookies}:RouterContext)=>{

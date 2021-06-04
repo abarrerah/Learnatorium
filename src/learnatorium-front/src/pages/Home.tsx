@@ -34,20 +34,20 @@ function Home() {
         </div>
       </div>
       <div className="image ">
-        <div style={style}>
-          <img src={"images/home/row-1-col-1.jpg"} alt="" />
+        <div style={style} className="uk-inline-clip uk-transition-toggle">
+          <img className="uk-transition-scale-up uk-transition-opaque" src={"images/home/row-1-col-1.jpg"} alt="" />
         </div>
-        <div>
-          <img src={"images/home/row-1-col-2.jpg"} alt="" />
+        <div className="uk-inline-clip uk-transition-toggle">
+          <img className="uk-transition-scale-up uk-transition-opaque" src={"images/home/row-1-col-2.jpg"} alt="" />
         </div>
-        <div>
-          <img src={"images/home/row-1-col-3.jpg"} alt="" />
+        <div className="uk-inline-clip uk-transition-toggle">
+          <img className="uk-transition-scale-up uk-transition-opaque" src={"images/home/row-1-col-3.jpg"} alt="" />
         </div>
-        <div>
-          <img src={"images/home/row-1-col-4.jpg"} alt="" />
+        <div className="uk-inline-clip uk-transition-toggle">
+          <img className="uk-transition-scale-up uk-transition-opaque" src={"images/home/row-1-col-4.jpg"} alt="" />
         </div>
-        <div>
-          <img src={"images/home/row-1-col-5.jpg"} alt="" />
+        <div className="uk-inline-clip uk-transition-toggle"> 
+          <img className="uk-transition-scale-up uk-transition-opaque" src={"images/home/row-1-col-5.jpg"} alt="" />
         </div>
       </div>
       <div className="top uk-margin-large-top ">

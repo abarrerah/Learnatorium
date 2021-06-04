@@ -10,7 +10,7 @@ import "../style/pages/story.css";
 const Blog = (props: any) => {
   import("./assets/css/" + props.data.style);
   return (
-    <div id="ContentBox">
+    <div id="ContentBox" uk-spinner>
       <h2 id="title">{props.data.name}</h2>
       <section
         className="uk-flex uk-flex-left uk-margin-left uk-margin-right"

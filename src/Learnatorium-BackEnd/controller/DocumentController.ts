@@ -26,6 +26,7 @@ export const CreateDocument = async ({ request, response }: RouterContext) => {
     source,
   });
   response.body = Documents.where("name", name).get();
+  response.status= 201;
 };
 
 export const UpdateName = async ({ request, response }: RouterContext) => {

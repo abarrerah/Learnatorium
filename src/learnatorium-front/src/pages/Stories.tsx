@@ -17,28 +17,45 @@ const swalButton = async () => {
       swal("Oops!", "You have to be logged in to create a Story!", "error");
     } else {
       const { value: formValues } = await Swal.fire({
-        title: 'Multiple inputs',
+        title: "Multiple inputs",
         html:
-          '<label>Name</label><input id="swal-input1" class="swal2-input">' +
-          '<label>Summary</label><input id="swal-input2" class="swal2-input">'+
-          '<label>Content</label><textarea  id="swal-input3" class="swal2-input">',
+          '<label>Name</label><input id="swal-input1" class="swal2-input" required>' +
+          '<label>Summary</label><input id="swal-input2" class="swal2-input" required>' +
+          '<label>Content</label><textarea  id="swal-input3" class="swal2-input" required>',
         focusConfirm: false,
         preConfirm: () => {
           return [
             // @ts-ignore: Object is possibly 'null'.
-            document.getElementById('swal-input1').value,
+            document.getElementById("swal-input1").value,
             // @ts-ignore: Object is possibly 'null'.
-            document.getElementById('swal-input2').value,
+            document.getElementById("swal-input2").value,
             // @ts-ignore: Object is possibly 'null'.
-            document.getElementById('swal-input3').value
-          ]
+            document.getElementById("swal-input3").value,
+          ];
+        },
+      });
+      let jsonData= JSON.parse(JSON.stringify(formValues));
+ 
+      
+     if(JSON.stringify(jsonData[0]).length>2 && JSON.stringify(jsonData[1]).length>2 && JSON.stringify(jsonData[2]).length>2){
+
+      await fetch("http://localhost:8050/document/create", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ 
+          name:jsonData[0],
+          summary:jsonData[1],
+          content:jsonData[2],
+         }),
+      }).then(res=>{
+        if(res.status ===201){
+          swal("Element Created!", "Your new story is on our database! Please, reload the page and u were able to see it", "success");
         }
-      })
-    
-      if (formValues) {
-        Swal.fire(JSON.stringify(formValues))
-      }
-    }
+      });
+    }else{
+      swal("Some fields are empty!", "You are trying to send content without info , and that is pretty bad.", "error");
+    }}
   });
 };
 
@@ -89,8 +106,10 @@ function Stories() {
 
   return (
     <div>
-      <button className="uk-button" onClick={swalButton}>Create Story!</button>
-      <div id="mainContent">{cardData(posts)}</div>;
+      <button className="uk-button" onClick={swalButton}>
+        Create Story!
+      </button>
+      <div id="mainContent">{cardData(posts)}</div>
     </div>
   );
 }
