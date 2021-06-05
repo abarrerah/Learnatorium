@@ -3,7 +3,10 @@
 import React, { SyntheticEvent, useState } from "react";
 import "../style/pages/register.css";
 import axios from 'axios';
+import { useTranslation } from "react-i18next";
+
 function signUp() {
+  const [text]= useTranslation("global");
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [email, setEmail] = useState("");
   const [user, setUser] = useState("");
@@ -41,7 +44,7 @@ function signUp() {
     <div>
       <section className="signUp">
         <h2 className="uk-heading-medium uk-text-bold uk-text-muted uk-text-capitalize uk-text-center">
-          sign <span className="uk-text-primary">up!</span>
+        {text("register.h2")} <span className="uk-text-primary">{text("register.span")}</span>
         </h2>
         <form onSubmit={submit}>
           <div className="uk-margin">
@@ -108,16 +111,12 @@ function signUp() {
           </section>
         </form>
         <p>
-          Clicking submit it means you, as user, had read and accepted all our
-          present terms , use condition and privacy politics about the website,
-          owned by Learnatorium develop team.{" "}
+          {text("register.p1")}
         </p>
         <p>
-          Access and use of this website is the responsability of the user, who
-          must follow the rules of coexistence and the terms and conditions of
-          use that have been previously accepted.
+          {text("register.p2")}
         </p>
-        <h3>Enjoy your stay.</h3>
+        <h3>{text("register.h3")}</h3>
       </section>
     </div>
   );

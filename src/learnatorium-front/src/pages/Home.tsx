@@ -1,35 +1,31 @@
 import React from "react";
 import "../style/pages/home.css";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const imagePath = "images/home/row-1-col-1.jpg";
 const style = { backgroundImage: `url('file://${imagePath}')` };
 
 function Home() {
   
-  
-
+  const [text]= useTranslation("global");
   return (
     <div className="main-home">
       <div className="text">
         <div className="main-text">
           <h1 className="uk-text-italic">Learnatorium</h1>
           <h3>
-            Perfect Synergy of <span>Learn and have fun.</span>
+          {text("home.h3.content")} <span>{text("home.h3.span")}</span>
           </h3>
           <p>
-            Knowledge is one of the most values keys that human have it to
-            improve their future develop and keep making such amazing hits like
-            we did in our past.
+          {text("home.p1")}
           </p>
           <p>
-            For centuries, the information was one of the elements more
-            preciated and exclusives which only a few had the fortune to access
-            it and this place is to avoid that, is for share those with you!
+          {text("home.p2")}
           </p>
           <div className="explore uk-flex ">
             <span uk-icon="icon : triangle-right"></span>
-            <h4>Explore Content.</h4>
+            <h4>{text("home.explore.h4")}</h4>
           </div>
         </div>
       </div>
@@ -51,7 +47,7 @@ function Home() {
         </div>
       </div>
       <div className="top uk-margin-large-top ">
-        <h2>Top 3 of the week.</h2>
+        <h2>{text("home.top")}</h2>
         <section className="uk-flex uk-flex-between ">
           <div>
             <img
@@ -101,13 +97,13 @@ function Home() {
         </section>
       </div>
       <div className="triangle">
-        <div className="start">Get started</div>
+        <div className="start">{text("home.getStarted")}</div>
         <div className="sign">
           <section className="in">
-            <Link to="/Login">Sign In</Link>
+            <Link to="/Login">{text("home.login")}</Link>
           </section>
           <section className="up">
-            <Link to="/Register">Sign Up</Link>
+            <Link to="/Register">{text("home.register")}</Link>
           </section>
         </div>
       </div>

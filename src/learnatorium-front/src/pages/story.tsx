@@ -4,10 +4,12 @@
 
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { match } from "react-router-dom";
 import "../style/pages/story.css";
 
 const Blog = (props: any) => {
+  const [text]= useTranslation("global");
   import("./assets/css/" + props.data.style);
   return (
     <div id="ContentBox" uk-spinner>
@@ -17,7 +19,7 @@ const Blog = (props: any) => {
         id="creation"
       >
         <div className="uk-text-muted">
-          Date creation: {props.data.creation}
+        {text("story.date")} {props.data.creation}
         </div>
       </section>
       <section
@@ -25,11 +27,11 @@ const Blog = (props: any) => {
         className="uk-flex uk-flex-right uk-margin-left uk-margin-right"
       >
         <div className="uk-margin-right uk-text-muted">
-          Author: {props.data.author}
+        {text("story.author")} {props.data.author}
         </div>
         <div className="uk-text-muted">ISBN: {props.data.isbn}</div>
         <div className="uk-text-muted uk-margin-left">
-          Chapter: {props.data.groupName}
+        {text("story.chapter")} {props.data.groupName}
         </div>
       </section>
       <section id="content" className="uk-margin-large-top">

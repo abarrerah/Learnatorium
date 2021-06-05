@@ -1,5 +1,71 @@
 {
-    "header": {
-        "hello-world":"Hello World"
+    "navbar": {
+        "home":"home",
+        "stories":"Stories",
+        "test":"Test",
+        "donation":"Donation"
+    },
+    "footer":{
+        "number":"Calls at : "
+    },
+    "home":{
+        "h3":{
+            "content":"Perfect Synergy of",
+            "span":"Learn and have fun."
+        },
+        "p1":"Knowledge is one of the most values keys that human have it to improve their future develop and keep making such amazings hits like we did in our past.",
+        "p2":"For centuries, the information was one of the elements more preciated and exclusives which only a few had the fortune to access it and this place is to avoid that, is for share those with you!.",
+        "explore":{
+            "h4":"Explore Content."
+        },
+        "top":"Top 3 of the week.",
+        "getStarted":"Get Started.",
+        "login":"Sign In",
+        "register":"Sign out"
+    },
+    "stories":{
+        "storyButton":"Create Story!",
+        "cards":{
+            "link":"Read More."
+        }
+    },
+    "story":{
+        "author":"Author: ",
+        "date":"Date Creation: ",
+        "chapter":"Chapter"
+    },
+    "login":{
+        "section":{
+            "h4":"Join us and start to share your knowledge with our community!",
+            "p1":"we are differents from the rest, you won´t find anything similar to Learnatorium.",
+            "p2":"Also, you are not going to spot marketing, spam or commercials ads here!. Only our work from real people, as YOU!",
+            "h6":"Know more about it !",
+            "signUpButton":"Sign Up"
+        },
+        "loginBox":{
+            "h3":"Login to your account",
+            "button":"Submit",
+            "info":{
+                "fPart":"For privacy reason, we only use our owns cookies for grant you the best experience posible.",
+                "sPart":"Learnatorium´s Develop Team does not take care about the responsabilities you should had taken before since we have already implemented all security measures so that it does not happen once.  "
+            }
+        }
+    },
+    "register":{
+        "h2":"sign",
+        "span":"up!",
+        "p1":"Clicking Submit it means you , as user , had read and accepted all our present terms, use conditions and privacy politics about the website,owned by Learnatorium develop team.",
+        "p2":"Access and use of this website is the responsability of the user,who must follow the rules of coexistence and the terms and conditions of use that have been previously accepted.",
+        "h3":"Enjoy your stay."
+    },
+    "admin":{
+        "panel":"Admin Panel",
+        "user":"User",
+        "document":"Documents",
+        "test":"Test",
+        "theme":"Theme",
+        "category":"Categories",
+        "source":"Sources",
+        "chapter":"Chapter"
     }
 }

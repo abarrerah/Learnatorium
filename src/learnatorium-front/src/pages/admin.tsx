@@ -2,9 +2,12 @@
 // @ts-ignore: Object is possibly 'null'.
 import * as React from "react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import "../style/pages/admin.css";
 
 function admin() {
+  const [text]= useTranslation("global");
+
   window.addEventListener("load", async () => {
     const result = await fetch("http://localhost:8050/user", {
       headers: { "Content-Type": "application/json" },
@@ -359,56 +362,56 @@ function admin() {
   return (
     <div>
       <div className="headerAdmin uk-heading-small uk-text-bold uk-text-muted">
-        Admin panel
+        {text("admin.panel")}
       </div>
       <button
         className="uk-margin-left uk-margin-right uk-button-primary adminButton"
         value={mia}
         onClick={users}
       >
-        Users
+        {text("admin.user")}
       </button>
       <button
         className="uk-margin-left uk-margin-right uk-button-primary adminButton"
         value={mia}
         onClick={documents}
       >
-        Documents
+        {text("admin.document")}
       </button>
       <button
         className="uk-margin-left uk-margin-right uk-button-primary adminButton"
         value={mia}
         onClick={Test}
       >
-        Test
+        {text("admin.test")}
       </button>
       <button
         className="uk-margin-left uk-margin-right uk-button-primary adminButton"
         value={mia}
         onClick={Theme}
       >
-        Theme
+        {text("admin.theme")}
       </button>
       <button
         className="uk-margin-left uk-margin-right uk-button-primary adminButton"
         value={mia}
         onClick={Categories}
       >
-        Categories
+        {text("admin.category")}
       </button>
       <button
         className="uk-margin-left uk-margin-right uk-button-primary adminButton"
         value={mia}
         onClick={Source}
       >
-        Source
+        {text("admin.source")}
       </button>
       <button
         className="uk-margin-left uk-margin-right uk-button-primary adminButton"
         value={mia}
         onClick={Chapter}
       >
-        Chapter
+        {text("admin.chapter")}
       </button>
       <section className="show">
         <button

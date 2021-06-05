@@ -6,10 +6,20 @@ import React from "react";
 import "../style/components/navbar.css";
 import { Link } from "react-router-dom";
 
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 
 function Navbar(props: { name: string }) {
-  const [t, i18n] = useTranslation("global");
+  const [text,i18n]= useTranslation("global");
+
+  const changeLanguage =()=>{
+    if(i18n.language === "es"){
+      i18n.changeLanguage("en");
+    }else{
+      i18n.changeLanguage("es");
+    }
+    
+  }
+
 
   const logout = async()=>{
     await fetch('http://localhost:8050/logout', {
@@ -28,7 +38,7 @@ function Navbar(props: { name: string }) {
           <Link to="/Login" uk-icon="icon: sign-in"></Link>
         </li>
         <li>
-          <a uk-icon="icon: world"></a>
+          <a uk-icon="icon: world" onClick={changeLanguage}></a>
         </li>
         <li>
           <a uk-icon="icon:  bolt"></a>
@@ -42,7 +52,7 @@ function Navbar(props: { name: string }) {
           <Link to="/profile" uk-icon="icon: user"></Link>
         </li>
         <li>
-          <a uk-icon="icon: world"></a>
+          <a uk-icon="icon: world" onClick={changeLanguage}></a>
         </li>
         <li>
           <a uk-icon="icon:  bolt"></a>
@@ -67,16 +77,16 @@ function Navbar(props: { name: string }) {
           <nav>
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/">{text("navbar.home")}</Link>
               </li>
               <li>
-                <Link to="/Stories">Stories</Link>
+                <Link to="/Stories">{text("navbar.stories")}</Link>
               </li>
               <li>
-                <Link to="/Test">Test</Link>
+                <Link to="/Test">{text("navbar.test")}</Link>
               </li>
               <li>
-                <Link to="/Donation">Donation</Link>
+                <Link to="/Donation">{text("navbar.donation")}</Link>
               </li>
               <li>
                 <ul className="icons">

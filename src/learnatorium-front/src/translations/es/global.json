@@ -1,5 +1,71 @@
 {
-    "header": {
-        "hello-world":"Hola Mundo"
+    "navbar": {
+        "home":"Inicio",
+        "stories":"Historias",
+        "test":"Pruebas",
+        "donation":"Donaciones"
+    },
+    "footer":{
+        "number":"Llama al : "
+    },
+    "home":{
+        "h3":{
+            "content":"La Perfecta Sinergia De",
+            "span":"Aprender y Divertirse."
+        },
+        "p1":"El conocimiento es uno de los más importantes llaves que el humano ha tenido para mejorar su futuro desarrollo y seguir consiguiendo increibles hitos como los que hemos hecho en el pasado.",
+        "p2":"Por siglos, la información ha sido uno de los elementos más preciado y exclusivos el cual solo algunos han tenido la fortuna de acceder a ella y este lugar is para evitar eso, ¡Es para compartirla contigo!.",
+        "explore":{
+            "h4":"Explorar Contenido."
+        },
+        "top":"Top 3 de la semana.",
+        "getStarted":"Empieza.",
+        "login":"Acceder",
+        "register":"Registrarse"
+    },
+    "stories":{
+        "storyButton":"Crea una historia!",
+        "cards":{
+            "link":"Saber Más."
+        }
+    },
+    "story":{
+        "author":"Author: ",
+        "date":"Fecha de creación: ",
+        "chapter":"Capítulo: "
+    },
+    "login":{
+        "section":{
+            "h4":"¡Únete a nosotros y empieza a compartir tus conocimientos con nuestra comunidad!",
+            "p1":"Somos distintos a los demás, no encontrarás nada similar a Learnatorium",
+            "p2":"Además,¡no encontrarás marketing, spam o espacios publicitarios aquí!. Solo nuestro trabajo de personas reales, como TÚ. ",
+            "h6":"¡Saber más sobre ello!",
+            "signUpButton":"Registrarse"
+        },
+        "loginBox":{
+            "h3":"Acceder a su cuenta",
+            "button":"Enviar",
+            "info":{
+                "fPart":"Por motivos de seguridad, nosotros solo usamos nuestras propias cookies para garantizarte la mejor experiencia posible.",
+                "sPart":"El equipo de desarrollo de Learnatorium no se hará cargo de las responsabilidades que deberías haber tomado previamente desde que nosotros implementamos todas las medidas de seguridad posible para que eso no pase ni una vez."
+            }
+        }
+    },"register":{
+        "h2":"Registrate",
+        "span":"¡Ya!",
+        "p1":"Haciendo click en Enviar dices tú, como usuario , que has leido y aceptado todos nuestros presentes términos, condiciones de uso y política de privacidad sobre la página web , propiedad del equipo de desarrollo de Learnatorium. ",
+        "p2":"El acceso y uso de esta página web es la responsabilidad del usuario, quien debe seguir las normas de coexistencia y los términos y condiciones de uso que ha aceptado previamente.",
+        "h3":"Que disfrute su estancia."
+    },
+    "admin":{
+        "panel":"Panel de Administración",
+        "user":"Usuario",
+        "document":"Documentos",
+        "test":"Pruebas",
+        "theme":"Temas",
+        "category":"Categorías",
+        "source":"Fuentes",
+        "chapter":"Capítulos"
     }
+
 }

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import "./../style/pages/stories.css";
 import swal from "sweetalert";
 import Swal from "sweetalert2";
-
+import { useTranslation } from "react-i18next";
 const swalButton = async () => {
   const result = await fetch("http://localhost:8050/user", {
     headers: { "Content-Type": "application/json" },
@@ -60,6 +60,7 @@ const swalButton = async () => {
 };
 
 const Card = (props: any) => {
+  const [text]= useTranslation("global");
   return (
     <div className="card uk-card uk-card-default uk-card-hover uk-card-body uk-margin-auto uk-margin-bottom ">
       <div className="uk-card-header ">
@@ -82,7 +83,7 @@ const Card = (props: any) => {
           to={{ pathname: "/story/" + props.data.id }}
           className="uk-button uk-button-text"
         >
-          Read More
+          {text("stories.cards.link")}
         </Link>
       </div>
     </div>
@@ -97,6 +98,8 @@ function cardData(posts: any) {
 }
 
 function Stories() {
+
+  const [text]= useTranslation("global");
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     axios
@@ -107,7 +110,7 @@ function Stories() {
   return (
     <div>
       <button className="uk-button" onClick={swalButton}>
-        Create Story!
+      {text("stories.storyButton")}
       </button>
       <div id="mainContent">{cardData(posts)}</div>
     </div>

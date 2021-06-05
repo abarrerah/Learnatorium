@@ -3,8 +3,10 @@
 import React, { SyntheticEvent, useState } from "react";
 import "../style/pages/Login.css";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function signIn() {
+  const [text]= useTranslation("global");
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -40,20 +42,18 @@ function signIn() {
     <div className="login uk-flex">
       <section>
         <h2>Learnatorium</h2>
-        <h4>Join us and start to share your knowledge with our community!</h4>
+        <h4>{text("login.section.h4")}</h4>
         <p>
-          we are differents from the rest, you won´t find anything similar to
-          Learnatorium.
+        {text("login.section.p1")}
         </p>
         <p>
-          Also, you are not going to spot marketing, spam or commecials
-          ads!.Only our work and real people , as YOU!
+        {text("login.section.p2")}
         </p>
 
-        <h6>Know More about it !</h6>
+        <h6>{text("login.section.h6")}</h6>
         <div>
           <button className="uk-button">
-            <Link to="/Register">Sign Up</Link>
+            <Link to="/Register">{text("login.section.signUpButton")}</Link>
           </button>
         </div>
       </section>
@@ -77,7 +77,7 @@ function signIn() {
           </button>
         </div>
         <div className="Login uk-margin-large-top  ">
-          <h3>Login to your account</h3>
+          <h3>{text("login.loginBox.h3")}</h3>
           <form onSubmit={submit}>
             <div className="uk-margin">
               <input
@@ -94,19 +94,15 @@ function signIn() {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <button className="uk-button uk-button-primary uk-margin-top">
-                Submit
+              {text("login.loginBox.button")}
               </button>
             </div>
           </form>
         </div>
         <div className="info">
-          Por motivos de privacidad, utilizamos cookies propias para garantizar
-          la mejor experiencia posible.
+          {text("login.loginBox.info.fPart")}
           <br></br>
-          En caso de robo o sustracción de información de su cuenta de usuario,
-          el equipo de desarrollo de Learnatorium no se hará cargo de las
-          responsibilidades que usted debería haber tomado previamente ya que
-          hemos implementado todas las medidas posibles para que no ocurra.
+          {text("login.loginBox.info.sPart")}
         </div>
       </section>
     </div>
