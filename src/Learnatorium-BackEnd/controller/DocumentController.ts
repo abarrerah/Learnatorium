@@ -1,72 +1,56 @@
 import { RouterContext } from "https://deno.land/x/oak@v6.5.1/mod.ts";
-import {
-  Category,
-  Chapter,
-  Documents,
-  Source,
-  Theme,
-} from "../model/allModel.ts";
 
-export const CreateDocument = async ({ request, response }: RouterContext) => {
+import * as DocumentService from "../repository/DocumentService.ts";
+
+export const createDocument = async ({ request, response }: RouterContext) => {
   const { name, summary, content } = await request.body().value;
-  let creation_date = new Date().toISOString().slice(0, 19).replace("T", " ");
-
-  let theme = 4;
-  let category = 1;
-  let chapter = 1;
-  let source = 1;
-  const _id = await Documents.create({
-    name,
-    summary,
-    content,
-    creation_date,
-    theme,
-    category,
-    chapter,
-    source,
-  });
-  response.body = Documents.where("name", name).get();
-  response.status= 201;
+  response.body = await DocumentService.postDocument(name, summary, content);
+  response.status = 201;
 };
 
-export const UpdateName = async ({ request, response }: RouterContext) => {
+export const updateName = async ({ request, response }: RouterContext) => {
   const { id, name } = await request.body().value;
-  response.body = await Documents.where("id", id).update({ name });
+
+  response.body = await DocumentService.patchName(id, name);
+  response.status = 200;
 };
 
-export const UpdateSummary = async ({ request, response }: RouterContext) => {
+export const updateSummary = async ({ request, response }: RouterContext) => {
   const { id, summary } = await request.body().value;
-  response.body = await Documents.where("id", id).update({ summary });
+  response.body = await DocumentService.patchSummary(id, summary);
+  response.status = 200;
 };
 
-export const UpdateContent = async ({ request, response }: RouterContext) => {
+export const updateContent = async ({ request, response }: RouterContext) => {
   const { id, content } = await request.body().value;
-  response.body = await Documents.where("id", id).update({ content });
+  response.body = await DocumentService.patchContent(id, content);
+  response.status = 200;
 };
-export const UpdateTheme = async ({ request, response }: RouterContext) => {
+
+export const updateTheme = async ({ request, response }: RouterContext) => {
   const { id, theme } = await request.body().value;
-  response.body = await Documents.where("id", id).update({ theme });
+  response.body = await DocumentService.patchTheme(id, theme);
+  response.status = 200;
 };
-export const UpdateCategory = async ({ request, response }: RouterContext) => {
+export const updateCategory = async ({ request, response }: RouterContext) => {
   const { id, category } = await request.body().value;
-  response.body = await Documents.where("id", id).update({ category });
+  response.body = await DocumentService.patchCategory(id, category);
+  response.status = 200;
 };
-export const UpdateChapter = async ({ request, response }: RouterContext) => {
+export const updateChapter = async ({ request, response }: RouterContext) => {
   const { id, chapter } = await request.body().value;
-  response.body = await Documents.where("id", id).update({ chapter });
+  response.body = await DocumentService.patchChapter(id, chapter);
+  response.status = 200;
 };
-export const UpdateSource = async ({ request, response }: RouterContext) => {
+export const updateSource = async ({ request, response }: RouterContext) => {
   const { id, source } = await request.body().value;
-  response.body = await Documents.where("id", id).update({ source });
+  response.body = await DocumentService.patchSource(id, source);
 };
 
-export const DeleteDocument = async ({ params, response }: RouterContext) => {
-  const id = JSON.parse(JSON.stringify(params.id));
+export const deleteDocument = async ({ params, response }: RouterContext) => {
+  let deletedDocument= await DocumentService.deleteDocuments(params.id);
 
-  const docuFound = await Documents.where("id", id).get();
-
-  if (docuFound.toString().length > 2) {
-    await Documents.where("id", id).delete();
+  if (deletedDocument) {
     response.status = 200;
   } else {
     response.body = { msg: "Document not found" };
@@ -74,43 +58,16 @@ export const DeleteDocument = async ({ params, response }: RouterContext) => {
   }
 };
 
-export const GetAllDocuments = async ({ response }: RouterContext) => {
-  response.body = await Documents.all();
+export const getAllDocuments = async ({ response }: RouterContext) => {
+  response.body = await DocumentService.allDocuments();
 };
 
-export const GetDocument = async ({ params, response }: RouterContext) => {
-  const _id = JSON.parse(JSON.stringify(params.id));
-  response.body = await Documents.where("id", _id)
-    .join(Category, Category.field("catId"), Documents.field("category"))
-    .join(Theme, Theme.field("themeId"), Documents.field("theme"))
-    .join(Source, Source.field("sourceId"), Documents.field("source"))
-    .join(Chapter, Chapter.field("chapterId"), Documents.field("chapter"))
-    .get();
-    
-  response.status=200;  
+export const getDocument = async ({ params, response }: RouterContext) => {
+  response.body = await DocumentService.documentWithAllRelations(params.id);
+  response.status = 200;
 };
 
 export const getAllDocsWithCat = async ({ response }: RouterContext) => {
-  let idDoc = await Documents.all();
-  let content;
-  let array = [];
-  let sendContent = "";
-
-  for (let i = 0; i < idDoc.length; i++) {
-    content = await Documents.where(
-      Documents.field("id"),
-      idDoc[i].id as number
-    )
-      .join(Category, Category.field("catId"), Documents.field("category"))
-      .join(Theme, Theme.field("themeId"), Documents.field("theme"))
-      .join(Source, Source.field("sourceId"), Documents.field("source"))
-      .join(Chapter, Chapter.field("chapterId"), Documents.field("chapter"))
-      .get();
-
-    array.push(content);
-  }
-  const newData = array.flat();
-  sendContent = JSON.parse(JSON.stringify(newData));
-  response.body = sendContent;
+  response.body= await DocumentService.allDocswithAllRelations();
   response.status = 200;
 };

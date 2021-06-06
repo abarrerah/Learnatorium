@@ -1,5 +1,5 @@
 import { Router } from "https://deno.land/x/oak@v6.5.1/mod.ts";
-import { Register,Login,Me,Logout } from "../controller/loginController.ts";
+import { Register,Login,Me,Logout } from "../controller/LoginController.ts";
 import * as role from '../controller/RoleController.ts';
 import * as theme from '../controller/ThemeController.ts';
 import * as category from '../controller/CategoryController.ts';
@@ -22,7 +22,7 @@ const router = new Router();
         .delete('/role/delete',role.DeleteRole)
         .get('/role',role.GetAllRole)
 
-        .post('/theme/create',theme.CreateTheme)
+        .post('/theme/create',theme.createTheme)
         .delete('/theme/:id',theme.DeleteTheme)
         .put('/theme/update',theme.UpdateTheme)
         .get('/theme/:id',theme.GetTheme)
@@ -48,18 +48,18 @@ const router = new Router();
         .get('/chapter',chapter.getAllChapters)
         .get('/chapter/:id',chapter.GetChapter)
 
-        .post('/document/create',document.CreateDocument)
-        .patch('/document/update-category',document.UpdateCategory)
-        .patch('/document/update-theme',document.UpdateTheme)
-        .patch('/document/update-source',document.UpdateSource)
-        .patch('/document/update-chapter',document.UpdateChapter)
-        .patch('/document/update-name',document.UpdateName)
-        .put('/document/update-summary',document.UpdateSummary)
-        .patch('/document/update-content',document.UpdateContent)
-        .delete('/document/:id',document.DeleteDocument)
-        .get('/documents',document.GetAllDocuments)
+        .post('/document/create',document.createDocument)
+        .patch('/document/update-category',document.updateCategory)
+        .patch('/document/update-theme',document.updateTheme)
+        .patch('/document/update-source',document.updateSource)
+        .patch('/document/update-chapter',document.updateChapter)
+        .patch('/document/update-name',document.updateName)
+        .put('/document/update-summary',document.updateSummary)
+        .patch('/document/update-content',document.updateContent)
+        .delete('/document/:id',document.deleteDocument)
+        .get('/documents',document.getAllDocuments)
         .get('/documentsCat',document.getAllDocsWithCat)
-        .get('/document/:id',document.GetDocument)
+        .get('/document/:id',document.getDocument)
 
 
         .get('/user/:id',user.getUser)
