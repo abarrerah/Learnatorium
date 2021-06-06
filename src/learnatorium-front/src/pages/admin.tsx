@@ -5,11 +5,13 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import "../style/pages/admin.css";
 
+import * as entry from './env/entrypoints';
+
 function admin() {
   const [text]= useTranslation("global");
 
   window.addEventListener("load", async () => {
-    const result = await fetch("http://localhost:8050/user", {
+    const result = await fetch(entry.entrypointBack+"/user", {
       headers: { "Content-Type": "application/json" },
       credentials: "include",
     });
@@ -18,12 +20,12 @@ function admin() {
       .then((e) => {
         if (e.toString().length > 0) {
           if (e[0].role !== 10) {
-            window.location.href = "http://localhost:3000/profile";
+            window.location.href = entry.entrypointFront+"/profile";
           }
         }
       })
       .catch((e) => {
-        window.location.href = "http://localhost:3000";
+        window.location.href = entry.entrypointFront;
       });
   });
 
@@ -36,26 +38,26 @@ function admin() {
     }
     switch (result) {
       case 1:
-        window.location.href = "http://localhost:3000/Admin-User-Zone";
+        window.location.href = entry.entrypointFront+"/Admin-User-Zone";
         break;
       case 2:
-        window.location.href = "http://localhost:3000/Admin-Documents-Zone";
+        window.location.href = entry.entrypointFront+"/Admin-Documents-Zone";
         break;
       case 3:
-        window.location.href = "http://localhost:3000";
+        window.location.href = entry.entrypointFront;
         break;
       case 4:
-        window.location.href = "http://localhost:3000/Admin-Theme-Zone";
+        window.location.href = entry.entrypointFront+"/Admin-Theme-Zone";
 
         break;
       case 5:
-        window.location.href = "http://localhost:3000/Admin-Categories-Zone";
+        window.location.href = entry.entrypointFront+"/Admin-Categories-Zone";
         break;
       case 6:
-        window.location.href = "http://localhost:3000/Admin-Source-Zone";
+        window.location.href = entry.entrypointFront+"/Admin-Source-Zone";
         break;
       case 7:
-        window.location.href = "http://localhost:3000/Admin-Chapter-Zone";
+        window.location.href = entry.entrypointFront+"/Admin-Chapter-Zone";
         break;
     }
   }
@@ -68,7 +70,7 @@ function admin() {
   const [chap, setChap] = useState("");
 
   async function getDocuments() {
-    const result = await fetch("http://localhost:8050/documents", {
+    const result = await fetch(entry.entrypointBack+"/documents", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -86,7 +88,7 @@ function admin() {
   }
 
   async function getSources() {
-    const result = await fetch("http://localhost:8050/source/all", {
+    const result = await fetch(entry.entrypointBack+"/source/all", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -104,7 +106,7 @@ function admin() {
   }
 
   async function getUsers() {
-    const result = await fetch("http://localhost:8050/users", {
+    const result = await fetch(entry.entrypointBack+"/users", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -121,7 +123,7 @@ function admin() {
       });
   }
   async function getTheme() {
-    const result = await fetch("http://localhost:8050/theme", {
+    const result = await fetch(entry.entrypointBack+"/theme", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -139,7 +141,7 @@ function admin() {
   }
 
   async function getCategory() {
-    const result = await fetch("http://localhost:8050/category/all", {
+    const result = await fetch(entry.entrypointBack+"/category/all", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -157,7 +159,7 @@ function admin() {
   }
 
   async function getChapter() {
-    const result = await fetch("http://localhost:8050/chapter", {
+    const result = await fetch(entry.entrypointBack+"/chapter", {
       headers: {
         "Content-Type": "application/json",
       },

@@ -4,11 +4,15 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./../style/pages/stories.css";
+
 import swal from "sweetalert";
 import Swal from "sweetalert2";
 import { useTranslation } from "react-i18next";
+
+import {entrypointBack} from './env/entrypoints';
+
 const swalButton = async () => {
-  const result = await fetch("http://localhost:8050/user", {
+  const result = await fetch( entrypointBack +"/user", {
     headers: { "Content-Type": "application/json" },
     credentials: "include",
   });
@@ -39,7 +43,7 @@ const swalButton = async () => {
       
      if(JSON.stringify(jsonData[0]).length>2 && JSON.stringify(jsonData[1]).length>2 && JSON.stringify(jsonData[2]).length>2){
 
-      await fetch("http://localhost:8050/document/create", {
+      await fetch( entrypointBack+"/document/create", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -103,7 +107,7 @@ function Stories() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8050/documentsCat")
+      .get( entrypointBack+"/documentsCat")
       .then((response) => setPosts(response.data));
   }, []);
 

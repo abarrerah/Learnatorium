@@ -5,6 +5,8 @@ import "../style/pages/Login.css";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
+import * as entry from './env/entrypoints';
+
 function signIn() {
   const [text]= useTranslation("global");
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -13,7 +15,7 @@ function signIn() {
 
   const submit = async (e: SyntheticEvent) => {
     e.preventDefault();
-      await fetch("http://localhost:8050/login", {
+      await fetch(entry.entrypointBack+"/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",
@@ -22,16 +24,16 @@ function signIn() {
         password: password,
       }),
     });
-    const result = await fetch("http://localhost:8050/user",{
+    const result = await fetch(entry.entrypointBack+"/user",{
       headers: { "Content-Type": "application/json" },
       credentials: "include",
     })
     result.json()
     .then((e)=>{
       if(e[0].role===10){
-        window.location.href="http://localhost:3000/Admin";
+        window.location.href=entry.entrypointFront+"/Admin";
       }else{
-        window.location.href = "http://localhost:3000/profile";
+        window.location.href = entry.entrypointFront+"/profile";
       }
     })
     .catch((e)=>{console.log(e)})
