@@ -1,5 +1,4 @@
 import { RouterContext } from "https://deno.land/x/oak@v6.5.1/mod.ts";
-import { User } from "../model/allModel.ts";
 import * as UserService from "../repository/UserService.ts";
 
 export const getUser = async ({ params, response }: RouterContext) => {
