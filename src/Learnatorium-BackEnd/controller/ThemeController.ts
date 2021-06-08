@@ -1,5 +1,4 @@
 import { RouterContext } from "https://deno.land/x/oak@v6.5.1/mod.ts";
-import  { Theme} from '../model/allModel.ts';
 import * as ThemeService from '../repository/ThemeService.ts';
 
 export const createTheme = async ({request,response}:RouterContext)=>{

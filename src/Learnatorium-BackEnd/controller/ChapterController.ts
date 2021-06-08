@@ -1,5 +1,5 @@
 import { RouterContext } from "https://deno.land/x/oak@v6.5.1/mod.ts";
-import { Chapter } from "../model/allModel.ts";
+
 import * as ChapterService from '../repository/ChapterService.ts';
 
 export const CreateChapter = async ({ request, response }: RouterContext) => {

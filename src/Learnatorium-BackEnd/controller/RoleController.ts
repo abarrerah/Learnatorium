@@ -1,11 +1,12 @@
 import { RouterContext } from "https://deno.land/x/oak@v6.5.1/mod.ts";
 import  {Role} from '../model/allModel.ts';
+import * as RoleService from "../repository/RoleService.ts";
 
 export const CreateRole=async ({request,response}:RouterContext)=>{
     const{name,description}=await request.body().value;
 
-    const id= await Role.create({name,description});
-    response.body=await Role.where('name',name).get();
+    response.body = RoleService.generateRole(name,description);
+    response.status = 200;
 };
 
 export const AlterRole= async ({request,response}:RouterContext)=>{

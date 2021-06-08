@@ -1,48 +1,42 @@
 import { RouterContext } from "https://deno.land/x/oak@v6.5.1/mod.ts";
-import  { Category} from '../model/allModel.ts';
+import * as CategoryService from "../repository/CategoryService.ts";
 
 export const CreateCategory= async ({request,response}:RouterContext)=>{
 
-    const{id,name,relatedColor}=await request.body().value;
-    await Category.create({id:id,name:name,relatedColor:relatedColor});
+    const{catName,relatedColor}=await request.body().value;
+   
     response.status=201;
-    response.body=Category.where('name',name).get();
+    response.body= await CategoryService.generateCategory(catName,relatedColor);
 }
 
 export const GetAllCategory= async({response}:RouterContext)=> {
 
     response.status=200;
-    response.body= await Category.orderBy('catId','asc').all();
+    response.body= await CategoryService.showAllCategory();
 }
 export const GetCategory=async ({params,response}:RouterContext)=>{
 
-    let idi:number=parseInt(params.id as string);
-
     response.status=200;
-    response.body=Category.where('catId',idi).get();
+    response.body= await CategoryService.showCategory(params.id);
 }
 
 export const DeleteCategory= async ({params,response}:RouterContext)=>{
-    const id = JSON.parse(JSON.stringify(params.id));
-    response.body=await Category.where('catId',id).delete();
+    const result: boolean = await CategoryService.removeCategory(params.id);
+
+    if(result){
+        response.status = 200;
+        response.body = {msg: "Category removed"};
+    }else{
+        response.status=200;
+        response.body = {msg: "Category not found"};
+    }
+    
 }
 
 export const AlterCategory= async ({request,response}:RouterContext)=>{
     const{id,name,relatedColor}=await request.body().value;
     
-    let catFound= await Category.where("catId",id).get();
-
-    if(catFound.toString().length>2){
-        
-        await Category.where('catId',id).update({name:name,relatedColor:relatedColor});
-        response.body={msg:"Updated Category"}
-        response.status=200;
-
-    }else{
-
-        response.body={msg:"category not found"}
-        response.status=404;
-    }
-
+    response.status = 200;
+    response.body = await CategoryService.putCategory(id,name,relatedColor);
     
 }
