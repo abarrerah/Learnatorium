@@ -3,27 +3,16 @@ import  {User} from '../model/allModel.ts';
 import * as bcrypt from "https://deno.land/x/bcrypt/mod.ts";
 import { create,verify } from "https://deno.land/x/djwt/mod.ts"
 
+import * as LoginService from "../repository/LoginService.ts";
 
-export const Register= async ({request,response}:RouterContext)=>{
+
+export const register= async ({request,response}:RouterContext)=>{
     const {name,email,password}= await request.body().value;
-    let salt=bcrypt.genSalt(10);
-    const role=11;
-    let regexEmail:RegExp=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    let regexPasword:RegExp=/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[a-zA-Z!#$%&? "])[a-zA-Z0-9!#$%&?]{8,20}$/;
-
-    if(regexEmail.test(email) && regexPasword.test(password)){
-        const id= await User.create({name,email,password:await bcrypt.hash(password,await salt),role})
-
-        response.status=201;
-        response.body=await User.where('name',name).get();
-    }else{
-        response.status=400;
-        response.body="Invalid email or password";
-    }
+    response.body = await LoginService.regist(name,email,password);
   
 }
 
-export const Login=async({request,response,cookies}:RouterContext)=>{
+export const login=async({request,response,cookies}:RouterContext)=>{
     const {email,password}= await request.body().value;
 
     const user=await User.where('email',email).get();
@@ -48,7 +37,7 @@ export const Login=async({request,response,cookies}:RouterContext)=>{
 }
 
 
-export const Me = async({response,cookies}:RouterContext)=>{
+export const me = async({response,cookies}:RouterContext)=>{
     const jwt= cookies.get('jwt') || '';
     if(!jwt){
        response.status=401;
@@ -73,7 +62,7 @@ export const Me = async({response,cookies}:RouterContext)=>{
 }
 
 
-export const Logout=({response,cookies}:RouterContext)=>{
+export const logout=({response,cookies}:RouterContext)=>{
     cookies.delete('jwt');
 
     response.body={

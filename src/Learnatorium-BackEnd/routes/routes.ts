@@ -1,5 +1,5 @@
 import { Router } from "https://deno.land/x/oak@v6.5.1/mod.ts";
-import { Register,Login,Me,Logout } from "../controller/LoginController.ts";
+import { register,login,me,logout } from "../controller/LoginController.ts";
 import * as role from '../controller/RoleController.ts';
 import * as theme from '../controller/ThemeController.ts';
 import * as category from '../controller/CategoryController.ts';
@@ -11,16 +11,16 @@ import * as user from '../controller/UserController.ts';
 const router = new Router();
 
     router
-        .post('/register',Register)
-        .post('/login',Login)
-        .get('/user',Me)
-        .post('/logout',Logout)
+        .post('/register',register)
+        .post('/login',login)
+        .get('/user',me)
+        .post('/logout',logout)
 
         .post('/role/create',role.CreateRole)
         .patch('/role/update',role.AlterRole)
-        .patch('/role/update-name',role.AlterNameRole)
-        .delete('/role/delete',role.DeleteRole)
+        .delete('/role/:id',role.DeleteRole)
         .get('/role',role.GetAllRole)
+        .get('/role/:id',role.getRole)
 
         .post('/theme/create',theme.createTheme)
         .delete('/theme/:id',theme.DeleteTheme)
