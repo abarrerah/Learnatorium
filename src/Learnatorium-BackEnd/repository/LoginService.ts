@@ -1,7 +1,5 @@
 import { User } from "../model/allModel.ts";
-import * as CleanJson from "../libs/CleanJson.ts";
 import * as bcrypt from "https://deno.land/x/bcrypt/mod.ts";
-import { create,verify } from "https://deno.land/x/djwt/mod.ts"
 
 export const regist = async(name:string,email:string,password:string)=>{
 

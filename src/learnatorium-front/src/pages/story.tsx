@@ -34,7 +34,7 @@ const Blog = (props: any) => {
         {text("story.chapter")} {props.data.groupName}
         </div>
       </section>
-      <section id="content" className="uk-margin-large-top">
+      <section id="content" className="uk-margin-large-top" >
         <div>{props.data.content}</div>
       </section>
       
@@ -60,7 +60,7 @@ function story({ match }: { match: any }) {
   }, [match.params.id]);
   contentData(content);
   return (
-    <div id="box">
+    <div id="box" uk-parallax="blur: 10; sepia: 100;">
       {contentData(content)}
       <section className=" uk-flex uk-flex-center">
         <button className="uk-button uk-margin-right">Style 1</button>
