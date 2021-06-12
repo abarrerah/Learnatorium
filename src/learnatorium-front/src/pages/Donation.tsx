@@ -1,5 +1,5 @@
 import React from 'react';
-import {CardElement, PaymentRequestButtonElement,AfterpayClearpayMessageElement } from '@stripe/react-stripe-js';
+import {CardElement } from '@stripe/react-stripe-js';
 import {Elements} from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 
