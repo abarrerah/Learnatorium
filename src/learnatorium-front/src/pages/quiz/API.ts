@@ -1,4 +1,6 @@
 
+import * as entrypoint from '../env/entrypoints';
+
 export type Question = {
     category: string;
     correct_answer: string;
@@ -25,3 +27,20 @@ export const fetchQuizApi = async()=>{
         answers: shuffleArray([...question.incorrect_answers,question.correct_answer])
     }))
 };
+
+
+export type Profile = {
+  id:number;
+  name:string;
+  email:string;
+  password:string;
+  role:number;
+}
+
+export const fetchUserApi = async()=>{
+  const endpoint =entrypoint.entrypointBack+"/user";
+
+  const data = await (await fetch(endpoint)).json();
+
+  return data;
+}

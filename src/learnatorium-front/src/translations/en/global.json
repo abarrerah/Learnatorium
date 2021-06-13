@@ -67,5 +67,12 @@
         "category":"Categories",
         "source":"Sources",
         "chapter":"Chapter"
+    },
+    "test":{
+        "buttonInit":"Start",
+        "buttonNext":"Next",
+        "quiz":{
+            "welcoming":"Let´s beggins!"
+        }
     }
 }

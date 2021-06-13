@@ -39,6 +39,7 @@ export const login=async({request,response,cookies}:RouterContext)=>{
 
 export const me = async({response,cookies}:RouterContext)=>{
     const jwt= cookies.get('jwt') || '';
+    
     if(!jwt){
        response.status=401;
        response.body= {msg:"User not authenticated"};
@@ -50,7 +51,7 @@ export const me = async({response,cookies}:RouterContext)=>{
     if(!payload){
         response.status=401;
         response.body={
-            msg:"Unauthencticated",
+            msg:"Unauthenticated",
         }
         return;
     }
