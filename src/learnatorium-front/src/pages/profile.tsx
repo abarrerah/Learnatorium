@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import * as entry from "./env/entrypoints";
 import "../style/pages/profile.css";
+import Swal from "sweetalert2";
 
 export class profile extends Component<any, any> {
   constructor(props: any) {
@@ -23,40 +24,74 @@ export class profile extends Component<any, any> {
       this.setState({ data: await res.json() });
     });
 
-    console.log(this.state);
+
   }
 
   render() {
+
+    let state:number;
+
+    const t=this.state.data.map((item:any)=>{
+      return item.role;
+      
+    })
+    state = t[0];
+
+    const editProfile =()=>{
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Your work has been saved',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
+
+    const toAdmin =()=>{
+      window.location.href = entry.entrypointFront+"/Admin";
+    }
+
     return (
       <div>
         <section className="headerContent"></section>
         <section className="profileZone">
           <div className="profilePic" />
-          <div className="profileText uk-margin-top uk-margin-left uk-heading-medium">
+          <div className="profileText uk-margin-top uk-margin-left uk-text-large">
             {this.state.data.map((item: any) => (
-              <p>
-                Welcome back {item.name}. Have a{" "}
-                <span className="uk-text-success">nice</span> day.
+              <p >
+                Welcome back {item.name}. Have a
+                <span className="uk-text-success"> nice</span> day.
               </p>
             ))}
+            <div className="uk-button-group">
+        <button className="uk-button uk-button-primary uk-margin-right" onClick={editProfile}>Edit</button>
+                
+
+        {state === 10 && <button className="uk-button uk-button-danger uk-margin-right" onClick={toAdmin}>Admin Zone</button>}
+
+        
+    </div>
           </div>
         </section>
         <section id="formProfile" className="uk-container">
           <div id="cardProfile" className="uk-child-width-1-1@m" uk-grid>
             <div>
               <div className="uk-card uk-card-default">
-                <div className="uk-card-media-top">
+                <div className="uk-card-media-top" id="cardInit">
                   <img
-                    src="https://images.ctfassets.net/hrltx12pl8hq/1fR5Y7KaK9puRmCDaIof7j/09e2b2b9eaf42d450aba695056793607/vector1.jpg"
+                    src="./images/vector1.jpg"
                     alt=""
                   />
+
                 </div>
               </div>
             </div>
             <div>
               <div className="uk-card uk-card-default">
                 <div className="uk-card-body">
-                    
+                    What´s next?
+                  <textarea className="uk-textarea"></textarea>
+                  <button className="uk-button uk-button-primary uk-margin-right uk-margin-top">Submit</button>
                 </div>
               </div>
             </div>

@@ -1,0 +1,13 @@
+#containerDonation {
+  border: 5px solid #227093;
+  border-radius: 0.3rem;
+  transform: translateY(5%);
+}
+#containerDonation #shadowText {
+  text-shadow: 3px 1px 2px #006ea1;
+  font-size: 37px;
+}
+#containerDonation #shadowText:hover {
+  transform: translateY(-10px);
+  transition: ease-in-out 0.6s;
+}

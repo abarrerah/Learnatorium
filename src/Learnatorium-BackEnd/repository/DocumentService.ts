@@ -98,7 +98,7 @@ export const postDocument = async(name:string,summary:string,content:string)=>{
   let chapter = 1;
   let source = 1;
 
-  const _id = await Documents.create({
+  await Documents.create({
     name,
     summary,
     content,
