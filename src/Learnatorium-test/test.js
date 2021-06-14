@@ -4,8 +4,7 @@ require("chromedriver");
 async function example(){
     let driver= await new Builder().forBrowser("chrome").build();
     await driver.get("https://www.google.es");
-    await driver.navigate().to("http://localhost:3000")
-
+    await driver.navigate().to("http://localhost:3000");
 
  
 }
