@@ -113,7 +113,7 @@ function Stories() {
 
   return (
     <div>
-      <button className="uk-button" onClick={swalButton}>
+      <button className="uk-button uk-margin-large-top uk-margin-left" onClick={swalButton}>
       {text("stories.storyButton")}
       </button>
       <div id="mainContent">{cardData(posts)}</div>

@@ -13,11 +13,11 @@ function Home() {
     <div className="main-home">
       <div className="text">
         <div className="main-text">
-          <h1 className="uk-text-italic">Learnatorium</h1>
+          <h1 className="uk-text-italic" id="nameHome">Learnatorium</h1>
           <h3>
           {text("home.h3.content")} <span>{text("home.h3.span")}</span>
           </h3>
-          <p>
+          <p id="homeP1">
           {text("home.p1")}
           </p>
           <p>
@@ -46,8 +46,8 @@ function Home() {
           <img className="uk-transition-scale-up uk-transition-opaque" src={"images/home/row-1-col-5.jpg"} alt="" />
         </div>
       </div>
-      <div className="top uk-margin-large-top ">
-        <h2>{text("home.top")}</h2>
+      <div className="top uk-margin-large-top uk-invisible@s uk-visible@m" >
+        <h2 id="top" className="uk-margin-large-top@m">{text("home.top")}</h2>
         <section className="uk-flex uk-flex-between ">
           <div>
             <img

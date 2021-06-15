@@ -12,7 +12,7 @@ const Blog = (props: any) => {
   const [text]= useTranslation("global");
   import("./assets/css/" + props.data.style);
   return (
-    <div id="ContentBox" uk-spinner>
+    <div id="ContentBox" uk-spinner className="uk-flex uk-flex-column">
       <h2 id="title">{props.data.name}</h2>
       <section
         className="uk-flex uk-flex-left uk-margin-left uk-margin-right"
@@ -62,7 +62,7 @@ function story({ match }: { match: any }) {
   return (
     <div id="box" uk-parallax="blur: 10; sepia: 100;">
       {contentData(content)}
-      <section className=" uk-flex uk-flex-center">
+      <section className=" uk-flex uk-flex-center " id="buttonsStory">
         <button className="uk-button uk-margin-right">Style 1</button>
         <button className="uk-button uk-margin-right">Style 2</button>
         <button className="uk-button uk-margin-right">Style 3</button>

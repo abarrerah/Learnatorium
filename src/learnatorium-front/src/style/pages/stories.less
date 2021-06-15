@@ -10,6 +10,14 @@
   max-height: 80vh;
   .card {
     width: 30%;
+    border: 1px solid #227093;
+    border-radius:0.3rem;
+    @media(min-width:640px) and (max-width:960px){
+      width:45%;
+    }
+    @media(max-width:640px){
+      width:100%
+    }
   }
 }
 #mainContent::-webkit-scrollbar {
