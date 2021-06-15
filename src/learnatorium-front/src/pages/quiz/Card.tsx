@@ -1,6 +1,7 @@
 import React from "react";
 import Swal from "sweetalert2";
 import { useTranslation } from "react-i18next";
+import '../../style/pages/quiz/card.css'
 
 let cont = 0;
 
@@ -11,8 +12,8 @@ function Card(props: { setElement: any[] }) {
   const greet = (els: any) => {
     if (els === 0) {
       return (
-        <div>
-          <h1>{text("test.quiz.welcoming")}</h1>
+        <div >
+          <h1 id="begin">{text("test.quiz.welcoming")}</h1>
         </div>
       );
     } else {
@@ -47,15 +48,15 @@ function Card(props: { setElement: any[] }) {
       };
 
       return (
-        <div className="uk-container">
+        <div className="uk-container uk-height-max-large  uk-overflow-auto" id="cardContainer" >
           <h1>{elms.question}</h1>
           <div className="uk-flex uk-flex-around">
-            <h2 className="uk-margin-remove">{elms.category}</h2>
-            <h2 className="uk-margin-remove">{elms.difficulty}</h2>
-            <h2 className="uk-margin-remove">{cont}</h2>
+            <h2 className="uk-margin-remove uk-text-small">{elms.category}</h2>
+            <h2 className="uk-margin-remove uk-text-small">{elms.difficulty}</h2>
+            <h2 className="uk-margin-remove uk-text-small">{cont}</h2>
           </div>
           <hr className="uk-divider-icon"/>
-          <section className="uk-child-width-expand@s" uk-grid>
+          <section className="uk-child-width-expand@s" uk-grid >
             <button  className="uk-width-1-2@m uk-height-small uk-margin uk-margin uk-button-default" onClick={showInfo} id="myButton1" >
               {elms.answers[0]}
             </button>
