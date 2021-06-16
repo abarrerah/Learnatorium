@@ -23,33 +23,29 @@ export class profile extends Component<any, any> {
     }).then(async (res) => {
       this.setState({ data: await res.json() });
     });
-
-
   }
 
   render() {
+    let state: number;
 
-    let state:number;
-
-    const t=this.state.data.map((item:any)=>{
+    const t = this.state.data.map((item: any) => {
       return item.role;
-      
-    })
+    });
     state = t[0];
 
-    const editProfile =()=>{
+    const editProfile = () => {
       Swal.fire({
-        position: 'center',
-        icon: 'success',
-        title: 'Your work has been saved',
+        position: "center",
+        icon: "success",
+        title: "Your work has been saved",
         showConfirmButton: false,
-        timer: 1500
-      })
-    }
+        timer: 1500,
+      });
+    };
 
-    const toAdmin =()=>{
-      window.location.href = entry.entrypointFront+"/Admin";
-    }
+    const toAdmin = () => {
+      window.location.href = entry.entrypointFront + "/Admin";
+    };
 
     return (
       <div>
@@ -58,19 +54,30 @@ export class profile extends Component<any, any> {
           <div className="profilePic" />
           <div className="profileText uk-margin-top uk-margin-left uk-text-large">
             {this.state.data.map((item: any) => (
-              <p >
+              <p>
                 Welcome back {item.name}. Have a
                 <span className="uk-text-success"> nice</span> day.
               </p>
             ))}
             <div className="uk-button-group">
-        <button className="uk-button uk-button-primary uk-margin-right" onClick={editProfile}>Edit</button>
-                
+              <button
+                className="uk-button uk-button-primary uk-margin-right"
+                id="buttonEditProfile"
+                onClick={editProfile}
+              >
+                Edit
+              </button>
 
-        {state === 10 && <button className="uk-button uk-button-danger uk-margin-right" onClick={toAdmin}>Admin Zone</button>}
-
-        
-    </div>
+              {state === 10 && (
+                <button
+                  className="uk-button uk-button-danger uk-margin-right"
+                  id="buttonAdminProfile"
+                  onClick={toAdmin}
+                >
+                  Admin Zone
+                </button>
+              )}
+            </div>
           </div>
         </section>
         <section id="formProfile" className="uk-container">
@@ -78,20 +85,18 @@ export class profile extends Component<any, any> {
             <div>
               <div className="uk-card uk-card-default">
                 <div className="uk-card-media-top" id="cardInit">
-                  <img
-                    src="./images/vector1.jpg"
-                    alt=""
-                  />
-
+                  <img src="./images/vector1.jpg" alt="" />
                 </div>
               </div>
             </div>
             <div>
               <div className="uk-card uk-card-default">
                 <div className="uk-card-body">
-                    What´s next?
+                  What´s next?
                   <textarea className="uk-textarea"></textarea>
-                  <button className="uk-button uk-button-primary uk-margin-right uk-margin-top">Submit</button>
+                  <button className="uk-button uk-button-primary uk-margin-right uk-margin-top">
+                    Submit
+                  </button>
                 </div>
               </div>
             </div>

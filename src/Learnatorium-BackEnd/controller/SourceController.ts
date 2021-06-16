@@ -39,7 +39,7 @@ export const DeleteSource=async ({params,response}:RouterContext)=>{
 
 export const GetAllSources=async ({response}:RouterContext)=>{
 
-    response.body = SourceService.showAllSource();
+    response.body = await SourceService.showAllSource();
     response.status = 200;
 }
 export const GetSource=async ({params,response}:RouterContext)=>{
