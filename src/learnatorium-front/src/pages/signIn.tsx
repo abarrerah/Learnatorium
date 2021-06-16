@@ -43,37 +43,37 @@ function signIn() {
   return (
     <div className="login uk-flex">
       <section>
-        <h2>Learnatorium</h2>
-        <h4>{text("login.section.h4")}</h4>
-        <p>
+        <h2 id="titleLogin">Learnatorium</h2>
+        <h4 id="legendLogin">{text("login.section.h4")}</h4>
+        <p id="parragraphLogin">
         {text("login.section.p1")}
         </p>
-        <p>
+        <p id="parragraphLogin">
         {text("login.section.p2")}
         </p>
 
-        <h6>{text("login.section.h6")}</h6>
+        <h6 id="infoLogin">{text("login.section.h6")}</h6>
         <div>
-          <button className="uk-button">
+          <button className="uk-button ">
             <Link to="/Register">{text("login.section.signUpButton")}</Link>
           </button>
         </div>
       </section>
       <section>
         <div className="oAuth uk-flex uk-flex-column uk-flex-middle">
-          <button className="uk-button uk-button-large facebook uk-width-1-3 uk-margin-bottom uk-margin-top">
+          <button className="uk-button uk-button-large facebook uk-width-1-3 uk-margin-bottom uk-margin-top" id="buttonLogin">
             <span uk-icon="icon: facebook"></span>
             Facebook
           </button>
-          <button className="uk-button google uk-width-1-3 uk-margin-bottom uk-margin-bottom">
+          <button className="uk-button google uk-width-1-3 uk-margin-bottom uk-margin-bottom" id="buttonLogin">
             <span uk-icon="icon: google"></span>
             Google
           </button>
-          <button className="uk-button twitter uk-width-1-3 uk-button-large uk-margin-bottom">
+          <button className="uk-button twitter uk-width-1-3 uk-button-large uk-margin-bottom" id="buttonLogin">
             <span uk-icon="icon: twitter"></span>
             Twitter
           </button>
-          <button className="uk-button twitch uk-width-1-3 uk-button-large">
+          <button className="uk-button twitch uk-width-1-3 uk-button-large " id="buttonLogin">
             <span uk-icon="icon: twitch"></span>
             Twitch
           </button>
@@ -90,12 +90,12 @@ function signIn() {
               />
 
               <input
-                className="uk-input uk-form-width-large uk-margin-top"
+                className="uk-input uk-input uk-form-width-large uk-margin-top"
                 type="password"
                 placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <button className="uk-button uk-button-primary uk-margin-top">
+              <button className="uk-button uk-button-primary uk-margin-top" id="submitButtonLogin">
               {text("login.loginBox.button")}
               </button>
             </div>

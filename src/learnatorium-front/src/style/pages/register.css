@@ -1,17 +1,37 @@
 section.signUp {
   background-color: #353b48;
-  width: 50%;
+  width: 60%;
   margin: 0 auto;
-  height: 70vh;
+  height: 77vh;
   transform: translateY(20%);
   border-radius: 0.3rem;
   box-shadow: 4px 4px 8px 0px #3498db;
+  text-align: center;
 }
 section.signUp div.uk-margin {
-  margin-left: 35%;
+  margin: 0 auto;
+  position: relative;
 }
 section.signUp section.uk-flex {
-  margin-left: 36%;
+  justify-content: center;
+  align-content: center;
+}
+@media (max-width: 640px) {
+  section.signUp section.uk-flex {
+    flex-direction: column;
+  }
+}
+section.signUp section.uk-flex input {
+  height: 50px;
+  padding: 0 auto;
+  font-size: 12px;
+  margin: 0 auto;
+}
+@media (max-width: 640px) {
+  section.signUp section.uk-flex input {
+    width: 80%;
+    height: 30px;
+  }
 }
 section.signUp p,
 section.signUp h3 {
@@ -20,11 +40,45 @@ section.signUp h3 {
   margin: 0 auto;
 }
 section.signUp p {
+  color: #115369;
   text-align: justify;
   margin-top: 2%;
-  font-size: 12px;
+  font-size: 9px;
+}
+@media (max-width: 992px) and (min-width: 560px) {
+  section.signUp p {
+    font-size: 6px;
+  }
+}
+@media (max-width: 560px) {
+  section.signUp p {
+    font-size: 4px;
+  }
 }
 section.signUp h3 {
   text-align: center;
-  font-size: 26px;
+  font-size: 20px;
+}
+@media (max-width: 992px) and (min-width: 560px) {
+  section.signUp h3 {
+    font-size: 14px;
+  }
+}
+@media (max-width: 560px) {
+  section.signUp h3 {
+    font-size: 10px;
+  }
+}
+#inputRegister {
+  width: 100%;
+}
+@media (max-width: 640px) {
+  #inputRegister {
+    width: 80%;
+  }
+}
+@media (max-width: 640px) {
+  .uk-form-icon {
+    display: none;
+  }
 }

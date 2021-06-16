@@ -2,10 +2,15 @@
   width: 75%;
   margin: 0 auto;
   transform: translateY(5%);
-  height: 75vh;
+  height: 80vh;
   border: 1px solid black;
   border-radius: 0.3rem;
   box-shadow: 10px 8px 8px 0px rgba(97, 82, 82, 0.46), -5px -5px 4px 0px rgba(97, 82, 82, 0.23) inset;
+}
+@media (max-width: 550px) {
+  .login {
+    width: 85%;
+  }
 }
 .login section {
   height: 100%;
@@ -28,10 +33,45 @@
 .login section:first-child p {
   color: white;
 }
+@media (max-width: 950px) and (min-width: 450px) {
+  .login section:first-child h2#titleLogin {
+    font-size: 22px;
+  }
+}
+@media (max-width: 480px) and (min-width: 400px) {
+  .login section:first-child h2#titleLogin {
+    font-size: 17px;
+  }
+}
+@media (max-width: 400px) {
+  .login section:first-child h2#titleLogin {
+    font-size: 14px;
+  }
+}
 .login section:first-child h4 {
   font-weight: 600;
   margin-top: 1%;
   margin-bottom: 1%;
+}
+@media (max-width: 950px) and (min-width: 450px) {
+  .login section:first-child h4#legendLogin {
+    font-size: 16px;
+  }
+}
+@media (max-width: 450px) {
+  .login section:first-child h4#legendLogin {
+    font-size: 14px;
+  }
+}
+@media (max-width: 950px) and (min-width: 450px) {
+  .login section:first-child p#parragraphLogin {
+    font-size: 14px;
+  }
+}
+@media (max-width: 450px) {
+  .login section:first-child p#parragraphLogin {
+    font-size: 12px;
+  }
 }
 .login section:first-child h2 {
   font-weight: 700;
@@ -44,10 +84,25 @@
   font-size: 20px;
   text-align: center;
 }
+@media (max-width: 950px) and (min-width: 450px) {
+  .login section:first-child h6#infoLogin {
+    font-size: 16px;
+  }
+}
+@media (max-width: 450px) {
+  .login section:first-child h6#infoLogin {
+    font-size: 14px;
+  }
+}
 .login section:first-child div {
   margin: 0;
   position: absolute;
   left: 20%;
+}
+@media (max-width: 950px) {
+  .login section:first-child div button {
+    transform: translateX(-30%);
+  }
 }
 .login section:first-child div button a {
   text-decoration: none;
@@ -59,6 +114,23 @@
 .login section:first-child div:hover button {
   transition: ease-in-out 0.3s;
   font-size: 20px;
+}
+@media (max-width: 850px) and (min-width: 300px) {
+  .login section:nth-child(2) div.oAuth #buttonLogin {
+    font-size: 9px;
+    width: 50%;
+    height: 30px;
+  }
+  .login section:nth-child(2) div.oAuth #buttonLogin span {
+    display: none;
+  }
+}
+@media (min-width: 850px) {
+  .login section:nth-child(2) div.oAuth #buttonLogin {
+    font-size: 11px;
+    width: 60%;
+    height: 40px;
+  }
 }
 .login section:nth-child(2) div.oAuth button:hover {
   color: white;
@@ -80,14 +152,35 @@
   transform: translateX(30%);
   margin-left: 5%;
 }
+@media (max-width: 960px) {
+  .login section:nth-child(2) div.Login h3 {
+    font-size: 12px;
+  }
+}
 .login section:nth-child(2) div.Login input {
   margin-left: 15%;
 }
-.login section:nth-child(2) div.Login button {
+@media (max-width: 1640px) {
+  .login section:nth-child(2) div.Login input {
+    width: 70%;
+  }
+}
+.login section:nth-child(2) div.Login button#submitButtonLogin {
   margin-left: 40%;
 }
+@media (max-width: 640px) {
+  .login section:nth-child(2) div.Login button#submitButtonLogin {
+    width: 50%;
+  }
+}
 .login section:nth-child(2) div.info {
-  width: 60%;
+  width: 75%;
   margin: 0 auto;
-  font-size: 9px;
+  font-size: 8px;
+}
+@media (max-width: 960px) {
+  .login section:nth-child(2) div.info {
+    width: 80%;
+    font-size: 7px;
+  }
 }

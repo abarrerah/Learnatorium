@@ -2,11 +2,14 @@
   width: 75%;
   margin: 0 auto;
   transform: translateY(5%);
-  height: 75vh;
+  height: 80vh;
   border: 1px solid black;
   border-radius: 0.3rem;
   box-shadow: 10px 8px 8px 0px rgba(97, 82, 82, 0.46),
     -5px -5px 4px 0px rgba(97, 82, 82, 0.23) inset;
+    @media(max-width:550px){
+      width:85%;
+    }
   section {
     height: 100%;
     width: 50%;
@@ -27,10 +30,37 @@
     p {
       color: white;
     }
+    h2#titleLogin{
+      @media (max-width:950px) and (min-width:450px){
+        font-size: 22px;
+      }
+      @media(max-width:480px) and (min-width:400px){
+        font-size: 17px;
+      }
+      @media(max-width:400px){
+        font-size: 14px;
+      }
+    }
     h4 {
       font-weight: 600;
       margin-top: 1%;
       margin-bottom: 1%;
+    }
+    h4#legendLogin{
+      @media (max-width:950px) and (min-width:450px){
+        font-size: 16px;
+      }
+      @media(max-width:450px){
+        font-size: 14px;
+      }
+    }
+    p#parragraphLogin{
+      @media (max-width:950px) and (min-width:450px){
+        font-size: 14px;
+      }
+      @media(max-width:450px){
+        font-size: 12px;
+      }
     }
     h2 {
       font-weight: 700;
@@ -43,12 +73,23 @@
       font-size: 20px;
       text-align: center;
     }
+    h6#infoLogin{
+      @media (max-width:950px)and (min-width:450px){
+        font-size: 16px;
+      }
+      @media(max-width:450px){
+        font-size: 14px;
+      }
+    }
     div {
       margin: 0;
       position: absolute;
 
       left: 20%;
       button{
+        @media (max-width:950px){
+          transform:translateX(-30%);
+        }
           a{
               text-decoration: none;
           }
@@ -65,6 +106,22 @@
   }
   section:nth-child(2) {
     div.oAuth {
+      #buttonLogin{
+        @media(max-width:850px)and (min-width:300px){
+          font-size:9px;
+          width:50%;
+          height:30px;
+          span{
+            display:none;
+          }
+        }
+        @media(min-width:850px){
+          font-size: 11px;
+          width:60%;
+          height:40px;
+        }
+        
+      }
       button:hover {
         color: white;
         transition: 0.3s;
@@ -86,18 +143,32 @@
       h3 {
         transform: translateX(30%);
         margin-left: 5%;
+        @media(max-width:960px){
+          font-size:12px;
+        }
       }
       input {
         margin-left: 15%;
+        @media(max-width:1640px){
+          width:70%;
+        }
       }
-      button {
+
+      button#submitButtonLogin {
         margin-left: 40%;
+        @media(max-width:640px){
+          width:50%;
+        }
       }
     }
     div.info{
-        width:60%;
+        width:75%;
         margin: 0 auto;
-        font-size: 9px;
+        font-size: 8px;
+        @media(max-width:960px){
+          width:80%;
+          font-size: 7px;
+        }
     }
   }
 }

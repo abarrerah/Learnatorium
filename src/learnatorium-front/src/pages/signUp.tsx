@@ -52,6 +52,7 @@ function signUp() {
               <span className="uk-form-icon" uk-icon="icon: mail"></span>
               <input
                 className="uk-input"
+                id="inputRegister"
                 type="text"
                 placeholder="Email"
                 value={email}
@@ -64,6 +65,7 @@ function signUp() {
               <span className="uk-form-icon" uk-icon="icon: user"></span>
               <input
                 className="uk-input"
+                id="inputRegister"
                 type="text"
                 placeholder="Username"
                 value={user}
@@ -77,6 +79,7 @@ function signUp() {
               <span className="uk-form-icon" uk-icon="icon: lock"></span>
               <input
                 className="uk-input uk-form-danger"
+                id="inputRegister"
                 type="password"
                 placeholder="Password"
                 value={password}
@@ -88,7 +91,8 @@ function signUp() {
             <div className="uk-inline">
               <span className="uk-form-icon" uk-icon="icon: lock"></span>
               <input
-                className="uk-input uk-form-danger"
+                className="uk-input uk-form-danger uk-margin-buttom"
+                id="inputRegister"
                 type="password"
                 placeholder="Repeat password"
                 value={rPassword}
@@ -99,13 +103,15 @@ function signUp() {
           <section className="uk-flex">
             <input
               type="submit"
-              className="uk-button uk-button-primary"
+              className="uk-button uk-button-primary uk-margin-top "
+              id="buttonsRegister"
               value="Submit"
             ></input>
             <input
               type="reset"
-              className="uk-button uk-button-danger uk-margin-left uk-width-1-5"
+              className="uk-button uk-button-danger uk-margin-top "
               value="Clear"
+              id="buttonsRegister"
               onClick={handleSubmit}
             ></input>
           </section>
