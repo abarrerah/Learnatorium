@@ -212,9 +212,9 @@ function admin() {
         "<div><table><tr><th>ID</th><th>NAME</th><th>EMAIL</th><th>ROLE</th></tr>";
       for (let i = 0; i < user.length; i++) {
         const element = JSON.parse(JSON.stringify(user[i]));
-
+        console.log(element);
         switch (element.role) {
-          case 11:
+          case 2:
             menu +=
               "<tr><td>" +
               element.id +
@@ -224,7 +224,7 @@ function admin() {
               element.email +
               "</td><td>Standard User</td></tr>";
             break;
-          case 12:
+          case 3:
             menu +=
               "<tr><td>" +
               element.id +
@@ -234,7 +234,7 @@ function admin() {
               element.email +
               "</td><td>Premium User</td></tr>";
             break;
-          case 10:
+          case 4:
             menu +=
               "<tr><td>" +
               element.id +
@@ -244,7 +244,7 @@ function admin() {
               element.email +
               "</td><td>Admin User</td></tr>";
             break;
-          case 13:
+          case 1:
             menu +=
               "<tr><td>" +
               element.id +
