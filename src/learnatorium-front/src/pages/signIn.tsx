@@ -30,7 +30,7 @@ function signIn() {
     })
     result.json()
     .then((e)=>{
-      if(e[0].role===10){
+      if(e[0].role===3){
         window.location.href=entry.entrypointFront+"/Admin";
       }else{
         window.location.href = entry.entrypointFront+"/profile";
@@ -54,7 +54,7 @@ function signIn() {
 
         <h6 id="infoLogin">{text("login.section.h6")}</h6>
         <div>
-          <button className="uk-button ">
+          <button className="uk-button " id="registerButton">
             <Link to="/Register">{text("login.section.signUpButton")}</Link>
           </button>
         </div>
@@ -84,6 +84,7 @@ function signIn() {
             <div className="uk-margin">
               <input
                 className="uk-input uk-form-width-large"
+                id="loginEmail"
                 type="text"
                 placeholder="Email"
                 onChange={(e) => setEmail(e.target.value)}
@@ -91,6 +92,7 @@ function signIn() {
 
               <input
                 className="uk-input uk-input uk-form-width-large uk-margin-top"
+                id="loginPassword"
                 type="password"
                 placeholder="Password"
                 onChange={(e) => setPassword(e.target.value)}

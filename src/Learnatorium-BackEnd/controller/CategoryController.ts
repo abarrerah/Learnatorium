@@ -20,6 +20,7 @@ export const GetCategory=async ({params,response}:RouterContext)=>{
     response.body= await CategoryService.showCategory(params.id);
 }
 
+
 export const DeleteCategory= async ({params,response}:RouterContext)=>{
     const result: boolean = await CategoryService.removeCategory(params.id);
 

@@ -124,6 +124,7 @@ export class Chapter extends Model {
   static fields = {
     id: {
       type: DataTypes.INTEGER,
+      autoIncrement: true,
       primaryKey: true,
     },
     groupName: {
@@ -317,16 +318,14 @@ export async function init() {
   db.link([User]);
   db.link([Role]);
   db.link([Chapter]);
-  db.link([Category])
-  db.link([Source])
+  db.link([Category]);
+  db.link([Source]);
   db.link([Theme]);
   db.link([Documents]);
-  // db.link([Test])
-  // db.link([TestOptions])
-  // db.link([UserOptions])
+  db.link([Test]);
+  db.link([TestOptions]);
+  db.link([UserOptions]);
   // let userIsSubcribedToUser=Relationships.manyToMany(User,User);
   // db.link([userIsSubcribedToUser,User]);
-
   // await db.sync();
-  
 }

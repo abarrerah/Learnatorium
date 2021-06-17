@@ -34,7 +34,7 @@ function Navbar(props: { name: string }) {
   if (props.name !== "200") {
     menu = (
       <ul className="icons">
-        <li>
+        <li id="loginIcon">
           <Link to="/Login" uk-icon="icon: sign-in"></Link>
         </li>
         <li>

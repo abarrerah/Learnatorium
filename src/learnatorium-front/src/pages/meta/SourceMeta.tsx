@@ -11,7 +11,7 @@ function SourceMeta() {
       .json()
       .then((e) => {
         if (e.toString().length > 0) {
-          if (e[0].role !== 10) {
+          if (e[0].role !== 3) {
             window.location.href = "http://localhost:3000/profile";
           }
         }

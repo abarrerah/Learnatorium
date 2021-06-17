@@ -52,7 +52,7 @@ function signUp() {
               <span className="uk-form-icon" uk-icon="icon: mail"></span>
               <input
                 className="uk-input"
-                id="inputRegister"
+                id="inputRegister inputRegister1"
                 type="text"
                 placeholder="Email"
                 value={email}
@@ -65,7 +65,7 @@ function signUp() {
               <span className="uk-form-icon" uk-icon="icon: user"></span>
               <input
                 className="uk-input"
-                id="inputRegister"
+                id="inputRegister inputRegister2"
                 type="text"
                 placeholder="Username"
                 value={user}
@@ -79,7 +79,7 @@ function signUp() {
               <span className="uk-form-icon" uk-icon="icon: lock"></span>
               <input
                 className="uk-input uk-form-danger"
-                id="inputRegister"
+                id="inputRegister inputRegister3"
                 type="password"
                 placeholder="Password"
                 value={password}
@@ -92,7 +92,7 @@ function signUp() {
               <span className="uk-form-icon" uk-icon="icon: lock"></span>
               <input
                 className="uk-input uk-form-danger uk-margin-buttom"
-                id="inputRegister"
+                id="inputRegister inputRegister4"
                 type="password"
                 placeholder="Repeat password"
                 value={rPassword}
@@ -104,14 +104,14 @@ function signUp() {
             <input
               type="submit"
               className="uk-button uk-button-primary uk-margin-top "
-              id="buttonsRegister"
+              id="buttonsRegister buttonsRegister1"
               value="Submit"
             ></input>
             <input
               type="reset"
               className="uk-button uk-button-danger uk-margin-top "
               value="Clear"
-              id="buttonsRegister"
+              id="buttonsRegister buttonsRegister2"
               onClick={handleSubmit}
             ></input>
           </section>

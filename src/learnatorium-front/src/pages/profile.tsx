@@ -68,7 +68,7 @@ export class profile extends Component<any, any> {
                 Edit
               </button>
 
-              {state === 10 && (
+              {state === 3 && (
                 <button
                   className="uk-button uk-button-danger uk-margin-right"
                   id="buttonAdminProfile"

@@ -23,6 +23,7 @@ export const removeCategory = async(elementToRemove:any) =>{
 
     const id = CleanJson.parse(elementToRemove);
 
+    
     const catFound = await Category.where('catId',id).get();
 
     if(catFound.toString().length > 2){

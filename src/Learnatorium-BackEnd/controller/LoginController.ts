@@ -1,5 +1,5 @@
 import { RouterContext } from "https://deno.land/x/oak@v6.5.1/mod.ts";
-import  {User} from '../model/allModel.ts';
+import  {User,Role} from '../model/allModel.ts';
 import * as bcrypt from "https://deno.land/x/bcrypt/mod.ts";
 import { create,verify } from "https://deno.land/x/djwt/mod.ts"
 
@@ -8,6 +8,7 @@ import * as LoginService from "../repository/LoginService.ts";
 
 export const register= async ({request,response}:RouterContext)=>{
     const {name,email,password}= await request.body().value;
+    
     response.body = await LoginService.regist(name,email,password);
   
 }

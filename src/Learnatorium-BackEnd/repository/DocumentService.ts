@@ -91,9 +91,10 @@ export const allDocswithAllRelations=async()=>{
 }
 
 export const postDocument = async(name:string,summary:string,content:string)=>{
+
   let creation_date = new Date().toISOString().slice(0, 19).replace("T", " ");
 
-  let theme = 4;
+  let theme = 1;
   let category = 1;
   let chapter = 1;
   let source = 1;
@@ -109,5 +110,6 @@ export const postDocument = async(name:string,summary:string,content:string)=>{
     source,
   });
 
+  
   return await Documents.where("name",name).get();
 }
