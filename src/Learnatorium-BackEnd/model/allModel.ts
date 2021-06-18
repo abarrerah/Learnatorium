@@ -58,7 +58,7 @@ export class User extends Model {
       notNull: true,
       unique: true,
     },
-    role: Relationships.belongsTo(Role),
+    //role: Relationships.belongsTo(Role),
   };
 
   static role() {
@@ -200,10 +200,10 @@ export class Documents extends Model {
       type: DataTypes.DATE,
       notNull: true,
     },
-    theme: Relationships.belongsTo(Theme),
-    category: Relationships.belongsTo(Category),
-    chapter: Relationships.belongsTo(Chapter),
-    Source: Relationships.belongsTo(Source),
+  //   theme: Relationships.belongsTo(Theme),
+  //   category: Relationships.belongsTo(Category),
+  //   chapter: Relationships.belongsTo(Chapter),
+  //   Source: Relationships.belongsTo(Source),
   };
   static users() {
     return this.hasMany(User);
@@ -272,7 +272,7 @@ export class TestOptions extends Model {
       notNull: true,
       length: 60,
     },
-    testBelongsTo: Relationships.belongsTo(Test),
+    // testBelongsTo: Relationships.belongsTo(Test),
   };
   static test() {
     return this.hasOne(Test);
@@ -299,9 +299,9 @@ export class UserOptions extends Model {
       notNull: true,
       precision: 2,
     },
-    testBelongsTo: Relationships.belongsTo(Test),
-    userWhoDidNot: Relationships.belongsTo(User),
-    testOptions: Relationships.belongsTo(TestOptions),
+    // testBelongsTo: Relationships.belongsTo(Test),
+    // userWhoDidNot: Relationships.belongsTo(User),
+    // testOptions: Relationships.belongsTo(TestOptions),
   };
   static users() {
     return this.hasOne(User);
