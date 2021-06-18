@@ -325,6 +325,7 @@ export async function init() {
   db.link([Test]);
   db.link([TestOptions]);
   db.link([UserOptions]);
+  
   // let userIsSubcribedToUser=Relationships.manyToMany(User,User);
   // db.link([userIsSubcribedToUser,User]);
   // await db.sync();
