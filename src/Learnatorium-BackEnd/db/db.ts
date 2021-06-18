@@ -1,5 +1,5 @@
 
-import {  Database, MySQLConnector} from 'https://deno.land/x/denodb/mod.ts';
+import {  Database, MySQLConnector} from 'https://deno.land/x/denodb@v1.0.38/mod.ts';
 import * as bdDeps from '../env/bdDeps.ts';
 
 const connector = new MySQLConnector({
